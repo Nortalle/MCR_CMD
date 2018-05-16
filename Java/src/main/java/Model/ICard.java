@@ -1,11 +1,13 @@
 package Model;
 
+import java.util.ArrayList;
+
 /**
  * @author Vincent Guidoux
  */
 public interface ICard {
 
-    public abstract Action[] getAction();
+    ArrayList<Action> getActions();
 
-    public abstract String toString();
+    String toString();
 }

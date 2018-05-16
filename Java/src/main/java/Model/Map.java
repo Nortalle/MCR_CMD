@@ -6,8 +6,10 @@ package Model;
 public class Map {
 
     private Cell[][] cells;
-    public Map() {
 
+    public Map(int i, int j) {
+        cells = new Cell[i][j];
+        // init all cells ?
     }
 
     public Cell getCell(int i, int j){

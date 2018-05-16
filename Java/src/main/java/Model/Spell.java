@@ -1,12 +1,14 @@
 package Model;
 
+import java.util.ArrayList;
+
 /**
  * @author Vincent Guidoux
  */
 public class Spell implements ICard {
 
-    public Action[] getAction() {
-        return new Action[0];
+    public ArrayList<Action> getActions() {
+        return null;
     }
 
     @Override

@@ -5,7 +5,7 @@ package Model;
  */
 public interface ICmd {
 
-    public abstract void execute();
+    void execute();
 
-    public abstract void undo();
+    void undo();
 }

@@ -1,9 +1,11 @@
 package Model;
 
+import java.util.ArrayList;
+
 /**
  * @author Vincent Guidoux
  */
 public class Cell {
 
-    CellContent[] cellContents;
+    private ArrayList<CellContent> cellContents = new ArrayList<CellContent>();
 }

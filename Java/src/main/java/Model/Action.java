@@ -3,19 +3,9 @@ package Model;
 /**
  * @author Vincent Guidoux
  */
-public class Action {
+public abstract class Action {
 
-    public ICmd createCommand() {
-        return new ICmd() {
-            public void execute() {
-            }
+    public abstract ICmd createCommand();
 
-            public void undo() {
-            }
-        };
-    }
-
-    public String toString() {
-        return "cunni";
-    }
+    public abstract String toString();
 }
