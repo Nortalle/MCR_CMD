@@ -1,44 +1,96 @@
 <?xml version="1.0" encoding="iso-8859-15" standalone="no"?>
 <classDiagram>
   <diagramElements defaultViewEntities="ALL" defaultViewEnum="true" defaultViewMethods="TYPE_AND_NAME" defaultVisibleTypes="true" informations="" name="">
-    <inheritance id="461">
+    <inheritance id="423">
       <child>58</child>
-      <parent>424</parent>
+      <parent>238</parent>
     </inheritance>
     <inheritance id="460">
       <child>101</child>
       <parent>424</parent>
     </inheritance>
-    <association aggregation="NONE" direction="BIDIRECTIONAL" id="449" name="">
-      <role componentId="3" name="" visibility="PRIVATE">
+    <inheritance id="461">
+      <child>58</child>
+      <parent>424</parent>
+    </inheritance>
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="6" name="">
+      <role componentId="2" name="" visibility="PRIVATE">
         <multiplicity>
           <min>1</min>
           <max>1</max>
         </multiplicity>
       </role>
-      <role componentId="424" name="" visibility="PRIVATE">
+      <role componentId="4" name="" visibility="PRIVATE">
         <multiplicity>
           <min>1</min>
           <max>1</max>
         </multiplicity>
       </role>
     </association>
-    <entity entityType="INTERFACE" id="424" isAbstract="true" name="ICard" visibility="PUBLIC">
-      <method isAbstract="true" isStatic="false" name="getAction" returnType="Action[]" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="true" isStatic="false" name="toString" returnType="String" view="DEFAULT" visibility="PUBLIC"/>
-    </entity>
-    <inheritance id="423">
-      <child>58</child>
-      <parent>238</parent>
-    </inheritance>
-    <association aggregation="NONE" direction="BIDIRECTIONAL" id="414" name="">
-      <role componentId="348" name="" visibility="PRIVATE">
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="29" name="">
+      <role componentId="28" name="" visibility="PRIVATE">
         <multiplicity>
           <min>1</min>
           <max>1</max>
         </multiplicity>
       </role>
-      <role componentId="238" name="" visibility="PRIVATE">
+      <role componentId="2" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+    </association>
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="38" name="">
+      <role componentId="28" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+      <role componentId="5" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>2</min>
+          <max>2</max>
+        </multiplicity>
+      </role>
+    </association>
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="61" name="">
+      <role componentId="60" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+      <role componentId="3" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>2</min>
+          <max>2</max>
+        </multiplicity>
+      </role>
+    </association>
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="82" name="">
+      <role componentId="60" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+      <role componentId="81" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+    </association>
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="229" name="">
+      <role componentId="5" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+      <role componentId="203" name="" visibility="PRIVATE">
         <multiplicity>
           <min>1</min>
           <max>1</max>
@@ -59,9 +111,57 @@
         </multiplicity>
       </role>
     </association>
-    <entity entityType="CLASS" id="348" isAbstract="false" name="Cell" visibility="PUBLIC">
-      <attribute const="false" defaultValue="" isStatic="false" name="cellContent" type="CellContent[]" visibility="PRIVATE"/>
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="414" name="">
+      <role componentId="348" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+      <role componentId="238" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+    </association>
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="449" name="">
+      <role componentId="3" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+      <role componentId="424" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+    </association>
+    <entity entityType="CLASS" id="1" isAbstract="false" name="Controler" visibility="PUBLIC">
+      <method isAbstract="false" isStatic="true" name="getInstance" returnType="Controler" view="DEFAULT" visibility="PUBLIC"/>
     </entity>
+    <entity entityType="CLASS" id="2" isAbstract="false" name="Grid" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="3" isAbstract="false" name="Player" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="4" isAbstract="false" name="CellView" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="5" isAbstract="false" name="ActionPanel" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="28" isAbstract="false" name="Frame" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="58" isAbstract="false" name="Unit" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="60" isAbstract="false" name="Game" visibility="PUBLIC">
+      <method isAbstract="false" isStatic="true" name="getInstance" returnType="Game" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+    <entity entityType="CLASS" id="81" isAbstract="false" name="Map" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="101" isAbstract="false" name="Spell" visibility="PUBLIC"/>
+    <entity entityType="INTERFACE" id="104" isAbstract="true" name="ICmd" visibility="PUBLIC">
+      <method isAbstract="true" isStatic="false" name="execute" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="true" isStatic="false" name="undo" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+    <entity entityType="CLASS" id="137" isAbstract="true" name="Action" visibility="PUBLIC">
+      <method isAbstract="true" isStatic="false" name="createCommand" returnType="ICmd" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="true" isStatic="false" name="toString" returnType="String" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+    <entity entityType="CLASS" id="203" isAbstract="false" name="ActionButton" visibility="PUBLIC"/>
     <entity entityType="CLASS" id="238" isAbstract="false" name="cellContent" visibility="PUBLIC">
       <method isAbstract="false" isStatic="false" name="takeDamage" returnType="void" view="DEFAULT" visibility="PUBLIC">
         <variable const="false" name="damage" type="int"/>
@@ -74,407 +174,55 @@
         <variable const="false" name="cell" type="Cell"/>
       </method>
     </entity>
-    <association aggregation="NONE" direction="BIDIRECTIONAL" id="229" name="">
-      <role componentId="5" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-      <role componentId="203" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-    </association>
-    <entity entityType="CLASS" id="203" isAbstract="false" name="Button" visibility="PUBLIC"/>
-    <entity entityType="CLASS" id="137" isAbstract="true" name="Action" visibility="PUBLIC">
-      <method isAbstract="true" isStatic="false" name="createCommand" returnType="ICmd" view="DEFAULT" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="348" isAbstract="false" name="Cell" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="cellContent" type="CellContent[]" visibility="PRIVATE"/>
+    </entity>
+    <entity entityType="INTERFACE" id="424" isAbstract="true" name="ICard" visibility="PUBLIC">
+      <method isAbstract="true" isStatic="false" name="getAction" returnType="Action[]" view="DEFAULT" visibility="PUBLIC"/>
       <method isAbstract="true" isStatic="false" name="toString" returnType="String" view="DEFAULT" visibility="PUBLIC"/>
-    </entity>
-    <entity entityType="INTERFACE" id="104" isAbstract="true" name="ICmd" visibility="PUBLIC">
-      <method isAbstract="true" isStatic="false" name="execute" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
-      <method isAbstract="true" isStatic="false" name="undo" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
-    </entity>
-    <entity entityType="CLASS" id="101" isAbstract="false" name="Spell" visibility="PUBLIC"/>
-    <association aggregation="NONE" direction="BIDIRECTIONAL" id="82" name="">
-      <role componentId="60" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-      <role componentId="81" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-    </association>
-    <entity entityType="CLASS" id="81" isAbstract="false" name="Map" visibility="PUBLIC"/>
-    <association aggregation="NONE" direction="BIDIRECTIONAL" id="61" name="">
-      <role componentId="60" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-      <role componentId="3" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>2</min>
-          <max>2</max>
-        </multiplicity>
-      </role>
-    </association>
-    <entity entityType="CLASS" id="60" isAbstract="false" name="Game" visibility="PUBLIC">
-      <method isAbstract="false" isStatic="true" name="getInstance" returnType="Game" view="DEFAULT" visibility="PUBLIC"/>
-    </entity>
-    <entity entityType="CLASS" id="58" isAbstract="false" name="Unit" visibility="PUBLIC"/>
-    <association aggregation="NONE" direction="BIDIRECTIONAL" id="38" name="">
-      <role componentId="28" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-      <role componentId="5" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>2</min>
-          <max>2</max>
-        </multiplicity>
-      </role>
-    </association>
-    <association aggregation="NONE" direction="BIDIRECTIONAL" id="29" name="">
-      <role componentId="28" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-      <role componentId="2" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-    </association>
-    <entity entityType="CLASS" id="28" isAbstract="false" name="Frame" visibility="PUBLIC"/>
-    <association aggregation="NONE" direction="BIDIRECTIONAL" id="6" name="">
-      <role componentId="2" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-      <role componentId="4" name="" visibility="PRIVATE">
-        <multiplicity>
-          <min>1</min>
-          <max>1</max>
-        </multiplicity>
-      </role>
-    </association>
-    <entity entityType="CLASS" id="5" isAbstract="false" name="PanelAction" visibility="PUBLIC"/>
-    <entity entityType="CLASS" id="4" isAbstract="false" name="CellView" visibility="PUBLIC"/>
-    <entity entityType="CLASS" id="3" isAbstract="false" name="Player" visibility="PUBLIC"/>
-    <entity entityType="CLASS" id="2" isAbstract="false" name="Grid" visibility="PUBLIC"/>
-    <entity entityType="CLASS" id="1" isAbstract="false" name="Controler" visibility="PUBLIC">
-      <method isAbstract="false" isStatic="true" name="getInstance" returnType="Controler" view="DEFAULT" visibility="PUBLIC"/>
     </entity>
   </diagramElements>
   <umlView grid="10" name="Main view" open="true">
-    <relationView color="-12566464" relationId="6">
+    <relationView color="-12566464" relationId="449">
       <line>
         <point>
-          <x>111</x>
-          <y>296</y>
+          <x>891</x>
+          <y>326</y>
         </point>
         <point>
-          <x>91</x>
-          <y>341</y>
+          <x>891</x>
+          <y>391</y>
         </point>
       </line>
       <labelAssociation>
-        <x>105</x>
-        <y>322</y>
+        <x>895</x>
+        <y>362</y>
         <w>0</w>
-        <h>17</h>
+        <h>16</h>
       </labelAssociation>
       <roleAssociation>
-        <x>115</x>
-        <y>300</y>
+        <x>895</x>
+        <y>330</y>
         <w>0</w>
-        <h>17</h>
+        <h>16</h>
       </roleAssociation>
       <roleAssociation>
-        <x>95</x>
-        <y>318</y>
+        <x>895</x>
+        <y>368</y>
         <w>0</w>
-        <h>17</h>
+        <h>16</h>
       </roleAssociation>
       <multipliciteAssociation>
-        <x>97</x>
-        <y>300</y>
+        <x>877</x>
+        <y>330</y>
         <w>8</w>
-        <h>17</h>
+        <h>16</h>
       </multipliciteAssociation>
       <multipliciteAssociation>
-        <x>77</x>
-        <y>318</y>
+        <x>877</x>
+        <y>368</y>
         <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-    </relationView>
-    <relationView color="-12566464" relationId="29">
-      <line>
-        <point>
-          <x>181</x>
-          <y>206</y>
-        </point>
-        <point>
-          <x>161</x>
-          <y>241</y>
-        </point>
-      </line>
-      <labelAssociation>
-        <x>175</x>
-        <y>227</y>
-        <w>0</w>
-        <h>17</h>
-      </labelAssociation>
-      <roleAssociation>
-        <x>185</x>
-        <y>210</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <roleAssociation>
-        <x>165</x>
-        <y>218</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <multipliciteAssociation>
-        <x>167</x>
-        <y>210</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-      <multipliciteAssociation>
-        <x>147</x>
-        <y>218</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-    </relationView>
-    <relationView color="-12566464" relationId="38">
-      <line>
-        <point>
-          <x>231</x>
-          <y>206</y>
-        </point>
-        <point>
-          <x>271</x>
-          <y>341</y>
-        </point>
-      </line>
-      <labelAssociation>
-        <x>255</x>
-        <y>277</y>
-        <w>0</w>
-        <h>17</h>
-      </labelAssociation>
-      <roleAssociation>
-        <x>235</x>
-        <y>210</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <roleAssociation>
-        <x>275</x>
-        <y>318</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <multipliciteAssociation>
-        <x>217</x>
-        <y>210</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-      <multipliciteAssociation>
-        <x>257</x>
-        <y>318</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-    </relationView>
-    <relationView color="-12566464" relationId="61">
-      <line>
-        <point>
-          <x>841</x>
-          <y>201</y>
-        </point>
-        <point>
-          <x>861</x>
-          <y>271</y>
-        </point>
-      </line>
-      <labelAssociation>
-        <x>855</x>
-        <y>240</y>
-        <w>0</w>
-        <h>17</h>
-      </labelAssociation>
-      <roleAssociation>
-        <x>845</x>
-        <y>205</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <roleAssociation>
-        <x>855</x>
-        <y>275</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <multipliciteAssociation>
-        <x>827</x>
-        <y>205</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-      <multipliciteAssociation>
-        <x>847</x>
-        <y>248</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-    </relationView>
-    <relationView color="-12566464" relationId="82">
-      <line>
-        <point>
-          <x>751</x>
-          <y>151</y>
-        </point>
-        <point>
-          <x>671</x>
-          <y>201</y>
-        </point>
-      </line>
-      <labelAssociation>
-        <x>715</x>
-        <y>180</y>
-        <w>0</w>
-        <h>17</h>
-      </labelAssociation>
-      <roleAssociation>
-        <x>745</x>
-        <y>155</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <roleAssociation>
-        <x>675</x>
-        <y>178</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <multipliciteAssociation>
-        <x>737</x>
-        <y>128</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-      <multipliciteAssociation>
-        <x>657</x>
-        <y>178</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-    </relationView>
-    <relationView color="-12566464" relationId="229">
-      <line>
-        <point>
-          <x>251</x>
-          <y>396</y>
-        </point>
-        <point>
-          <x>251</x>
-          <y>471</y>
-        </point>
-      </line>
-      <labelAssociation>
-        <x>255</x>
-        <y>437</y>
-        <w>0</w>
-        <h>17</h>
-      </labelAssociation>
-      <roleAssociation>
-        <x>255</x>
-        <y>400</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <roleAssociation>
-        <x>255</x>
-        <y>448</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <multipliciteAssociation>
-        <x>237</x>
-        <y>400</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-      <multipliciteAssociation>
-        <x>237</x>
-        <y>448</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-    </relationView>
-    <relationView color="-12566464" relationId="349">
-      <line>
-        <point>
-          <x>611</x>
-          <y>256</y>
-        </point>
-        <point>
-          <x>611</x>
-          <y>301</y>
-        </point>
-      </line>
-      <labelAssociation>
-        <x>615</x>
-        <y>282</y>
-        <w>0</w>
-        <h>17</h>
-      </labelAssociation>
-      <roleAssociation>
-        <x>615</x>
-        <y>260</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <roleAssociation>
-        <x>615</x>
-        <y>278</y>
-        <w>0</w>
-        <h>17</h>
-      </roleAssociation>
-      <multipliciteAssociation>
-        <x>597</x>
-        <y>260</y>
-        <w>8</w>
-        <h>17</h>
-      </multipliciteAssociation>
-      <multipliciteAssociation>
-        <x>597</x>
-        <y>278</y>
-        <w>8</w>
-        <h>17</h>
+        <h>16</h>
       </multipliciteAssociation>
     </relationView>
     <relationView color="-12566464" relationId="414">
@@ -492,106 +240,326 @@
         <x>615</x>
         <y>405</y>
         <w>0</w>
-        <h>17</h>
+        <h>16</h>
       </labelAssociation>
       <roleAssociation>
         <x>615</x>
         <y>375</y>
         <w>0</w>
-        <h>17</h>
+        <h>16</h>
       </roleAssociation>
       <roleAssociation>
         <x>615</x>
         <y>408</y>
         <w>0</w>
-        <h>17</h>
+        <h>16</h>
       </roleAssociation>
       <multipliciteAssociation>
         <x>597</x>
         <y>375</y>
         <w>8</w>
-        <h>17</h>
+        <h>16</h>
       </multipliciteAssociation>
       <multipliciteAssociation>
         <x>597</x>
         <y>408</y>
         <w>8</w>
-        <h>17</h>
+        <h>16</h>
       </multipliciteAssociation>
     </relationView>
-    <relationView color="-12566464" relationId="423">
+    <relationView color="-12566464" relationId="349">
       <line>
         <point>
-          <x>791</x>
-          <y>621</y>
+          <x>611</x>
+          <y>256</y>
         </point>
         <point>
-          <x>741</x>
-          <y>531</y>
-        </point>
-      </line>
-    </relationView>
-    <relationView color="-12566464" relationId="449">
-      <line>
-        <point>
-          <x>891</x>
-          <y>326</y>
-        </point>
-        <point>
-          <x>891</x>
-          <y>391</y>
+          <x>611</x>
+          <y>301</y>
         </point>
       </line>
       <labelAssociation>
-        <x>895</x>
-        <y>362</y>
+        <x>615</x>
+        <y>282</y>
         <w>0</w>
-        <h>17</h>
+        <h>16</h>
       </labelAssociation>
       <roleAssociation>
-        <x>895</x>
-        <y>330</y>
+        <x>615</x>
+        <y>260</y>
         <w>0</w>
-        <h>17</h>
+        <h>16</h>
       </roleAssociation>
       <roleAssociation>
-        <x>895</x>
-        <y>368</y>
+        <x>615</x>
+        <y>278</y>
         <w>0</w>
-        <h>17</h>
+        <h>16</h>
       </roleAssociation>
       <multipliciteAssociation>
-        <x>877</x>
-        <y>330</y>
+        <x>597</x>
+        <y>260</y>
         <w>8</w>
-        <h>17</h>
+        <h>16</h>
       </multipliciteAssociation>
       <multipliciteAssociation>
-        <x>877</x>
-        <y>368</y>
+        <x>597</x>
+        <y>278</y>
         <w>8</w>
-        <h>17</h>
+        <h>16</h>
       </multipliciteAssociation>
     </relationView>
-    <relationView color="-12566464" relationId="460">
+    <relationView color="-12566464" relationId="229">
       <line>
         <point>
-          <x>1011</x>
-          <y>621</y>
+          <x>251</x>
+          <y>396</y>
         </point>
         <point>
-          <x>1011</x>
-          <y>541</y>
-        </point>
-        <point>
-          <x>911</x>
-          <y>541</y>
-        </point>
-        <point>
-          <x>911</x>
-          <y>490</y>
+          <x>251</x>
+          <y>471</y>
         </point>
       </line>
+      <labelAssociation>
+        <x>255</x>
+        <y>437</y>
+        <w>0</w>
+        <h>16</h>
+      </labelAssociation>
+      <roleAssociation>
+        <x>255</x>
+        <y>400</y>
+        <w>0</w>
+        <h>16</h>
+      </roleAssociation>
+      <roleAssociation>
+        <x>255</x>
+        <y>448</y>
+        <w>0</w>
+        <h>16</h>
+      </roleAssociation>
+      <multipliciteAssociation>
+        <x>237</x>
+        <y>400</y>
+        <w>8</w>
+        <h>16</h>
+      </multipliciteAssociation>
+      <multipliciteAssociation>
+        <x>237</x>
+        <y>448</y>
+        <w>8</w>
+        <h>16</h>
+      </multipliciteAssociation>
+    </relationView>
+    <relationView color="-12566464" relationId="82">
+      <line>
+        <point>
+          <x>751</x>
+          <y>151</y>
+        </point>
+        <point>
+          <x>671</x>
+          <y>201</y>
+        </point>
+      </line>
+      <labelAssociation>
+        <x>715</x>
+        <y>180</y>
+        <w>0</w>
+        <h>16</h>
+      </labelAssociation>
+      <roleAssociation>
+        <x>745</x>
+        <y>155</y>
+        <w>0</w>
+        <h>16</h>
+      </roleAssociation>
+      <roleAssociation>
+        <x>675</x>
+        <y>178</y>
+        <w>0</w>
+        <h>16</h>
+      </roleAssociation>
+      <multipliciteAssociation>
+        <x>737</x>
+        <y>128</y>
+        <w>8</w>
+        <h>16</h>
+      </multipliciteAssociation>
+      <multipliciteAssociation>
+        <x>657</x>
+        <y>178</y>
+        <w>8</w>
+        <h>16</h>
+      </multipliciteAssociation>
+    </relationView>
+    <relationView color="-12566464" relationId="61">
+      <line>
+        <point>
+          <x>841</x>
+          <y>201</y>
+        </point>
+        <point>
+          <x>861</x>
+          <y>271</y>
+        </point>
+      </line>
+      <labelAssociation>
+        <x>855</x>
+        <y>240</y>
+        <w>0</w>
+        <h>16</h>
+      </labelAssociation>
+      <roleAssociation>
+        <x>845</x>
+        <y>205</y>
+        <w>0</w>
+        <h>16</h>
+      </roleAssociation>
+      <roleAssociation>
+        <x>855</x>
+        <y>275</y>
+        <w>0</w>
+        <h>16</h>
+      </roleAssociation>
+      <multipliciteAssociation>
+        <x>827</x>
+        <y>205</y>
+        <w>8</w>
+        <h>16</h>
+      </multipliciteAssociation>
+      <multipliciteAssociation>
+        <x>847</x>
+        <y>248</y>
+        <w>8</w>
+        <h>16</h>
+      </multipliciteAssociation>
+    </relationView>
+    <relationView color="-12566464" relationId="38">
+      <line>
+        <point>
+          <x>231</x>
+          <y>206</y>
+        </point>
+        <point>
+          <x>271</x>
+          <y>341</y>
+        </point>
+      </line>
+      <labelAssociation>
+        <x>255</x>
+        <y>277</y>
+        <w>0</w>
+        <h>16</h>
+      </labelAssociation>
+      <roleAssociation>
+        <x>235</x>
+        <y>210</y>
+        <w>0</w>
+        <h>16</h>
+      </roleAssociation>
+      <roleAssociation>
+        <x>275</x>
+        <y>318</y>
+        <w>0</w>
+        <h>16</h>
+      </roleAssociation>
+      <multipliciteAssociation>
+        <x>217</x>
+        <y>210</y>
+        <w>8</w>
+        <h>16</h>
+      </multipliciteAssociation>
+      <multipliciteAssociation>
+        <x>257</x>
+        <y>318</y>
+        <w>8</w>
+        <h>16</h>
+      </multipliciteAssociation>
+    </relationView>
+    <relationView color="-12566464" relationId="29">
+      <line>
+        <point>
+          <x>181</x>
+          <y>206</y>
+        </point>
+        <point>
+          <x>161</x>
+          <y>241</y>
+        </point>
+      </line>
+      <labelAssociation>
+        <x>175</x>
+        <y>227</y>
+        <w>0</w>
+        <h>16</h>
+      </labelAssociation>
+      <roleAssociation>
+        <x>185</x>
+        <y>210</y>
+        <w>0</w>
+        <h>16</h>
+      </roleAssociation>
+      <roleAssociation>
+        <x>165</x>
+        <y>218</y>
+        <w>0</w>
+        <h>16</h>
+      </roleAssociation>
+      <multipliciteAssociation>
+        <x>167</x>
+        <y>210</y>
+        <w>8</w>
+        <h>16</h>
+      </multipliciteAssociation>
+      <multipliciteAssociation>
+        <x>147</x>
+        <y>218</y>
+        <w>8</w>
+        <h>16</h>
+      </multipliciteAssociation>
+    </relationView>
+    <relationView color="-12566464" relationId="6">
+      <line>
+        <point>
+          <x>111</x>
+          <y>296</y>
+        </point>
+        <point>
+          <x>91</x>
+          <y>341</y>
+        </point>
+      </line>
+      <labelAssociation>
+        <x>105</x>
+        <y>322</y>
+        <w>0</w>
+        <h>16</h>
+      </labelAssociation>
+      <roleAssociation>
+        <x>115</x>
+        <y>300</y>
+        <w>0</w>
+        <h>16</h>
+      </roleAssociation>
+      <roleAssociation>
+        <x>95</x>
+        <y>318</y>
+        <w>0</w>
+        <h>16</h>
+      </roleAssociation>
+      <multipliciteAssociation>
+        <x>97</x>
+        <y>300</y>
+        <w>8</w>
+        <h>16</h>
+      </multipliciteAssociation>
+      <multipliciteAssociation>
+        <x>77</x>
+        <y>318</y>
+        <w>8</w>
+        <h>16</h>
+      </multipliciteAssociation>
     </relationView>
     <relationView color="-12566464" relationId="461">
       <line>
@@ -613,58 +581,98 @@
         </point>
       </line>
     </relationView>
-    <componentView color="-2079" componentID="1" displayAttributes="true" displayDefault="true" displayMethods="true">
+    <relationView color="-12566464" relationId="460">
+      <line>
+        <point>
+          <x>1011</x>
+          <y>621</y>
+        </point>
+        <point>
+          <x>1011</x>
+          <y>541</y>
+        </point>
+        <point>
+          <x>911</x>
+          <y>541</y>
+        </point>
+        <point>
+          <x>911</x>
+          <y>490</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="423">
+      <line>
+        <point>
+          <x>791</x>
+          <y>621</y>
+        </point>
+        <point>
+          <x>741</x>
+          <y>531</y>
+        </point>
+      </line>
+    </relationView>
+    <componentView color="-2079" componentID="424" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
-        <x>1300</x>
-        <y>170</y>
+        <x>830</x>
+        <y>390</y>
         <w>150</w>
+        <h>99</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="348" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>510</x>
+        <y>300</y>
+        <w>180</w>
         <h>70</h>
       </geometry>
     </componentView>
-    <componentView color="-2079" componentID="2" displayAttributes="true" displayDefault="true" displayMethods="true">
+    <componentView color="-2079" componentID="238" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
-        <x>80</x>
-        <y>240</y>
+        <x>490</x>
+        <y>430</y>
+        <w>250</w>
+        <h>100</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="203" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>170</x>
+        <y>470</y>
         <w>150</w>
         <h>55</h>
       </geometry>
     </componentView>
-    <componentView color="-2079" componentID="3" displayAttributes="true" displayDefault="true" displayMethods="true">
+    <componentView color="-2079" componentID="137" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
-        <x>830</x>
-        <y>270</y>
+        <x>1040</x>
+        <y>380</y>
+        <w>180</w>
+        <h>85</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="104" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>1070</x>
+        <y>500</y>
         <w>150</w>
-        <h>55</h>
+        <h>99</h>
       </geometry>
     </componentView>
-    <componentView color="-2079" componentID="4" displayAttributes="true" displayDefault="true" displayMethods="true">
+    <componentView color="-2079" componentID="101" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
-        <x>20</x>
-        <y>340</y>
-        <w>150</w>
-        <h>55</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="5" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>180</x>
-        <y>340</y>
-        <w>160</w>
-        <h>55</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="28" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>110</x>
-        <y>150</y>
-        <w>150</w>
-        <h>55</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="58" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>750</x>
+        <x>930</x>
         <y>620</y>
+        <w>150</w>
+        <h>55</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="81" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>540</x>
+        <y>200</y>
         <w>150</w>
         <h>55</h>
       </geometry>
@@ -677,68 +685,60 @@
         <h>70</h>
       </geometry>
     </componentView>
-    <componentView color="-2079" componentID="81" displayAttributes="true" displayDefault="true" displayMethods="true">
+    <componentView color="-2079" componentID="58" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
-        <x>540</x>
-        <y>200</y>
-        <w>150</w>
-        <h>55</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="101" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>930</x>
+        <x>750</x>
         <y>620</y>
         <w>150</w>
         <h>55</h>
       </geometry>
     </componentView>
-    <componentView color="-2079" componentID="104" displayAttributes="true" displayDefault="true" displayMethods="true">
+    <componentView color="-2079" componentID="28" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
-        <x>1070</x>
-        <y>500</y>
-        <w>150</w>
-        <h>99</h>
-      </geometry>
-    </componentView>
-    <componentView color="-2079" componentID="203" displayAttributes="true" displayDefault="true" displayMethods="true">
-      <geometry>
-        <x>170</x>
-        <y>470</y>
+        <x>110</x>
+        <y>150</y>
         <w>150</w>
         <h>55</h>
       </geometry>
     </componentView>
-    <componentView color="-2079" componentID="238" displayAttributes="true" displayDefault="true" displayMethods="true">
+    <componentView color="-2079" componentID="5" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
-        <x>490</x>
-        <y>430</y>
-        <w>250</w>
-        <h>100</h>
+        <x>180</x>
+        <y>340</y>
+        <w>160</w>
+        <h>55</h>
       </geometry>
     </componentView>
-    <componentView color="-2079" componentID="348" displayAttributes="true" displayDefault="true" displayMethods="true">
+    <componentView color="-2079" componentID="4" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
-        <x>510</x>
-        <y>300</y>
-        <w>180</w>
-        <h>70</h>
+        <x>20</x>
+        <y>340</y>
+        <w>150</w>
+        <h>55</h>
       </geometry>
     </componentView>
-    <componentView color="-2079" componentID="424" displayAttributes="true" displayDefault="true" displayMethods="true">
+    <componentView color="-2079" componentID="3" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
         <x>830</x>
-        <y>390</y>
+        <y>270</y>
         <w>150</w>
-        <h>99</h>
+        <h>55</h>
       </geometry>
     </componentView>
-    <componentView color="-2079" componentID="137" displayAttributes="true" displayDefault="true" displayMethods="true">
+    <componentView color="-2079" componentID="2" displayAttributes="true" displayDefault="true" displayMethods="true">
       <geometry>
-        <x>1040</x>
-        <y>380</y>
-        <w>180</w>
-        <h>85</h>
+        <x>80</x>
+        <y>240</y>
+        <w>150</w>
+        <h>55</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="1" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>1300</x>
+        <y>170</y>
+        <w>150</w>
+        <h>70</h>
       </geometry>
     </componentView>
     <note color="-2079" content="modele">
