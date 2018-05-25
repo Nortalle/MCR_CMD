@@ -1,9 +1,15 @@
 package View;
 
+import Model.Action;
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 public class Frame {
+
+    static final int PANEL_LEFT     = 1;
+    static final int PANEL_RIGHT    = 2;
+
 
     Grid grid;
     ActionPanel panelLeft   = new ActionPanel("Joueur 1");
@@ -24,5 +30,11 @@ public class Frame {
         guiFrame.getContentPane().add(panelRight, BorderLayout.LINE_END);
 
         guiFrame.setVisible(true);
+    }
+
+    public void updatePanelButtons(int side, List<Action> actions) {
+
+        ActionPanel panel = side == PANEL_LEFT ? panelLeft : panelRight;
+        panel.provideActions(actions);
     }
 }

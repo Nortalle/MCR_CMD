@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ActionPanel extends JPanel {
 
-    boolean initialized = false;
+    List<Action> actions;
 
     public ActionPanel(String title) {
 
@@ -17,12 +17,13 @@ public class ActionPanel extends JPanel {
 
     public void provideActions(List<Action> actions) {
 
-        if(initialized)
-            throw new RuntimeException("Action panel already initialized");
+        //Clear previous state
+        removeAll();
+        revalidate();
+        repaint();
 
+        this.actions = actions;
         for(Action action : actions)
             add(new ActionButton(action));
-
-        initialized = true;
     }
 }
