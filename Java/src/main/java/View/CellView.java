@@ -1,5 +1,7 @@
 package View;
 
+import Model.Cell;
+import Model.Game;
 import Model.Unit;
 
 import javax.swing.*;
@@ -19,7 +21,12 @@ public class CellView extends JPanel implements MouseListener {
 
     ArrayList<Unit> units   = new ArrayList<Unit>();
 
+    private final int x, y;
+
     public CellView(int x, int y) {
+
+        this.x = x;
+        this.y = y;
 
         if(y % 2 == 0 && x % 2 == 0 || y % 2 == 1 && x % 2 == 1)
             bgColor = BG_DARK;
@@ -41,6 +48,8 @@ public class CellView extends JPanel implements MouseListener {
 
     public void mouseClicked(MouseEvent mouseEvent) {
         System.out.println("clicked");
+
+        Game.getInstance().setSelected(Game.getInstance().getMap().getCell(x,y));
     }
 
     public void mousePressed(MouseEvent mouseEvent) {

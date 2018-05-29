@@ -10,4 +10,7 @@ public interface ICard {
     ArrayList<Action> getActions();
 
     String toString();
+    String desctiption();
+
+    boolean Invoke(Cell c);
 }

@@ -5,14 +5,12 @@ import java.util.ArrayList;
 /**
  * @author Vincent Guidoux
  */
-public class Spell implements ICard {
-
-    public ArrayList<Action> getActions() {
-        return null;
-    }
+public abstract class Spell implements ICard {
 
     @Override
     public String toString() {
         return "Spell{}";
     }
+
+
 }

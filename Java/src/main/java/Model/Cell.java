@@ -6,6 +6,30 @@ import java.util.ArrayList;
  * @author Vincent Guidoux
  */
 public class Cell {
+    public final int x;
+    public final int y;
 
-    private ArrayList<CellContent> cellContents = new ArrayList<CellContent>();
+    public Cell(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
+    private Unit content;
+
+    public Unit getCellContents() {
+        return content;
+    }
+
+    public boolean setContent(Unit u){
+
+        // si la case est vide ou que on essaie de la vider
+        if(content == null || u == null){
+            content = u;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
 }

@@ -4,11 +4,85 @@ import java.util.ArrayList;
 
 /**
  * @author Vincent Guidoux
+ *
  */
-public class Unit extends CellContent implements ICard {
+public abstract class Unit implements ICard {
 
-    public ArrayList<Action> getActions() {
-        return null;
+    protected int hp;
+    protected int hpMax;
+
+    protected int speed;
+
+    protected Cell currentCell;
+
+    protected ArrayList<Action> actions;
+
+    protected Unit(int hpMax, int speed){
+        Unit.this.speed = speed;
+        this.hpMax = hpMax;
+        actions = new ArrayList<Action>();
+
+        // Ajout de l'action de déplacement en direction de la case sélectionnée
+        actions.add(new Action() {
+            @Override
+            public ICmd createCommand() {
+
+                // la commande est crée au moment ou on sélectionne l'action
+                return new ICmd() {
+
+                    // récupère la case sélectionnée au moment ou on crée la commande
+                    Cell destination = Game.getInstance().selected();
+
+                    Cell depart = currentCell;
+
+                    public void execute() {
+
+                        // tant qu'on peut avancer et que on est pas arrivé à destination
+                        for(int i = 0; i < Unit.this.speed || destination != currentCell; i++){
+                            int deltaX = destination.x - currentCell.x;
+                            int deltaY = destination.y - currentCell.y;
+
+                            // axe X est le plus loin on va aller en direction de X en premier
+                            if(Math.abs(deltaX) > Math.abs(deltaY)){
+
+                                if(deltaX > 0){
+                                    if(!move(Game.getInstance().getMap().getCell(currentCell.x + 1, currentCell.y))){
+                                        break;      // interrupton du déplacement qui a échoué
+                                    }
+                                } else {
+                                    if(!move(Game.getInstance().getMap().getCell(currentCell.x - 1, currentCell.y))){
+                                        break;      // interrupton du déplacement qui a échoué
+                                    }
+                                }
+
+                            }
+                            // sinon on va bouger sur Y
+                            else {
+
+                                if(deltaY > 0){
+                                    if(!move(Game.getInstance().getMap().getCell(currentCell.x, currentCell.y + 1))){
+                                        break;      // interrupton du déplacement qui a échoué
+                                    }
+                                } else {
+                                    if(!move(Game.getInstance().getMap().getCell(currentCell.x, currentCell.y - 1))){
+                                        break;      // interrupton du déplacement qui a échoué
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    public void undo() {
+                        move(depart);   // on se téléporte au départ
+                    }
+                };
+            }
+            @Override
+            public String toString() {
+                return "Move towards cell " + Game.getInstance().selected();
+            }
+        });
+
     }
 
     @Override
@@ -16,11 +90,40 @@ public class Unit extends CellContent implements ICard {
         return "Unit{}";
     }
 
-    public void takeDamage(int damage) {
-        // TODO
+    protected boolean move(Cell c){
+        if(c.setContent(Unit.this)){
+            currentCell.setContent(null);
+            currentCell = c;
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public void takeHeal(int heal) {
-        // TODO
+    public void takeDamage(int damage){
+        hp -= damage;
+        if(hp <= 0){
+            //TODO on veut qu'il se passe quoi quand on meurt ? Et si on annule ?
+        }
     }
+    public void takeHeal(int heal){
+        hp += heal;
+        if(hp > hpMax){
+            hp = hpMax;
+        }
+    }
+
+
+    public ArrayList<Action> getActions() {
+        return actions;
+    }
+
+    protected int deltaXToCursor(){
+        return Game.getInstance().selected().x - currentCell.x;
+    }
+
+    protected int deltaYToCursor(){
+        return Game.getInstance().selected().y - currentCell.y;
+    }
+
 }

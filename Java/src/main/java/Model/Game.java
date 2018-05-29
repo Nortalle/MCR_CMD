@@ -12,6 +12,8 @@ public class Game {
     private Player playerOne;
     private Player playerTwo;
 
+    private Cell selected;
+
     private Game() {
 
     }
@@ -45,5 +47,15 @@ public class Game {
 
     public void setPlayerTwo(Player playerTwo) {
         this.playerTwo = playerTwo;
+    }
+
+    //TODO
+    public Cell selected(){
+        // retourne la case sélectionnées
+        return selected;
+    }
+    public void setSelected(Cell c){
+        selected = c;
+
     }
 }
