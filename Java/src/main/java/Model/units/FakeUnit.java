@@ -22,4 +22,8 @@ public class FakeUnit extends Unit {
         return "tree.png";
     }
 
+    public String toString() {
+        return "FakeTree";
+    }
+
 }

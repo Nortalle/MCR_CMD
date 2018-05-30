@@ -124,4 +124,8 @@ public class ThePrestigiousArcher extends Unit {
     public String getPath() {
         return "archer.png";
     }
+
+    public String toString() {
+        return "The Prestigious Archer";
+    }
 }

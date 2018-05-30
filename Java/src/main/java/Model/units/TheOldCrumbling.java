@@ -106,4 +106,8 @@ public class TheOldCrumbling extends Unit {
     public String getPath() {
         return "vieux.png";
     }
+
+    public String toString() {
+        return "The Old Crumbling";
+    }
 }
