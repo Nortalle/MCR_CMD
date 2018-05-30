@@ -122,6 +122,6 @@ public class ThePrestigiousArcher extends Unit {
 
     @Override
     public String getPath() {
-        return "archer";
+        return "archer.png";
     }
 }

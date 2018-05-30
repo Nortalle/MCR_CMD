@@ -3,9 +3,6 @@ package Model.units;
 import Model.Cell;
 import Model.Unit;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-
 public class FakeUnit extends Unit {
 
     public FakeUnit() {
@@ -22,7 +19,7 @@ public class FakeUnit extends Unit {
 
     @Override
     public String getPath(){
-        return "tree.jpg";
+        return "tree.png";
     }
 
 }
