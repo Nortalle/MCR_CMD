@@ -2,6 +2,7 @@ package View;
 
 import Model.Action;
 import Model.ICard;
+import Model.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +15,8 @@ public class ActionPanel extends JPanel {
     JComboBox cardJComboBox = new JComboBox();
     JPanel contentPanel = new JPanel();
     JPanel actionsPanel = new JPanel();
+
+    Player player;
 
     public ActionPanel(String title) {
 
@@ -33,6 +36,12 @@ public class ActionPanel extends JPanel {
         add(contentPanel);
     }
 
+    public void setPlayer(Player player) {
+
+        this.player = player;
+        provideCards(player.getCards());
+    }
+
     public void provideCards(List<ICard> cards) {
 
         cardJComboBox.removeAll();
@@ -49,7 +58,7 @@ public class ActionPanel extends JPanel {
         ICard card = (ICard)cardJComboBox.getSelectedItem();
 
         for(Action action : card.getActions())
-            actionsPanel.add(new ActionButton(action));
+            actionsPanel.add(new ActionButton(player, action));
 
         actionsPanel.revalidate();
         actionsPanel.repaint();

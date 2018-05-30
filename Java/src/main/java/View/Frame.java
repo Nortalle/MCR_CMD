@@ -1,13 +1,9 @@
 package View;
 
-import Model.Action;
-import Model.Cell;
-import Model.ICard;
-import Model.ICmd;
+import Model.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Frame {
@@ -34,88 +30,15 @@ public class Frame {
         guiFrame.getContentPane().add(grid, BorderLayout.CENTER);
         guiFrame.getContentPane().add(panelRight, BorderLayout.LINE_END);
 
-        final ArrayList<Action> actions = new ArrayList<Action>();
-        actions.add(new Action() {
-            @Override
-            public ICmd createCommand() {
-                return null;
-            }
-
-            @Override
-            public String toString() {
-                return "action de ouf";
-            }
-        });
-
-        actions.add(new Action() {
-            @Override
-            public ICmd createCommand() {
-                return null;
-            }
-
-            @Override
-            public String toString() {
-                return "action de malade";
-            }
-        });
-
-
-        ArrayList<ICard> cards = new ArrayList<ICard>();
-
-        cards.add(new ICard() {
-            public ArrayList<Action> getActions() {
-                return actions;
-            }
-
-            public String desctiption() {
-                return "SWAG";
-            }
-
-            public boolean Invoke(Cell c) {
-                return false;
-            }
-
-            public String toString() {
-                return "AHAHAHAHAH";
-            }
-
-            @Override
-            public boolean isAlive() {
-                return false;
-            }
-        });
-
-        cards.add(new ICard() {
-            public ArrayList<Action> getActions() {
-                return actions;
-            }
-
-            public String desctiption() {
-                return "YOLO";
-            }
-
-            public boolean Invoke(Cell c) {
-                return false;
-            }
-            public String toString() {
-                return "SBFNDJKFNHDJKL";
-            }
-            
-            @Override
-            public boolean isAlive() {
-                return false;
-            }
-        });
-
-        updateCards(PANEL_LEFT, cards);
-        updateCards(PANEL_RIGHT, cards);
+        updateCards(PANEL_LEFT, Game.getInstance().getPlayerOne());
+        updateCards(PANEL_RIGHT, Game.getInstance().getPlayerTwo());
 
         guiFrame.setVisible(true);
     }
 
-    public void updateCards(int side, List<ICard> cards) {
+    public void updateCards(int side, Player player) {
 
         ActionPanel panel = side == PANEL_LEFT ? panelLeft : panelRight;
-        panel.provideCards(cards);
+        panel.setPlayer(player);
     }
 }
