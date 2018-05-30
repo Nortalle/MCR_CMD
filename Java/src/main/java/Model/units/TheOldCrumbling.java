@@ -2,13 +2,10 @@ package Model.units;
 
 import Model.*;
 
-import java.util.ArrayList;
+public class TheOldCrumbling extends Unit {
 
-public class SteveTheWarrior extends Unit {
-
-
-    SteveTheWarrior() {
-        super(100, 5);
+    TheOldCrumbling() {
+        super(100, 3);
 
         actions.add(new Action() {
             @Override
@@ -16,38 +13,39 @@ public class SteveTheWarrior extends Unit {
                 return new ICmd() {
 
                     public void execute() {
-                        attackCell(0, 1, 50);
-                    }
-
-                    public void undo() {
                         healCell(0, 1, 50);
                     }
+
+                    public void undo() {
+                        attackCell(0, 1, 50);
+                    }
                 };
             }
 
             @Override
             public String toString() {
-                return "Swing sword up";
+                return "Heal up";
             }
         });
+
         actions.add(new Action() {
             @Override
             public ICmd createCommand() {
                 return new ICmd() {
 
                     public void execute() {
-                        attackCell(0, -1, 50);
-                    }
-
-                    public void undo() {
                         healCell(0, -1, 50);
                     }
+
+                    public void undo() {
+                        attackCell(0, -1, 50);
+                    }
                 };
             }
 
             @Override
             public String toString() {
-                return "Swing sword down";
+                return "Heal down";
             }
         });
         actions.add(new Action() {
@@ -56,18 +54,22 @@ public class SteveTheWarrior extends Unit {
                 return new ICmd() {
 
                     public void execute() {
-                        attackCell(-1, 0, 50);
+                        if(Game.getInstance().getMap().getCell(currentCell.x -1,currentCell.y).getCellContents() != null){
+                            healCell(-1, 0, 50);
+                        }
                     }
 
                     public void undo() {
-                        healCell(-1, 0, 50);
+                        if(Game.getInstance().getMap().getCell(currentCell.x - 1 ,currentCell.y).getCellContents() != null){
+                            attackCell(-1,0,50);
+                        }
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Swing sword left";
+                return "Heal left";
             }
         });
         actions.add(new Action() {
@@ -76,28 +78,27 @@ public class SteveTheWarrior extends Unit {
                 return new ICmd() {
 
                     public void execute() {
-                        attackCell(1, 0, 50);
-                    }
-
-                    public void undo() {
                         healCell(1, 0, 50);
                     }
+
+                    public void undo() {
+                        attackCell(1,0,50);
+                    }
                 };
             }
 
             @Override
             public String toString() {
-                return "Swing sword right";
+                return "Heal right";
             }
         });
     }
 
     public String desctiption() {
-        return "Steve is a badass Warrior";
+        return "The old wise crumbling is a wise and crumbling healer";
     }
 
     public boolean Invoke(Cell c) {
-
-        return move(c);
+        return false;
     }
 }

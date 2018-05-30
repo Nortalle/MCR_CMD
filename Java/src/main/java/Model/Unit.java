@@ -113,6 +113,21 @@ public abstract class Unit implements ICard {
         }
     }
 
+    protected boolean attackCell(int offsetX, int offsetY, int damage){
+        if(Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents() != null){
+            Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents().takeDamage(damage);
+            return true;
+        }
+        return false;
+    }
+
+    protected boolean healCell(int offsetX, int offsetY, int heal){
+        if(Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents() != null){
+            Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents().takeHeal(heal);
+            return true;
+        }
+        return false;
+    }
 
     public ArrayList<Action> getActions() {
         return actions;

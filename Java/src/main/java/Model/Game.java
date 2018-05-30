@@ -12,6 +12,8 @@ public class Game {
     private Player playerOne;
     private Player playerTwo;
 
+    private int turn;
+
     private Cell selected;
 
     private Game() {
@@ -47,6 +49,14 @@ public class Game {
 
     public void setPlayerTwo(Player playerTwo) {
         this.playerTwo = playerTwo;
+    }
+
+    public int turn(){
+        return turn;
+    }
+
+    public void nextTurn(){
+        turn++;
     }
 
     //TODO

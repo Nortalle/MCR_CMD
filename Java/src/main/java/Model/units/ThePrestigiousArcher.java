@@ -1,33 +1,37 @@
 package Model.units;
 
-import Model.*;
+import Model.Action;
+import Model.Cell;
+import Model.ICmd;
+import Model.Unit;
 
-import java.util.ArrayList;
+public class ThePrestigiousArcher extends Unit {
 
-public class SteveTheWarrior extends Unit {
+    private int distanceMax;
 
-
-    SteveTheWarrior() {
+    ThePrestigiousArcher() {
         super(100, 5);
+        distanceMax = 4;
 
         actions.add(new Action() {
+
             @Override
             public ICmd createCommand() {
                 return new ICmd() {
 
                     public void execute() {
-                        attackCell(0, 1, 50);
+                        shoot(0, 1, 25);
                     }
 
                     public void undo() {
-                        healCell(0, 1, 50);
+                        cancelShoot(0, 1, 25);
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Swing sword up";
+                return "Shoot an arrow up!";
             }
         });
         actions.add(new Action() {
@@ -36,18 +40,18 @@ public class SteveTheWarrior extends Unit {
                 return new ICmd() {
 
                     public void execute() {
-                        attackCell(0, -1, 50);
+                        shoot(0, -1, 50);
                     }
 
                     public void undo() {
-                        healCell(0, -1, 50);
+                        cancelShoot(0, -1, 50);
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Swing sword down";
+                return "Shoot an arrow down";
             }
         });
         actions.add(new Action() {
@@ -56,18 +60,18 @@ public class SteveTheWarrior extends Unit {
                 return new ICmd() {
 
                     public void execute() {
-                        attackCell(-1, 0, 50);
+                        shoot(-1, 0, 50);
                     }
 
                     public void undo() {
-                        healCell(-1, 0, 50);
+                        cancelShoot(-1, 0, 50);
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Swing sword left";
+                return "Shoot an arrow left";
             }
         });
         actions.add(new Action() {
@@ -76,28 +80,44 @@ public class SteveTheWarrior extends Unit {
                 return new ICmd() {
 
                     public void execute() {
-                        attackCell(1, 0, 50);
+                        shoot(1, 0, 50);
                     }
 
                     public void undo() {
-                        healCell(1, 0, 50);
+                        cancelShoot(1, 0, 50);
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Swing sword right";
+                return "Shoot an arrow right";
             }
         });
+
+
     }
 
     public String desctiption() {
-        return "Steve is a badass Warrior";
+        return "The prestigious Archer";
     }
 
     public boolean Invoke(Cell c) {
-
-        return move(c);
+        return false;
     }
+
+    private void shoot( int offsetX, int offsetY, int damage){
+        int distance = 1;
+        while(!attackCell(offsetX * distance, offsetY * distance, 25) && distance <= distanceMax){
+            ++distance;
+        }
+    }
+
+    private void cancelShoot( int offsetX, int offsetY, int damage){
+        int distance = 1;
+        while(!healCell(offsetX * distance, offsetY * distance, 25) && distance <= distanceMax){
+            ++distance;
+        }
+    }
+
 }
