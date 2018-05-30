@@ -1,5 +1,6 @@
 package Model;
 
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 /**
@@ -8,7 +9,6 @@ import java.util.ArrayList;
 public interface ICard {
 
     ArrayList<Action> getActions();
-
     String toString();
     String desctiption();
 

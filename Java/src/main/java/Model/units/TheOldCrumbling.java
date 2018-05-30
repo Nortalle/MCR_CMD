@@ -103,7 +103,13 @@ public class TheOldCrumbling extends Unit {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "The Old Crumbling";
     }
+
+    @Override
+    public String getPath() {
+        return "vieux.png";
+    }
+
 }

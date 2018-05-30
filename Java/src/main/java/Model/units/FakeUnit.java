@@ -16,4 +16,14 @@ public class FakeUnit extends Unit {
     public boolean Invoke(Cell c) {
         return false;
     }
+
+    @Override
+    public String getPath(){
+        return "tree.png";
+    }
+
+    public String toString() {
+        return "FakeTree";
+    }
+
 }

@@ -102,7 +102,12 @@ public class SteveTheWarrior extends Unit {
     }
 
     @Override
-    public String toString(){
+    public String getPath() {
+        return "warr.png";
+    }
+
+    @Override
+    public String toString() {
         return "Steve The Warrior";
     }
 }

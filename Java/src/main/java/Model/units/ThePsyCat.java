@@ -45,7 +45,7 @@ public class ThePsyCat extends Unit {
 
             @Override
             public String toString() {
-                return "Mreow!";
+                return "Attack!";
             }
         });
     }
@@ -59,7 +59,12 @@ public class ThePsyCat extends Unit {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "The Psy Cat";
+    }
+
+    @Override
+    public String getPath() {
+        return "catsprite.jpg";
     }
 }

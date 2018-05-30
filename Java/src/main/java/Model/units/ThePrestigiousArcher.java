@@ -106,22 +106,29 @@ public class ThePrestigiousArcher extends Unit {
         return false;
     }
 
-    private void shoot( int offsetX, int offsetY, int damage){
+    private void shoot(int offsetX, int offsetY, int damage) {
         int distance = 1;
-        while(!attackCell(offsetX * distance, offsetY * distance, 25) && distance <= distanceMax){
+        while (!attackCell(offsetX * distance, offsetY * distance, 25) && distance <= distanceMax) {
             ++distance;
         }
     }
 
-    private void cancelShoot( int offsetX, int offsetY, int damage){
+    private void cancelShoot(int offsetX, int offsetY, int damage) {
         int distance = 1;
-        while(!healCell(offsetX * distance, offsetY * distance, 25) && distance <= distanceMax){
+        while (!healCell(offsetX * distance, offsetY * distance, 25) && distance <= distanceMax) {
             ++distance;
         }
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "The Prestigious Archer";
+
     }
+
+    @Override
+    public String getPath() {
+        return "archer.png";
+    }
+
 }
