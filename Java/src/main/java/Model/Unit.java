@@ -146,4 +146,8 @@ public abstract class Unit implements ICard {
         return Game.getInstance().selected().y - currentCell.y;
     }
 
+    @Override
+    public boolean isAlive(){
+        return hp > 0;
+    }
 }

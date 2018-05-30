@@ -1,9 +1,13 @@
 package Model;
 
+import Controler.Controller;
+
 /**
  * @author Vincent Guidoux
  */
 public class Game {
+
+    private Controller controller;
 
     private static Game instance;
 
@@ -12,11 +16,20 @@ public class Game {
     private Player playerOne;
     private Player playerTwo;
 
+    private static int width = 20;
+    private static int height = 15;
+    public static int nbrActions = 5;
+
     private int turn;
 
     private Cell selected;
 
     private Game() {
+        controller = new Controller();
+        map = new Map(width, height);
+        playerOne = new Player("one");
+        playerTwo = new Player("two");
+        turn = 0;
 
     }
 

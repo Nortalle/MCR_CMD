@@ -1,6 +1,5 @@
 package View;
 
-import Model.Cell;
 import Model.Game;
 import Model.Unit;
 
@@ -13,9 +12,10 @@ import java.util.List;
 
 public class CellView extends JPanel implements MouseListener {
 
-    static final Color BG_LIGHT = new Color(230,230,230);
-    static final Color BG_DARK  = new Color(210,210,210);
-    static final Color BG_HOVER = new Color(255, 255, 0);
+    static final Color BG_LIGHT     = new Color(230,230,230);
+    static final Color BG_DARK      = new Color(210,210,210);
+    static final Color BG_HOVER     = new Color(255, 255, 0);
+    //static final Color BG_SELECTED  = new Color(0, 207,255);
 
     private Color bgColor;
 

@@ -44,6 +44,10 @@ public abstract class Spell implements ICard {
         return null;
     }
 
+    @Override
+    public boolean isAlive(){
+        return false;
+    }
 
 
 }

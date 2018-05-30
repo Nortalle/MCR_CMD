@@ -13,4 +13,6 @@ public interface ICard {
     String desctiption();
 
     boolean Invoke(Cell c);
+
+    boolean isAlive();
 }

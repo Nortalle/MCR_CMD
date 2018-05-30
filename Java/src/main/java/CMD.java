@@ -8,8 +8,6 @@ public class CMD {
 
 
         Game.getInstance().setMap(new Map(20, 15));
-
         Frame frame = new Frame(20, 15);
-
     }
 }
