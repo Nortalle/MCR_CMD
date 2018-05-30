@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class ThePsyCat extends Unit {
 
-    ThePsyCat() {
+    public ThePsyCat() {
         super(200, 3);
 
         actions.add(new Action() {

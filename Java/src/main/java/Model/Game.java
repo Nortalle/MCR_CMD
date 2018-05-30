@@ -72,6 +72,10 @@ public class Game {
         turn++;
     }
 
+    public void addCardToPlayer(Player player, ICard card){
+        player.getCards().add(card);
+    }
+
     //TODO
     public Cell selected(){
         // retourne la case sélectionnées

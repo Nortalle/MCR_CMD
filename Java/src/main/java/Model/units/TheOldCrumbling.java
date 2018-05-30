@@ -4,7 +4,7 @@ import Model.*;
 
 public class TheOldCrumbling extends Unit {
 
-    TheOldCrumbling() {
+    public TheOldCrumbling() {
         super(100, 3);
 
         actions.add(new Action() {

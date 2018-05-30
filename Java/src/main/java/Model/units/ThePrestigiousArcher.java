@@ -9,7 +9,7 @@ public class ThePrestigiousArcher extends Unit {
 
     private int distanceMax;
 
-    ThePrestigiousArcher() {
+    public ThePrestigiousArcher() {
         super(100, 5);
         distanceMax = 4;
 
