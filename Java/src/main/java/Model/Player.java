@@ -11,6 +11,10 @@ public class Player {
     private ArrayList<ICmd> actionsList = new ArrayList<ICmd>();
     private String name;
 
+    public void uselessMethod() {
+        System.out.println("eh ouais ma gueule, tu kiffes les conflits?");
+    }
+
     public Player(String name) {
         this.name = name;
     }
