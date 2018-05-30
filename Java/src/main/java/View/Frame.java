@@ -78,6 +78,11 @@ public class Frame {
             public String toString() {
                 return "AHAHAHAHAH";
             }
+
+            @Override
+            public boolean isAlive() {
+                return false;
+            }
         });
 
         cards.add(new ICard() {
@@ -94,6 +99,11 @@ public class Frame {
             }
             public String toString() {
                 return "SBFNDJKFNHDJKL";
+            }
+            
+            @Override
+            public boolean isAlive() {
+                return false;
             }
         });
 

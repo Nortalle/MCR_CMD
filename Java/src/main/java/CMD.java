@@ -11,11 +11,13 @@ public class CMD {
 
     public static void main(String[] args) {
 
+        final int width = 20;
+
         Game game = Game.getInstance();
+        game.getController().init();
 
         Player player1 = game.getPlayerOne();
         Player player2 = game.getPlayerTwo();
-
 
         game.addCardToPlayer(player1, new SteveTheWarrior());
         game.addCardToPlayer(player1, new TheOldCrumbling());
