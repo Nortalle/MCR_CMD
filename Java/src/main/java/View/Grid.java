@@ -1,18 +1,14 @@
 package View;
 
-import Model.Game;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 public class Grid extends JPanel {
 
     ArrayList<ArrayList<CellView>> cells = new ArrayList<ArrayList<CellView>>();
 
-    public Grid(int columns, int rows) {
+    public Grid(int rows, int columns) {
 
         setLayout(new GridLayout(0, columns));
 
