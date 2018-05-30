@@ -101,4 +101,9 @@ public class TheOldCrumbling extends Unit {
     public boolean Invoke(Cell c) {
         return false;
     }
+
+    @Override
+    public String getPath() {
+        return "vieux.png";
+    }
 }

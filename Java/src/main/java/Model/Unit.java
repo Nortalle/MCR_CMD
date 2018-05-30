@@ -1,5 +1,9 @@
 package Model;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -84,6 +88,15 @@ public abstract class Unit implements ICard {
         });
 
     }
+
+    public BufferedImage getSprite() throws IOException {
+        ClassLoader classLoader = getClass().getClassLoader();
+        File file = new File(classLoader.getResource(getPath()).getFile());
+        BufferedImage bf = ImageIO.read(file);
+        return bf;
+    }
+
+    abstract public String getPath();
 
     @Override
     public String toString() {
