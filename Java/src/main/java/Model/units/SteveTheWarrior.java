@@ -100,4 +100,9 @@ public class SteveTheWarrior extends Unit {
 
         return move(c);
     }
+
+    @Override
+    public String toString(){
+        return "Steve The Warrior";
+    }
 }

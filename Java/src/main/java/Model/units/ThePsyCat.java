@@ -58,5 +58,8 @@ public class ThePsyCat extends Unit {
         return false;
     }
 
-
+    @Override
+    public String toString(){
+        return "The Psy Cat";
+    }
 }

@@ -26,13 +26,16 @@ public class Game {
     private Cell selected;
 
     private Game() {
-        controller = new Controller();
+    }
+
+    public void init(){
+
+        controller = new Controller(this);
 
         map = new Map(width, height);
         playerOne = new Player("one");
         playerTwo = new Player("two");
         turn = 0;
-
     }
 
     public static Game getInstance() {
@@ -84,10 +87,17 @@ public class Game {
         return selected;
     }
     public void setSelected(Cell c){
-        selected = c;
 
+        //TODO : devrait mettre à jour toute la frame
+       // controller.getFrame();
+
+        selected = c;
     }
 
+    public boolean isSelected(int x, int y){
+        //System.out.println(selected);
+        return selected != null && selected.x == x && selected.y == y;
+    }
 
     public Controller getController() {
         return controller;

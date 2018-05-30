@@ -4,6 +4,7 @@ import Model.Game;
 import Model.ICard;
 import Model.ICmd;
 import Model.Player;
+import View.Frame;
 
 import java.util.ArrayList;
 
@@ -13,11 +14,16 @@ public class Controller {
 
     private Game game;
 
-    public Controller() {
+    private Frame frame;
+
+    private static final int maxAction = 5;
+
+    public Controller(Game game) {
+        this.game = game;
     }
 
-    public void init(){
-        game = Game.getInstance();
+    public void startGame(){
+        this.frame = new Frame(game.getMap().width(), game.getMap().height());
     }
 
     public boolean PlayerHasLost(Player player){
@@ -47,14 +53,25 @@ public class Controller {
                 e.printStackTrace();
             }
         }
+
+        game.getPlayerOne().getActionsList().clear();
+        game.getPlayerTwo().getActionsList().clear();
     }
 
     public boolean addCommandToPlayer(Player player, ICmd cmd){
         /*
         On doit faire des tests
          */
-        player.getActionsList().add(cmd);
-
-        return true;
+        if(player.getActionsList().size() <= maxAction) {
+            player.getActionsList().add(cmd);
+            return true;
+        } else {
+            return false;
+        }
     }
+
+    public Frame getFrame() {
+        return frame;
+    }
+
 }

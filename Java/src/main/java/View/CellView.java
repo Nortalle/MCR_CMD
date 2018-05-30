@@ -15,7 +15,7 @@ public class CellView extends JPanel implements MouseListener {
     static final Color BG_LIGHT     = new Color(230,230,230);
     static final Color BG_DARK      = new Color(210,210,210);
     static final Color BG_HOVER     = new Color(255, 255, 0);
-    //static final Color BG_SELECTED  = new Color(0, 207,255);
+    static final Color BG_SELECTED  = new Color(0, 207,255);
 
     private Color bgColor;
 
@@ -40,6 +40,16 @@ public class CellView extends JPanel implements MouseListener {
     public void refresh() {
 
     }
+/*
+    @Override
+    public void repaint(){
+
+        if(Game.getInstance().isSelected(x, y)){
+            setBackground(BG_SELECTED);
+        } else {
+            setBackground(bgColor);
+        }
+    }*/
 
     public List<Unit> getUnits() {
 
@@ -53,11 +63,9 @@ public class CellView extends JPanel implements MouseListener {
     }
 
     public void mousePressed(MouseEvent mouseEvent) {
-        System.out.println("pressed");
     }
 
     public void mouseReleased(MouseEvent mouseEvent) {
-        System.out.println("released");
     }
 
     public void mouseEntered(MouseEvent mouseEvent) {
@@ -65,6 +73,11 @@ public class CellView extends JPanel implements MouseListener {
     }
 
     public void mouseExited(MouseEvent mouseEvent) {
-        setBackground(bgColor);
+
+        if(Game.getInstance().isSelected(x, y)){
+            setBackground(BG_SELECTED);
+        } else {
+            setBackground(bgColor);
+        }
     }
 }

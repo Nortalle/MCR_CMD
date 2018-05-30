@@ -120,4 +120,8 @@ public class ThePrestigiousArcher extends Unit {
         }
     }
 
+    @Override
+    public String toString(){
+        return "The Prestigious Archer";
+    }
 }

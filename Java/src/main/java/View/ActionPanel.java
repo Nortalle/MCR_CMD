@@ -22,7 +22,7 @@ public class ActionPanel extends JPanel {
 
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
         actionsPanel.setLayout(new BoxLayout(actionsPanel, BoxLayout.Y_AXIS));
-        actionsPanel.setBackground(Color.GREEN);
+       // actionsPanel.setBackground(Color.GREEN);
         contentPanel.add(new Label(title));
         contentPanel.add(cardJComboBox);
         contentPanel.add(actionsPanel);

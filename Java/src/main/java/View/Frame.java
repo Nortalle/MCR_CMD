@@ -36,9 +36,17 @@ public class Frame {
         guiFrame.setVisible(true);
     }
 
+    public void repaintAll(){
+        guiFrame.getContentPane().repaint();
+    }
+
     public void updateCards(int side, Player player) {
 
         ActionPanel panel = side == PANEL_LEFT ? panelLeft : panelRight;
         panel.setPlayer(player);
+    }
+
+    public JFrame getGuiFrame() {
+        return guiFrame;
     }
 }

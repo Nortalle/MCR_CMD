@@ -85,11 +85,6 @@ public abstract class Unit implements ICard {
 
     }
 
-    @Override
-    public String toString() {
-        return "Unit{}";
-    }
-
     protected boolean move(Cell c){
         if(c.setContent(Unit.this)){
             currentCell.setContent(null);

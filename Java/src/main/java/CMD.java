@@ -14,7 +14,7 @@ public class CMD {
         final int width = 20;
 
         Game game = Game.getInstance();
-        game.getController().init();
+        game.init();
 
         Player player1 = game.getPlayerOne();
         Player player2 = game.getPlayerTwo();
@@ -31,6 +31,7 @@ public class CMD {
 
         game.setMap(new Map(20, 15));
 
-        Frame frame = new Frame(20, 15);
+        game.getController().startGame();
+
     }
 }
