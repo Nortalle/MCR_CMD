@@ -103,7 +103,10 @@ public abstract class Unit implements ICard {
     public void takeDamage(int damage){
         hp -= damage;
         if(hp <= 0){
+            currentCell.setContent(null);
+            System.out.println("The unit died");
             //TODO on veut qu'il se passe quoi quand on meurt ? Et si on annule ?
+            //TODO Retirer l'unité de la liste des unités du joueur
         }
     }
     public void takeHeal(int heal){
@@ -114,7 +117,8 @@ public abstract class Unit implements ICard {
     }
 
     protected boolean attackCell(int offsetX, int offsetY, int damage){
-        if(Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents() != null){
+        if(currentCell.x + offsetX <= Game.getInstance().getMap().width() && currentCell.y + offsetY <= Game.getInstance().getMap().height() &&
+                (Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents() != null)){
             Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents().takeDamage(damage);
             return true;
         }
@@ -122,7 +126,8 @@ public abstract class Unit implements ICard {
     }
 
     protected boolean healCell(int offsetX, int offsetY, int heal){
-        if(Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents() != null){
+        if(currentCell.x + offsetX <= Game.getInstance().getMap().width() && currentCell.y + offsetY <= Game.getInstance().getMap().height() &&
+                (Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents() != null)){
             Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents().takeHeal(heal);
             return true;
         }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class SteveTheWarrior extends Unit {
 
 
-    SteveTheWarrior() {
+    public SteveTheWarrior() {
         super(100, 5);
 
         actions.add(new Action() {

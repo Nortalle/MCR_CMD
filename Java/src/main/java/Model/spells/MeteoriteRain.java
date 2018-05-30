@@ -10,8 +10,7 @@ public class MeteoriteRain extends Spell {
     private int distanceMax;
 
     protected MeteoriteRain() {
-        //Maxuse à -1 signifie que le sort est infini
-        super(-1);
+        super();
         random = new Random();
         distanceMax = 5;
 
@@ -20,11 +19,11 @@ public class MeteoriteRain extends Spell {
             public ICmd createCommand() {
 
                 return new ICmd() {
-                    boolean hasBeenExecuted = false;
                     ArrayList<Cell> touchedCells = new ArrayList<Cell>();
                     public void execute() {
                         if(lastTurnUsed == Game.getInstance().turn()){
                             System.out.println("No more mana...");
+                            lastTurnUsed = Game.getInstance().turn();
                             hasBeenExecuted = false;
                         } else {
                             int x;
@@ -35,7 +34,16 @@ public class MeteoriteRain extends Spell {
                             do{
                                 y = random.nextInt(distanceMax);
                             }while((Game.getInstance().selected().y + y) > Game.getInstance().getMap().height());
-                            
+                            Cell c = attackCell(0,0,100);
+                            if(c != null){touchedCells.add(c);}
+                            c = attackCell(1,0,100);
+                            if(c != null){touchedCells.add(c);}
+                            c = attackCell(-1,0,100);
+                            if(c != null){touchedCells.add(c);}
+                            c = attackCell(0,1,100);
+                            if(c != null){touchedCells.add(c);}
+                            c = attackCell(0,-1,100);
+                            if(c != null){touchedCells.add(c);}
 
                             //Enlève les pv de certaines unités
                             hasBeenExecuted = true;
@@ -45,7 +53,9 @@ public class MeteoriteRain extends Spell {
                     public void undo() {
                         if(hasBeenExecuted){
                             for(Cell c: touchedCells){
-                                //Rend les pv à toutes les unitées touchées par la météorite
+                                if(c.getCellContents() != null){
+                                    c.getCellContents().takeHeal(100);
+                                }
                             }
                         }else{
                             System.out.println("Nothing to undo");
@@ -56,14 +66,14 @@ public class MeteoriteRain extends Spell {
 
             @Override
             public String toString() {
-                return "Meteor Raaaaaain!";
+                return "Meteor Rain";
             }
         });
 
     }
 
     public String desctiption() {
-        return null;
+        return "The Meteor Rain attack a random cells in a range";
     }
 
     public boolean Invoke(Cell c) {
