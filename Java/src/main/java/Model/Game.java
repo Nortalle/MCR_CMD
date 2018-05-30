@@ -7,6 +7,7 @@ import Controler.Controller;
  */
 public class Game {
 
+
     private Controller controller;
 
     private static Game instance;
@@ -26,6 +27,7 @@ public class Game {
 
     private Game() {
         controller = new Controller();
+
         map = new Map(width, height);
         playerOne = new Player("one");
         playerTwo = new Player("two");
@@ -72,6 +74,10 @@ public class Game {
         turn++;
     }
 
+    public void addCardToPlayer(Player player, ICard card){
+        player.getCards().add(card);
+    }
+
     //TODO
     public Cell selected(){
         // retourne la case sélectionnées
@@ -80,5 +86,10 @@ public class Game {
     public void setSelected(Cell c){
         selected = c;
 
+    }
+
+
+    public Controller getController() {
+        return controller;
     }
 }

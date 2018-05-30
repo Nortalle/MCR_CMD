@@ -14,6 +14,9 @@ public class Controller {
     private Game game;
 
     public Controller() {
+    }
+
+    public void init(){
         game = Game.getInstance();
     }
 
