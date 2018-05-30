@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +24,14 @@ public class CellView extends JPanel implements MouseListener {
     ArrayList<Unit> units   = new ArrayList<Unit>();
 
     private final int x, y;
+
+    public void drawImage(BufferedImage bi){
+        //TODO
+    }
+
+    public void removeImage(BufferedImage bi){
+        //TODO
+    }
 
     public CellView(int x, int y) {
 
