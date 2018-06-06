@@ -44,7 +44,7 @@ public class CellView extends JPanel implements MouseListener {
     }
 
     public void drawUnit(){
-        Unit u = Game.getInstance().getMap().getCell(x,y).getCellContents();
+        Unit u = getCorrespondingCell().getCellContents();
 
         for(Unit unitToDraw: units){
 
