@@ -1,13 +1,13 @@
 package View;
 
+import Model.*;
 import Model.Action;
-import Model.ICard;
-import Model.Player;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ActionPanel extends JPanel {
@@ -15,6 +15,8 @@ public class ActionPanel extends JPanel {
     JComboBox cardJComboBox = new JComboBox();
     JPanel contentPanel = new JPanel();
     JPanel actionsPanel = new JPanel();
+    JPanel selectedActionsPanel = new JPanel();
+    ArrayList<String> selectedActions = new ArrayList<>();
 
     Player player;
 
@@ -22,10 +24,12 @@ public class ActionPanel extends JPanel {
 
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
         actionsPanel.setLayout(new BoxLayout(actionsPanel, BoxLayout.Y_AXIS));
+        selectedActionsPanel.setLayout(new BoxLayout(selectedActionsPanel, BoxLayout.Y_AXIS));
        // actionsPanel.setBackground(Color.GREEN);
         contentPanel.add(new Label(title));
         contentPanel.add(cardJComboBox);
         contentPanel.add(actionsPanel);
+        contentPanel.add(selectedActionsPanel);
 
         cardJComboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
@@ -57,10 +61,23 @@ public class ActionPanel extends JPanel {
         actionsPanel.removeAll();
         ICard card = (ICard)cardJComboBox.getSelectedItem();
 
-        for(Action action : card.getActions())
+        for(Action action : card.getActions()){
             actionsPanel.add(new ActionButton(player, action));
+        }
 
         actionsPanel.revalidate();
         actionsPanel.repaint();
+    }
+
+    private void displaySelectedActions(){
+        selectedActionsPanel.removeAll();
+        for(ICmd action: player.getActionsList()){
+            selectedActionsPanel.add(new JLabel(action.toString()));
+        }
+    }
+
+    public void update() {
+        displayActions();
+        displaySelectedActions();
     }
 }

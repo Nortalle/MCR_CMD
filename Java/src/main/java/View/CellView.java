@@ -125,4 +125,14 @@ public class CellView extends JPanel implements MouseListener {
     public String toString() {
         return x + ";" + y;
     }
+
+    public void update() {
+
+        setColor();
+        drawUnit();
+    }
+
+    public Cell getCorrespondingCell() {
+        return Game.getInstance().getMap().getCell(x, y);
+    }
 }
