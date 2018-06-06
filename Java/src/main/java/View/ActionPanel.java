@@ -58,7 +58,6 @@ public class ActionPanel extends JPanel {
     }
 
     private void displayActions() {
-
         actionsPanel.removeAll();
         ICard card = (ICard)cardJComboBox.getSelectedItem();
 
@@ -75,6 +74,7 @@ public class ActionPanel extends JPanel {
         for(ICmd action: player.getActionsList()){
             selectedActionsPanel.add(new JLabel(action.toString()));
         }
+        selectedActionsPanel.revalidate();
     }
 
     public void update() {

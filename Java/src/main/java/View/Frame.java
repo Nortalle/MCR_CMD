@@ -37,7 +37,6 @@ public class Frame {
         updateCards(PANEL_LEFT, Game.getInstance().getPlayerOne());
         updateCards(PANEL_RIGHT, Game.getInstance().getPlayerTwo());
 
-/*
         final JButton update = new JButton("UPDATE");
         update.addActionListener(new ActionListener() {
             @Override
@@ -45,7 +44,7 @@ public class Frame {
                 update();
             }
         });
-        guiFrame.getContentPane().add(update);*/
+        guiFrame.getContentPane().add(update, BorderLayout.SOUTH);
 
         guiFrame.setVisible(true);
 
