@@ -1,6 +1,7 @@
 package View;
 
 import Model.*;
+import javafx.beans.Observable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -48,13 +49,6 @@ public class Frame {
 
         guiFrame.setVisible(true);
 
-
-        new java.util.Timer().scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                update();
-            }
-        }, 777, 777);
     }
 
     public void repaintAll(){

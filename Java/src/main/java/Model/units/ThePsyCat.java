@@ -40,6 +40,11 @@ public class ThePsyCat extends Unit {
                         }
 
                     }
+
+                    @Override
+                    public String toString() {
+                        return "Attack!";
+                    }
                 };
             }
 

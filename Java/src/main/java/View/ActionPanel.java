@@ -25,7 +25,8 @@ public class ActionPanel extends JPanel {
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
         actionsPanel.setLayout(new BoxLayout(actionsPanel, BoxLayout.Y_AXIS));
         selectedActionsPanel.setLayout(new BoxLayout(selectedActionsPanel, BoxLayout.Y_AXIS));
-       // actionsPanel.setBackground(Color.GREEN);
+        //actionsPanel.setBackground(Color.GREEN);
+        //selectedActionsPanel.setBackground(Color.BLUE);
         contentPanel.add(new Label(title));
         contentPanel.add(cardJComboBox);
         contentPanel.add(actionsPanel);

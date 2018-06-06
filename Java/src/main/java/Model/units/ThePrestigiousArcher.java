@@ -26,6 +26,11 @@ public class ThePrestigiousArcher extends Unit {
                     public void undo() {
                         cancelShoot(0, 1, 25);
                     }
+
+                    @Override
+                    public String toString() {
+                        return "Shoot an arrow up!";
+                    }
                 };
             }
 
@@ -45,6 +50,11 @@ public class ThePrestigiousArcher extends Unit {
 
                     public void undo() {
                         cancelShoot(0, -1, 50);
+                    }
+
+                    @Override
+                    public String toString() {
+                        return "Shoot an arrow down";
                     }
                 };
             }
@@ -66,6 +76,11 @@ public class ThePrestigiousArcher extends Unit {
                     public void undo() {
                         cancelShoot(-1, 0, 50);
                     }
+
+                    @Override
+                    public String toString() {
+                        return "Shoot an arrow left";
+                    }
                 };
             }
 
@@ -85,6 +100,11 @@ public class ThePrestigiousArcher extends Unit {
 
                     public void undo() {
                         cancelShoot(1, 0, 50);
+                    }
+
+                    @Override
+                    public String toString() {
+                        return "Shoot an arrow right";
                     }
                 };
             }
