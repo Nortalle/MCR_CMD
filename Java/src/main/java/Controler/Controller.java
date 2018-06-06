@@ -1,9 +1,12 @@
 package Controler;
 
 import Model.*;
+import Model.units.FakeUnit;
 import View.Frame;
 
+import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 import static java.lang.Thread.sleep;
 
@@ -25,12 +28,14 @@ public class Controller {
         this.frame = new Frame(game.getMap().width(), game.getMap().height());
         Unit u = (Unit) game.getPlayerOne().getCards().get(0);
 
+        generateMap(game.getMap().width(), game.getMap().height());
+
+        frame.update();
         for(int i = 0; i < game.getMap().width(); ++i){
             for(int j = 0; j < game.getMap().height(); ++j){
                     game.getMap().getCell(i,j).getCorrespondingCellView().drawUnit();
             }
         }
-
         runGame();
     }
 
@@ -58,12 +63,24 @@ public class Controller {
     }
 
     public void executeAllCommands(){
+        if(game.getPlayerOne().getActionsList().size() < game.nbrActions) {
+            JOptionPane.showMessageDialog(null, "IMPOSSIBLELESLLFSD il faut 5 actions par joueur");
+            return;
+        }
+
+        if(game.getPlayerTwo().getActionsList().size() < game.nbrActions) {
+            JOptionPane.showMessageDialog(null, "IMPOSSIBLELESLLFSD il faut 5 actions par joueur");
+            return;
+        }
+
         for(int i = 0; i < Game.nbrActions ; ++i){
             try {
                 game.getPlayerOne().getActionsList().get(i).execute();
                 sleep(500);
+                frame.update();
                 game.getPlayerTwo().getActionsList().get(i).execute();
                 sleep(500);
+                frame.update();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -87,6 +104,19 @@ public class Controller {
 
     public Frame getFrame() {
         return frame;
+    }
+
+    private void generateMap(int columns, int rows){
+
+        final int MAX_ELEMENT = 20;
+
+        Random rand = new Random();
+
+        int nbrElements = rand.nextInt(MAX_ELEMENT) + 1;
+
+        for(int i = 0; i < nbrElements; i++){
+            new FakeUnit(Game.getInstance().getMap().getCell(rand.nextInt(columns-2)+1, rand.nextInt(rows)));
+        }
     }
 
 }

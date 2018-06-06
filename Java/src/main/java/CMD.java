@@ -37,6 +37,7 @@ public class CMD {
         game.addCardToPlayer(player2, new ThePrestigiousArcher(map.getCell(map.width()-1, 9)));
         game.addCardToPlayer(player2, new ThePsyCat(map.getCell(map.width()-1, 12)));
 
+
         game.getController().startGame();
 
     }

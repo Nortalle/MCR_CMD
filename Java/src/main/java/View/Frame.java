@@ -43,9 +43,19 @@ public class Frame {
             }
         });
         guiFrame.getContentPane().add(update, BorderLayout.SOUTH);
+        JButton play = new JButton("PLAY");
+        play.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Game.getInstance().getController().executeAllCommands();
+            }
+        });
+        guiFrame.getContentPane().add(play, BorderLayout.NORTH);
 
-        generateMap(columns,rows);
+
+
         guiFrame.setVisible(true);
+        update();
     }
 
     public void repaintAll(){
@@ -72,18 +82,5 @@ public class Frame {
         return grid;
     }
 
-    private void generateMap(int columns, int rows){
 
-        final int MAX_TREE = 20;
-        final int MAX_ROCK = 20;
-
-        Random rand = new Random();
-
-        int nbrTrees = rand.nextInt(MAX_TREE) + 1;
-        int nbrRocks = rand.nextInt(MAX_ROCK) + 1;
-
-        for(int i = 0; i < nbrTrees; i++){
-            new FakeUnit(Game.getInstance().getMap().getCell(rand.nextInt(columns), rand.nextInt(rows)));
-        }
-    }
 }
