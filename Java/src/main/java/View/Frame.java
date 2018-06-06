@@ -46,6 +46,17 @@ public class Frame {
         });
         guiFrame.getContentPane().add(update, BorderLayout.SOUTH);
 
+        JButton play = new JButton("PLAY");
+        play.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Game.getInstance().getController().executeAllCommands();
+            }
+        });
+        guiFrame.getContentPane().add(play, BorderLayout.NORTH);
+
+
+
         guiFrame.setVisible(true);
 
     }

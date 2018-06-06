@@ -3,6 +3,7 @@ package Controler;
 import Model.*;
 import View.Frame;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 import static java.lang.Thread.sleep;
@@ -58,12 +59,24 @@ public class Controller {
     }
 
     public void executeAllCommands(){
+        if(game.getPlayerOne().getActionsList().size() < game.nbrActions) {
+            JOptionPane.showMessageDialog(null, "IMPOSSIBLELESLLFSD il faut 5 actions par joueur");
+            return;
+        }
+
+        if(game.getPlayerTwo().getActionsList().size() < game.nbrActions) {
+            JOptionPane.showMessageDialog(null, "IMPOSSIBLELESLLFSD il faut 5 actions par joueur");
+            return;
+        }
+
         for(int i = 0; i < Game.nbrActions ; ++i){
             try {
                 game.getPlayerOne().getActionsList().get(i).execute();
                 sleep(500);
+                frame.update();
                 game.getPlayerTwo().getActionsList().get(i).execute();
                 sleep(500);
+                frame.update();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
