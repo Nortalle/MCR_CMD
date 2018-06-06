@@ -94,6 +94,7 @@ public class CellView extends JPanel implements MouseListener {
         Game.getInstance().setSelected(Game.getInstance().getMap().getCell(x, y));
         if (prevSelected != null)
             Game.getInstance().getController().getFrame().getGrid().at(prevSelected.x, prevSelected.y).setColor();
+        Game.getInstance().getController().getFrame().update();
     }
 
     public void mousePressed(MouseEvent mouseEvent) {

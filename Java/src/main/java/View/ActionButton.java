@@ -21,6 +21,7 @@ public class ActionButton extends JButton {
         addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 Game.getInstance().getController().addCommandToPlayer(player, action.createCommand());
+                Game.getInstance().getController().getFrame().update();
             }
         });
     }

@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,10 +39,10 @@ public class ActionPanel extends JPanel {
         cache.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    displaySelectedActions();
-                    selectedActionsPanel.setVisible(!selectedActionsPanel.isVisible());
-                    cache.setText("Actions visible : " + selectedActionsPanel.isVisible());
-
+                displaySelectedActions();
+                selectedActionsPanel.setVisible(!selectedActionsPanel.isVisible());
+                cache.setText("Actions visible : " + selectedActionsPanel.isVisible());
+                update();
             }
         });
 
@@ -53,6 +55,7 @@ public class ActionPanel extends JPanel {
         cardJComboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 displayActions();
+                update();
             }
         });
 
@@ -69,7 +72,7 @@ public class ActionPanel extends JPanel {
 
         cardJComboBox.removeAll();
 
-        for(ICard card : cards)
+        for (ICard card : cards)
             cardJComboBox.addItem(card);
 
         displayActions();
@@ -77,9 +80,9 @@ public class ActionPanel extends JPanel {
 
     private void displayActions() {
         actionsPanel.removeAll();
-        ICard card = (ICard)cardJComboBox.getSelectedItem();
+        ICard card = (ICard) cardJComboBox.getSelectedItem();
 
-        for(Action action : card.getActions()){
+        for (Action action : card.getActions()) {
             actionsPanel.add(new ActionButton(player, action));
         }
 
@@ -87,9 +90,9 @@ public class ActionPanel extends JPanel {
         actionsPanel.repaint();
     }
 
-    private void displaySelectedActions(){
+    private void displaySelectedActions() {
         selectedActionsPanel.removeAll();
-        for(ICmd action: player.getActionsList()){
+        for (ICmd action : player.getActionsList()) {
             selectedActionsPanel.add(new JLabel(action.toString()));
         }
         selectedActionsPanel.revalidate();
