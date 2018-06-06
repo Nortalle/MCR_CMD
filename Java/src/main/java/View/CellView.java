@@ -1,5 +1,6 @@
 package View;
 
+import Model.Cell;
 import Model.Game;
 import Model.Unit;
 
@@ -8,7 +9,6 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,16 +21,30 @@ public class CellView extends JPanel implements MouseListener {
 
     private Color bgColor;
 
-    ArrayList<Unit> units   = new ArrayList<Unit>();
+    ArrayList<Unit> units = new ArrayList<>();
 
     private final int x, y;
 
     public void drawImage(BufferedImage bi){
-        //TODO
+        add(new JLabel(new ImageIcon(bi)));
     }
 
     public void removeImage(BufferedImage bi){
         //TODO
+        System.err.println("Still not implemented");
+
+        Component[] components = getComponents();
+        for(Component c : components) {
+            if(((JLabel)c).getIcon() == bi) {
+                remove(c);
+                break;
+            }
+        }
+    }
+
+    public void removeAllImages(){
+        removeAll();
+        getComponents();
     }
 
     public CellView(int x, int y) {
@@ -67,9 +81,9 @@ public class CellView extends JPanel implements MouseListener {
     }
 
     public void mouseClicked(MouseEvent mouseEvent) {
-        System.out.println("clicked");
-
+        Cell prevSelected = Game.getInstance().getSelected();
         Game.getInstance().setSelected(Game.getInstance().getMap().getCell(x,y));
+        if(prevSelected != null) Game.getInstance().getController().getFrame().getGrid().at(prevSelected.x, prevSelected.y).setColor();
     }
 
     public void mousePressed(MouseEvent mouseEvent) {
@@ -89,5 +103,18 @@ public class CellView extends JPanel implements MouseListener {
         } else {
             setBackground(bgColor);
         }
+    }
+
+    public void setColor() {
+        if(Game.getInstance().isSelected(x, y)){
+            setBackground(BG_SELECTED);
+        } else {
+            setBackground(bgColor);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return x + ";" + y;
     }
 }

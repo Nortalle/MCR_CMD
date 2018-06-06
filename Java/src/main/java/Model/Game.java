@@ -86,6 +86,11 @@ public class Game {
         // retourne la case sélectionnées
         return selected;
     }
+
+    public Cell getSelected() {
+        return selected;
+    }
+
     public void setSelected(Cell c){
 
         //TODO : devrait mettre à jour toute la frame
@@ -95,7 +100,6 @@ public class Game {
     }
 
     public boolean isSelected(int x, int y){
-        //System.out.println(selected);
         return selected != null && selected.x == x && selected.y == y;
     }
 

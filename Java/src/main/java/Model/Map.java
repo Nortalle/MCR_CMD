@@ -33,7 +33,7 @@ public class Map {
     }
 
     public Cell getCell(int i, int j){
-        System.out.println(cells[i][j]);
+        //System.out.println(cells[i][j]);
         return cells[i][j];
     }
 }

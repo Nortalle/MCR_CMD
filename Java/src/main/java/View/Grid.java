@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Grid extends JPanel {
 
-    ArrayList<ArrayList<CellView>> cells = new ArrayList<ArrayList<CellView>>();
+    private ArrayList<ArrayList<CellView>> cells = new ArrayList<ArrayList<CellView>>();
 
     public Grid(int rows, int columns) {
 

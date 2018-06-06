@@ -12,7 +12,7 @@ public class Frame {
     static final int PANEL_RIGHT    = 2;
 
 
-    Grid grid;
+    private Grid grid;
     ActionPanel panelLeft   = new ActionPanel("Joueur 1");
     ActionPanel panelRight  = new ActionPanel("Joueur 2");
 
@@ -48,5 +48,9 @@ public class Frame {
 
     public JFrame getGuiFrame() {
         return guiFrame;
+    }
+
+    public Grid getGrid() {
+        return grid;
     }
 }
