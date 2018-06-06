@@ -73,22 +73,27 @@ public class Controller {
             return;
         }
 
-        for(int i = 0; i < Game.nbrActions ; ++i){
-            try {
-                game.getPlayerOne().getActionsList().get(i).execute();
-                sleep(100);
-                frame.update();
-                game.getPlayerTwo().getActionsList().get(i).execute();
-                sleep(100);
-                frame.update();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i = 0; i < Game.nbrActions ; ++i){
+                    try {
+                        game.getPlayerOne().getActionsList().get(i).execute();
+                        sleep(100);
+                        frame.update();
+                        game.getPlayerTwo().getActionsList().get(i).execute();
+                        sleep(100);
+                        frame.update();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
 
-        game.getPlayerOne().getActionsList().clear();
-        game.getPlayerTwo().getActionsList().clear();
-        frame.update();
+                game.getPlayerOne().getActionsList().clear();
+                game.getPlayerTwo().getActionsList().clear();
+                frame.update();
+            }
+        }).start();
     }
 
     public boolean addCommandToPlayer(Player player, ICmd cmd){
