@@ -33,11 +33,6 @@ public class Cell {
 
     @Override
     public String toString() {
-        try {
-            throw new Exception();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         return x + ";" + y;
     }
 }
