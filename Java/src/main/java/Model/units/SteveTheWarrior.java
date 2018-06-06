@@ -25,14 +25,14 @@ public class SteveTheWarrior extends Unit {
 
                     @Override
                     public String toString() {
-                        return "Swing sword up";
+                        return "Swing sword right";
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Swing sword up";
+                return "Swing sword right";
             }
         });
         actions.add(new Action() {
@@ -46,31 +46,6 @@ public class SteveTheWarrior extends Unit {
 
                     public void undo() {
                         healCell(0, -1, 50);
-                    }
-
-                    @Override
-                    public String toString() {
-                        return "Swing sword down";
-                    }
-                };
-            }
-
-            @Override
-            public String toString() {
-                return "Swing sword down";
-            }
-        });
-        actions.add(new Action() {
-            @Override
-            public ICmd createCommand() {
-                return new ICmd() {
-
-                    public void execute() {
-                        attackCell(-1, 0, 50);
-                    }
-
-                    public void undo() {
-                        healCell(-1, 0, 50);
                     }
 
                     @Override
@@ -91,6 +66,31 @@ public class SteveTheWarrior extends Unit {
                 return new ICmd() {
 
                     public void execute() {
+                        attackCell(-1, 0, 50);
+                    }
+
+                    public void undo() {
+                        healCell(-1, 0, 50);
+                    }
+
+                    @Override
+                    public String toString() {
+                        return "Swing sword up";
+                    }
+                };
+            }
+
+            @Override
+            public String toString() {
+                return "Swing sword up";
+            }
+        });
+        actions.add(new Action() {
+            @Override
+            public ICmd createCommand() {
+                return new ICmd() {
+
+                    public void execute() {
                         attackCell(1, 0, 50);
                     }
 
@@ -100,14 +100,14 @@ public class SteveTheWarrior extends Unit {
 
                     @Override
                     public String toString() {
-                        return "Swing sword right";
+                        return "Swing sword down";
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Swing sword right";
+                return "Swing sword down";
             }
         });
     }

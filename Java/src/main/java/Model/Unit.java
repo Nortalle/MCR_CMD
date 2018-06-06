@@ -174,7 +174,7 @@ public abstract class Unit implements ICard {
     }
 
     protected boolean attackCell(int offsetX, int offsetY, int damage){
-        if(currentCell.x + offsetX <= Game.getInstance().getMap().width() && currentCell.y + offsetY <= Game.getInstance().getMap().height() &&
+        if(currentCell.x + offsetX < Game.getInstance().getMap().width() && currentCell.y + offsetY < Game.getInstance().getMap().height() &&
                 (Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents() != null)){
             Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents().takeDamage(damage);
             return true;
@@ -183,7 +183,7 @@ public abstract class Unit implements ICard {
     }
 
     protected boolean healCell(int offsetX, int offsetY, int heal){
-        if(currentCell.x + offsetX <= Game.getInstance().getMap().width() && currentCell.y + offsetY <= Game.getInstance().getMap().height() &&
+        if(currentCell.x + offsetX < Game.getInstance().getMap().width() && currentCell.y + offsetY < Game.getInstance().getMap().height() &&
                 (Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents() != null)){
             Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents().takeHeal(heal);
             return true;
