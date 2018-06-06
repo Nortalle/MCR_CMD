@@ -24,7 +24,7 @@ public class Frame {
 
         grid = new Grid(columns, rows);
 
-        guiFrame.setSize(1000,600);
+        guiFrame.setSize(1000,700);
         guiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         guiFrame.setTitle("CMD MCR");
 
