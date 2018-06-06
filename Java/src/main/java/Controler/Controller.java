@@ -1,9 +1,6 @@
 package Controler;
 
-import Model.Game;
-import Model.ICard;
-import Model.ICmd;
-import Model.Player;
+import Model.*;
 import View.Frame;
 
 import java.util.ArrayList;
@@ -16,6 +13,8 @@ public class Controller {
 
     private Frame frame;
 
+    private boolean isFinished;
+
     private static final int maxAction = 5;
 
     public Controller(Game game) {
@@ -24,7 +23,25 @@ public class Controller {
 
     public void startGame(){
         this.frame = new Frame(game.getMap().width(), game.getMap().height());
+
+        for(int i = 0; i < game.getMap().width(); ++i){
+            for(int j = 0; j < game.getMap().height(); ++j){
+                if(game.getMap().getCell(i,j).getCellContents() != null){
+                    System.out.println("test");
+                    Game.getInstance().getController().getFrame().getGrid().at(i,j).drawUnit();
+                }
+            }
+        }
+
+        runGame();
     }
+
+    public void runGame(){
+        while(!isFinished){
+            
+        }
+    }
+
 
     public boolean PlayerHasLost(Player player){
 

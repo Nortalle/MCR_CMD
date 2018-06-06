@@ -9,8 +9,8 @@ public class ThePrestigiousArcher extends Unit {
 
     private int distanceMax;
 
-    public ThePrestigiousArcher() {
-        super(100, 5);
+    public ThePrestigiousArcher(Cell start) {
+        super(100, 5, start);
         distanceMax = 4;
 
         actions.add(new Action() {

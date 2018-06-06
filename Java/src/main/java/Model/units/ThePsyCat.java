@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class ThePsyCat extends Unit {
 
-    public ThePsyCat() {
-        super(200, 3);
+    public ThePsyCat(Cell start) {
+        super(200, 3, start);
 
         actions.add(new Action() {
             @Override

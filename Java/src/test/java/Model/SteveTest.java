@@ -21,13 +21,13 @@ public class SteveTest {
 
     @Test
     public void createSteve(){
-        SteveTheWarrior stw = new SteveTheWarrior();
+        SteveTheWarrior stw = new SteveTheWarrior(Game.getInstance().getMap().getCell(0,0));
         assertNotNull(stw);
     }
 
     @Test
     public void getSprite(){
-        SteveTheWarrior stw = new SteveTheWarrior();
+        SteveTheWarrior stw = new SteveTheWarrior(Game.getInstance().getMap().getCell(0,0));
         try {
             BufferedImage b = stw.getSprite();
             assertNotNull(b);

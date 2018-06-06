@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class SteveTheWarrior extends Unit {
 
 
-    public SteveTheWarrior() {
-        super(100, 5);
+    public SteveTheWarrior(Cell start) {
+        super(100, 5, start);
 
         actions.add(new Action() {
             @Override

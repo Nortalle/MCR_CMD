@@ -15,7 +15,7 @@ public class FakeUnitSpell extends Spell {
                     Cell c = null;
 
                     public void execute() {
-                        FakeUnit fu = new FakeUnit();
+                        FakeUnit fu = new FakeUnit(Game.getInstance().getSelected());
                         if(Game.getInstance().selected().getCellContents() != null){
                             Game.getInstance().selected().setContent(fu);
                             c = Game.getInstance().selected();

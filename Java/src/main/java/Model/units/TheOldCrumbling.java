@@ -4,8 +4,8 @@ import Model.*;
 
 public class TheOldCrumbling extends Unit {
 
-    public TheOldCrumbling() {
-        super(100, 3);
+    public TheOldCrumbling(Cell start) {
+        super(100, 3, start);
 
         actions.add(new Action() {
             @Override

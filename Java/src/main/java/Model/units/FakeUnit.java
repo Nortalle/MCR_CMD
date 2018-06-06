@@ -5,8 +5,8 @@ import Model.Unit;
 
 public class FakeUnit extends Unit {
 
-    public FakeUnit() {
-        super(100, 0);
+    public FakeUnit(Cell start) {
+        super(100, 0, start);
     }
 
     public String desctiption() {

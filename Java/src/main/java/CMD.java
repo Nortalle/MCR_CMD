@@ -19,15 +19,17 @@ public class CMD {
         Player player1 = game.getPlayerOne();
         Player player2 = game.getPlayerTwo();
 
-        game.addCardToPlayer(player1, new SteveTheWarrior());
-        game.addCardToPlayer(player1, new TheOldCrumbling());
-        game.addCardToPlayer(player1, new ThePrestigiousArcher());
-        game.addCardToPlayer(player1, new ThePsyCat());
+        Map map = Game.getInstance().getMap();
 
-        game.addCardToPlayer(player2, new SteveTheWarrior());
-        game.addCardToPlayer(player2, new TheOldCrumbling());
-        game.addCardToPlayer(player2, new ThePrestigiousArcher());
-        game.addCardToPlayer(player2, new ThePsyCat());
+        game.addCardToPlayer(player1, new SteveTheWarrior(map.getCell(0, 3)));
+        game.addCardToPlayer(player1, new TheOldCrumbling(map.getCell(0, 6)));
+        game.addCardToPlayer(player1, new ThePrestigiousArcher(map.getCell(0, 9)));
+        game.addCardToPlayer(player1, new ThePsyCat(map.getCell(0, 12)));
+
+        game.addCardToPlayer(player2, new SteveTheWarrior(map.getCell(map.width()-1, 3)));
+        game.addCardToPlayer(player2, new TheOldCrumbling(map.getCell(map.width()-1, 6)));
+        game.addCardToPlayer(player2, new ThePrestigiousArcher(map.getCell(map.width()-1, 9)));
+        game.addCardToPlayer(player2, new ThePsyCat(map.getCell(map.width()-1, 12)));
 
         game.setMap(new Map(20, 15));
 
