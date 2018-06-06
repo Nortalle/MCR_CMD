@@ -16,6 +16,7 @@ public class ActionPanel extends JPanel {
     JPanel contentPanel = new JPanel();
     JPanel actionsPanel = new JPanel();
     JPanel selectedActionsPanel = new JPanel();
+    JPanel cachePanel = new JPanel();
     ArrayList<String> selectedActions = new ArrayList<>();
 
     Player player;
@@ -25,13 +26,28 @@ public class ActionPanel extends JPanel {
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
         actionsPanel.setLayout(new BoxLayout(actionsPanel, BoxLayout.Y_AXIS));
         selectedActionsPanel.setLayout(new BoxLayout(selectedActionsPanel, BoxLayout.Y_AXIS));
+        cachePanel.setLayout(new BoxLayout(cachePanel, BoxLayout.Y_AXIS));
         //actionsPanel.setBackground(Color.GREEN);
         //selectedActionsPanel.setBackground(Color.BLUE);
         contentPanel.add(new Label(title));
         contentPanel.add(cardJComboBox);
         contentPanel.add(actionsPanel);
+        JButton cache = new JButton("Cache/révèle actions");
+        
+        cache.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    selectedActionsPanel.setVisible(!selectedActionsPanel.isVisible());
+                    cache.setText("Actions visible : " + selectedActionsPanel.isVisible());
+            }
+        });
+
+        cache.setLayout(new BoxLayout(cache, BoxLayout.Y_AXIS));
+        cachePanel.add(cache, BorderLayout.SOUTH);
+
         contentPanel.add(selectedActionsPanel);
 
+        contentPanel.add(cachePanel, BorderLayout.SOUTH);
         cardJComboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 displayActions();
