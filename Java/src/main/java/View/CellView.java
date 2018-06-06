@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,9 +25,9 @@ public class CellView extends JPanel implements MouseListener {
     ArrayList<Unit> units = new ArrayList<>();
 
     private final int x, y;
-
-    public void drawImage(BufferedImage bi){
-        add(new JLabel(new ImageIcon(bi)));
+    public void drawImage(String path){
+        ClassLoader classLoader = getClass().getClassLoader();
+        add(new JLabel(new ImageIcon(classLoader.getResource(path))));
     }
 
     public void removeImage(BufferedImage bi){
@@ -42,9 +43,16 @@ public class CellView extends JPanel implements MouseListener {
         }
     }
 
+    public void drawUnit(){
+        Unit u = Game.getInstance().getMap().getCell(x,y).getCellContents();
+
+        if(u != null){
+            drawImage(u.getPath());
+        }
+    }
+
     public void removeAllImages(){
         removeAll();
-        getComponents();
     }
 
     public CellView(int x, int y) {
