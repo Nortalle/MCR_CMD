@@ -46,10 +46,6 @@ public class CellView extends JPanel implements MouseListener {
     public void drawUnit(){
         Unit u = getCorrespondingCell().getCellContents();
 
-        for(Unit unitToDraw: units){
-
-        }
-
         if(u != null){
             drawImage(u.getPath());
         }

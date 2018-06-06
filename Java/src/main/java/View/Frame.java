@@ -1,15 +1,13 @@
 package View;
 
 import Model.*;
-import javafx.beans.Observable;
+import Model.units.FakeUnit;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
-import java.util.TimerTask;
-
+import java.util.Random;
 public class Frame {
 
     static final int PANEL_LEFT     = 1;
@@ -46,8 +44,8 @@ public class Frame {
         });
         guiFrame.getContentPane().add(update, BorderLayout.SOUTH);
 
+        generateMap(columns,rows);
         guiFrame.setVisible(true);
-
     }
 
     public void repaintAll(){
@@ -72,5 +70,20 @@ public class Frame {
 
     public Grid getGrid() {
         return grid;
+    }
+
+    private void generateMap(int columns, int rows){
+
+        final int MAX_TREE = 20;
+        final int MAX_ROCK = 20;
+
+        Random rand = new Random();
+
+        int nbrTrees = rand.nextInt(MAX_TREE) + 1;
+        int nbrRocks = rand.nextInt(MAX_ROCK) + 1;
+
+        for(int i = 0; i < nbrTrees; i++){
+            new FakeUnit(Game.getInstance().getMap().getCell(rand.nextInt(columns), rand.nextInt(rows)));
+        }
     }
 }
