@@ -1,5 +1,7 @@
 package Model;
 
+import View.CellView;
+
 import java.util.ArrayList;
 
 /**
@@ -34,5 +36,9 @@ public class Cell {
     @Override
     public String toString() {
         return x + ";" + y;
+    }
+
+    public CellView getCorrespondingCellView() {
+        return Game.getInstance().getController().getFrame().getGrid().at(x, y);
     }
 }
