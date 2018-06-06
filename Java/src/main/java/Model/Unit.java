@@ -25,6 +25,8 @@ public abstract class Unit implements ICard {
         Unit.this.speed = speed;
         this.hpMax = hpMax;
         this.currentCell = startPos;
+        startPos.setContent(this);
+
         actions = new ArrayList<Action>();
 
         // Ajout de l'action de déplacement en direction de la case sélectionnée
@@ -91,7 +93,7 @@ public abstract class Unit implements ICard {
     }
 
     public void displayUnit(){
-        //currentCell.
+        currentCell.getCorrespondingCellView().drawUnit();
     }
 
     public BufferedImage getSprite() throws IOException {
@@ -103,6 +105,9 @@ public abstract class Unit implements ICard {
 
     abstract public String getPath();
 
+    public Cell getCurrentCell() {
+        return currentCell;
+    }
 
     protected boolean move(Cell c){
         if(c.setContent(Unit.this)){

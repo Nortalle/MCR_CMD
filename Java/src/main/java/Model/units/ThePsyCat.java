@@ -65,6 +65,6 @@ public class ThePsyCat extends Unit {
 
     @Override
     public String getPath() {
-        return "catsprite.jpg";
+        return "catsprite.png";
     }
 }

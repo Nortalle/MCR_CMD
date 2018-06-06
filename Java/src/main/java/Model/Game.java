@@ -30,9 +30,10 @@ public class Game {
 
     public void init(){
 
-        controller = new Controller(this);
+        controller = new Controller();
 
         map = new Map(width, height);
+
         playerOne = new Player("one");
         playerTwo = new Player("two");
         turn = 0;

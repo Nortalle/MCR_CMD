@@ -23,7 +23,6 @@ public class Cell {
     }
 
     public boolean setContent(Unit u){
-
         // si la case est vide ou que on essaie de la vider
         if(content == null || u == null){
             content = u;

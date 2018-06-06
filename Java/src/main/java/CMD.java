@@ -19,7 +19,13 @@ public class CMD {
         Player player1 = game.getPlayerOne();
         Player player2 = game.getPlayerTwo();
 
-        Map map = Game.getInstance().getMap();
+        Map map = game.getMap();
+
+        //game.setMap(new Map(20, 15));
+
+        if(map.getCell(1,1)== null){
+            System.out.println("cellule null");
+        }
 
         game.addCardToPlayer(player1, new SteveTheWarrior(map.getCell(0, 3)));
         game.addCardToPlayer(player1, new TheOldCrumbling(map.getCell(0, 6)));
@@ -30,8 +36,6 @@ public class CMD {
         game.addCardToPlayer(player2, new TheOldCrumbling(map.getCell(map.width()-1, 6)));
         game.addCardToPlayer(player2, new ThePrestigiousArcher(map.getCell(map.width()-1, 9)));
         game.addCardToPlayer(player2, new ThePsyCat(map.getCell(map.width()-1, 12)));
-
-        game.setMap(new Map(20, 15));
 
         game.getController().startGame();
 

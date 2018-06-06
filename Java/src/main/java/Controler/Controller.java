@@ -17,19 +17,17 @@ public class Controller {
 
     private static final int maxAction = 5;
 
-    public Controller(Game game) {
-        this.game = game;
+    public Controller() {
+        this.game = Game.getInstance();
     }
 
     public void startGame(){
         this.frame = new Frame(game.getMap().width(), game.getMap().height());
+        Unit u = (Unit) game.getPlayerOne().getCards().get(0);
 
         for(int i = 0; i < game.getMap().width(); ++i){
             for(int j = 0; j < game.getMap().height(); ++j){
-                if(game.getMap().getCell(i,j).getCellContents() != null){
-                    System.out.println("test");
-                    Game.getInstance().getController().getFrame().getGrid().at(i,j).drawUnit();
-                }
+                    game.getMap().getCell(i,j).getCorrespondingCellView().drawUnit();
             }
         }
 

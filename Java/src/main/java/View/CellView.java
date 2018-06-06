@@ -27,6 +27,7 @@ public class CellView extends JPanel implements MouseListener {
     private final int x, y;
     public void drawImage(String path){
         ClassLoader classLoader = getClass().getClassLoader();
+        System.out.println(classLoader.getResource(path));
         add(new JLabel(new ImageIcon(classLoader.getResource(path))));
     }
 
