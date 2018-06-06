@@ -19,6 +19,11 @@ public class TheOldCrumbling extends Unit {
                     public void undo() {
                         attackCell(0, 1, 50);
                     }
+
+                    @Override
+                    public String toString() {
+                        return "Heal up";
+                    }
                 };
             }
 
@@ -39,6 +44,11 @@ public class TheOldCrumbling extends Unit {
 
                     public void undo() {
                         attackCell(0, -1, 50);
+                    }
+
+                    @Override
+                    public String toString() {
+                        return "Heal down";
                     }
                 };
             }
@@ -64,6 +74,12 @@ public class TheOldCrumbling extends Unit {
                             attackCell(-1,0,50);
                         }
                     }
+
+
+                    @Override
+                    public String toString() {
+                        return "Heal left";
+                    }
                 };
             }
 
@@ -83,6 +99,12 @@ public class TheOldCrumbling extends Unit {
 
                     public void undo() {
                         attackCell(1,0,50);
+                    }
+
+
+                    @Override
+                    public String toString() {
+                        return "Heal right";
                     }
                 };
             }

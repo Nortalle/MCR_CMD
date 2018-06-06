@@ -1,6 +1,7 @@
 package View;
 
 import Model.*;
+import javafx.beans.Observable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,7 +37,6 @@ public class Frame {
         updateCards(PANEL_LEFT, Game.getInstance().getPlayerOne());
         updateCards(PANEL_RIGHT, Game.getInstance().getPlayerTwo());
 
-/*
         final JButton update = new JButton("UPDATE");
         update.addActionListener(new ActionListener() {
             @Override
@@ -44,17 +44,10 @@ public class Frame {
                 update();
             }
         });
-        guiFrame.getContentPane().add(update);*/
+        guiFrame.getContentPane().add(update, BorderLayout.SOUTH);
 
         guiFrame.setVisible(true);
 
-
-        new java.util.Timer().scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                update();
-            }
-        }, 777, 777);
     }
 
     public void repaintAll(){

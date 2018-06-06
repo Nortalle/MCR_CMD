@@ -22,6 +22,11 @@ public class SteveTheWarrior extends Unit {
                     public void undo() {
                         healCell(0, 1, 50);
                     }
+
+                    @Override
+                    public String toString() {
+                        return "Swing sword up";
+                    }
                 };
             }
 
@@ -41,6 +46,11 @@ public class SteveTheWarrior extends Unit {
 
                     public void undo() {
                         healCell(0, -1, 50);
+                    }
+
+                    @Override
+                    public String toString() {
+                        return "Swing sword down";
                     }
                 };
             }
@@ -62,6 +72,11 @@ public class SteveTheWarrior extends Unit {
                     public void undo() {
                         healCell(-1, 0, 50);
                     }
+
+                    @Override
+                    public String toString() {
+                        return "Swing sword left";
+                    }
                 };
             }
 
@@ -81,6 +96,11 @@ public class SteveTheWarrior extends Unit {
 
                     public void undo() {
                         healCell(1, 0, 50);
+                    }
+
+                    @Override
+                    public String toString() {
+                        return "Swing sword right";
                     }
                 };
             }
