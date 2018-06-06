@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.function.Function;
 
 /**
  * @author Vincent Guidoux
@@ -27,7 +28,7 @@ public abstract class Unit implements ICard {
         this.currentCell = startPos;
         startPos.setContent(this);
 
-        actions = new ArrayList<Action>();
+        actions = new ArrayList<>();
 
         // Ajout de l'action de déplacement en direction de la case sélectionnée
         actions.add(new Action() {
@@ -42,40 +43,77 @@ public abstract class Unit implements ICard {
 
                     Cell depart = currentCell;
 
+                    public boolean moveX(int i) {
+                        boolean b = false;
+                        if(i > 0) b = moveNorth();
+                        else if(i < 0) b = moveSouth();
+                        return b;
+                    }
+
+                    public boolean moveY(int i) {
+                        boolean b = false;
+                        if(i > 0) b = moveEast();
+                        else if(i < 0) b = moveWest();
+                        return b;
+                    }
+
+                    public boolean moveNorth() {
+                        return move(Game.getInstance().getMap().getCell(currentCell.x + 1, currentCell.y));
+                    }
+
+                    public boolean moveSouth() {
+                        return move(Game.getInstance().getMap().getCell(currentCell.x - 1, currentCell.y));
+                    }
+
+                    public boolean moveEast() {
+                        return move(Game.getInstance().getMap().getCell(currentCell.x, currentCell.y + 1));
+                    }
+
+                    public boolean moveWest() {
+                        return move(Game.getInstance().getMap().getCell(currentCell.x, currentCell.y - 1));
+                    }
+
                     public void execute() {
 
                         // tant qu'on peut avancer et que on est pas arrivé à destination
-                        for(int i = 0; i < Unit.this.speed || destination != currentCell; i++){
+                        for(int i = 0; i < Unit.this.speed && destination != currentCell; i++){
                             int deltaX = destination.x - currentCell.x;
                             int deltaY = destination.y - currentCell.y;
 
-                            // axe X est le plus loin on va aller en direction de X en premier
-                            if(Math.abs(deltaX) > Math.abs(deltaY)){
+                            if(Math.abs(deltaX) > Math.abs(deltaY)) {
+                                if(!moveX(deltaX)) {
+                                    moveY(deltaY);
+                                }
+                            } else {
+                                if(!moveY(deltaY)) {
+                                    moveX(deltaX);
+                                }
+                            }
 
+                            // axe X est le plus loin on va aller en direction de X en premier
+                            /*if(Math.abs(deltaX) > Math.abs(deltaY)){
                                 if(deltaX > 0){
                                     if(!move(Game.getInstance().getMap().getCell(currentCell.x + 1, currentCell.y))){
-                                        break;      // interrupton du déplacement qui a échoué
+                                        break;// interrupton du déplacement qui a échoué
                                     }
                                 } else {
                                     if(!move(Game.getInstance().getMap().getCell(currentCell.x - 1, currentCell.y))){
-                                        break;      // interrupton du déplacement qui a échoué
+                                        break;// interrupton du déplacement qui a échoué
                                     }
                                 }
-
                             }
                             // sinon on va bouger sur Y
                             else {
-
                                 if(deltaY > 0){
                                     if(!move(Game.getInstance().getMap().getCell(currentCell.x, currentCell.y + 1))){
-                                        break;      // interrupton du déplacement qui a échoué
+                                        break;// interrupton du déplacement qui a échoué
                                     }
                                 } else {
                                     if(!move(Game.getInstance().getMap().getCell(currentCell.x, currentCell.y - 1))){
-                                        break;      // interrupton du déplacement qui a échoué
+                                        break;// interrupton du déplacement qui a échoué
                                     }
                                 }
-                            }
+                            }*/
                         }
                     }
 
