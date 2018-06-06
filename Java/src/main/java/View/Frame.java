@@ -4,7 +4,10 @@ import Model.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.TimerTask;
 
 public class Frame {
 
@@ -33,11 +36,35 @@ public class Frame {
         updateCards(PANEL_LEFT, Game.getInstance().getPlayerOne());
         updateCards(PANEL_RIGHT, Game.getInstance().getPlayerTwo());
 
+/*
+        final JButton update = new JButton("UPDATE");
+        update.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                update();
+            }
+        });
+        guiFrame.getContentPane().add(update);*/
+
         guiFrame.setVisible(true);
+
+
+        new java.util.Timer().scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                update();
+            }
+        }, 777, 777);
     }
 
     public void repaintAll(){
         guiFrame.getContentPane().repaint();
+    }
+
+    public void update(){
+        grid.update();
+        panelLeft.update();
+        panelRight.update();
     }
 
     public void updateCards(int side, Player player) {

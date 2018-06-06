@@ -62,7 +62,7 @@ public class Controller {
         /*
         On doit faire des tests
          */
-        if(player.getActionsList().size() <= maxAction) {
+        if(player.getActionsList().size() < maxAction) {
             player.getActionsList().add(cmd);
             return true;
         } else {

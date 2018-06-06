@@ -31,4 +31,12 @@ public class Grid extends JPanel {
 
         return cells.get(i).get(j);
     }
+
+    public void update() {
+        for(ArrayList<CellView> rows: cells){
+            for(CellView cell: rows){
+                cell.update();
+            }
+        }
+    }
 }
