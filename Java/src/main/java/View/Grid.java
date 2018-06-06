@@ -37,6 +37,7 @@ public class Grid extends JPanel {
             for(CellView cell: rows){
                 cell.removeAllImages();
                 cell.update();
+                repaint();
             }
         }
     }

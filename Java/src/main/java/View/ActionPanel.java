@@ -98,5 +98,6 @@ public class ActionPanel extends JPanel {
     public void update() {
         displayActions();
         displaySelectedActions();
+        repaint();
     }
 }

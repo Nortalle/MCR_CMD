@@ -15,43 +15,44 @@ import java.util.List;
 
 public class CellView extends JPanel implements MouseListener {
 
-    static final Color BG_LIGHT     = new Color(230,230,230);
-    static final Color BG_DARK      = new Color(210,210,210);
-    static final Color BG_HOVER     = new Color(255, 255, 0);
-    static final Color BG_SELECTED  = new Color(0, 207,255);
+    static final Color BG_LIGHT = new Color(230, 230, 230);
+    static final Color BG_DARK = new Color(210, 210, 210);
+    static final Color BG_HOVER = new Color(255, 255, 0);
+    static final Color BG_SELECTED = new Color(0, 207, 255);
 
     private Color bgColor;
 
     ArrayList<Unit> units = new ArrayList<>();
 
     private final int x, y;
-    public void drawImage(String path){
+
+    public void drawImage(String path) {
         ClassLoader classLoader = getClass().getClassLoader();
         add(new JLabel(new ImageIcon(classLoader.getResource(path))));
     }
 
-    public void removeImage(BufferedImage bi){
+    public void removeImage(BufferedImage bi) {
         //TODO
         System.err.println("Still not implemented");
 
         Component[] components = getComponents();
-        for(Component c : components) {
-            if(((JLabel)c).getIcon() == bi) {
+        for (Component c : components) {
+            if (((JLabel) c).getIcon() == bi) {
                 remove(c);
                 break;
             }
         }
     }
 
-    public void drawUnit(){
+    public void drawUnit() {
         Unit u = getCorrespondingCell().getCellContents();
 
-        if(u != null){
+        if (u != null) {
             drawImage(u.getPath());
         }
     }
 
-    public void removeAllImages(){
+    public void removeAllImages() {
         removeAll();
     }
 
@@ -60,7 +61,7 @@ public class CellView extends JPanel implements MouseListener {
         this.x = x;
         this.y = y;
 
-        if(y % 2 == 0 && x % 2 == 0 || y % 2 == 1 && x % 2 == 1)
+        if (y % 2 == 0 && x % 2 == 0 || y % 2 == 1 && x % 2 == 1)
             bgColor = BG_DARK;
         else
             bgColor = BG_LIGHT;
@@ -70,7 +71,7 @@ public class CellView extends JPanel implements MouseListener {
     }
 
     public void refresh() {
-
+        update();
     }
 /*
     @Override
@@ -90,8 +91,9 @@ public class CellView extends JPanel implements MouseListener {
 
     public void mouseClicked(MouseEvent mouseEvent) {
         Cell prevSelected = Game.getInstance().getSelected();
-        Game.getInstance().setSelected(Game.getInstance().getMap().getCell(x,y));
-        if(prevSelected != null) Game.getInstance().getController().getFrame().getGrid().at(prevSelected.x, prevSelected.y).setColor();
+        Game.getInstance().setSelected(Game.getInstance().getMap().getCell(x, y));
+        if (prevSelected != null)
+            Game.getInstance().getController().getFrame().getGrid().at(prevSelected.x, prevSelected.y).setColor();
     }
 
     public void mousePressed(MouseEvent mouseEvent) {
@@ -106,7 +108,7 @@ public class CellView extends JPanel implements MouseListener {
 
     public void mouseExited(MouseEvent mouseEvent) {
 
-        if(Game.getInstance().isSelected(x, y)){
+        if (Game.getInstance().isSelected(x, y)) {
             setBackground(BG_SELECTED);
         } else {
             setBackground(bgColor);
@@ -114,7 +116,7 @@ public class CellView extends JPanel implements MouseListener {
     }
 
     public void setColor() {
-        if(Game.getInstance().isSelected(x, y)){
+        if (Game.getInstance().isSelected(x, y)) {
             setBackground(BG_SELECTED);
         } else {
             setBackground(bgColor);
@@ -130,6 +132,7 @@ public class CellView extends JPanel implements MouseListener {
 
         setColor();
         drawUnit();
+        repaint();
     }
 
     public Cell getCorrespondingCell() {

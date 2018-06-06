@@ -76,10 +76,10 @@ public class Controller {
         for(int i = 0; i < Game.nbrActions ; ++i){
             try {
                 game.getPlayerOne().getActionsList().get(i).execute();
-                sleep(500);
+                sleep(100);
                 frame.update();
                 game.getPlayerTwo().getActionsList().get(i).execute();
-                sleep(500);
+                sleep(100);
                 frame.update();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -88,6 +88,7 @@ public class Controller {
 
         game.getPlayerOne().getActionsList().clear();
         game.getPlayerTwo().getActionsList().clear();
+        frame.update();
     }
 
     public boolean addCommandToPlayer(Player player, ICmd cmd){
