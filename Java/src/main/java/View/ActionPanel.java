@@ -33,12 +33,14 @@ public class ActionPanel extends JPanel {
         contentPanel.add(cardJComboBox);
         contentPanel.add(actionsPanel);
         JButton cache = new JButton("Cache/révèle actions");
-        
+
         cache.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                    displaySelectedActions();
                     selectedActionsPanel.setVisible(!selectedActionsPanel.isVisible());
                     cache.setText("Actions visible : " + selectedActionsPanel.isVisible());
+
             }
         });
 
