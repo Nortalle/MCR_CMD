@@ -64,12 +64,12 @@ public class Controller {
 
     public void executeAllCommands(){
         if(game.getPlayerOne().getActionsList().size() < game.nbrActions) {
-            JOptionPane.showMessageDialog(null, "IMPOSSIBLELESLLFSD il faut 5 actions par joueur");
+            JOptionPane.showMessageDialog(null, "Player " + game.getPlayerOne() + " must have " + Game.nbrActions + " actions");
             return;
         }
 
         if(game.getPlayerTwo().getActionsList().size() < game.nbrActions) {
-            JOptionPane.showMessageDialog(null, "IMPOSSIBLELESLLFSD il faut 5 actions par joueur");
+            JOptionPane.showMessageDialog(null, "Player " + game.getPlayerTwo() + " must have " + Game.nbrActions + " actions");
             return;
         }
 
