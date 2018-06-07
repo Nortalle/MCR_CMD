@@ -22,14 +22,14 @@ public class TheOldCrumbling extends Unit {
 
                     @Override
                     public String toString() {
-                        return "Heal up";
+                        return "Heal right";
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Heal up";
+                return "Heal right";
             }
         });
 
@@ -48,14 +48,14 @@ public class TheOldCrumbling extends Unit {
 
                     @Override
                     public String toString() {
-                        return "Heal down";
+                        return "Heal left";
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Heal down";
+                return "Heal left";
             }
         });
         actions.add(new Action() {
@@ -78,14 +78,14 @@ public class TheOldCrumbling extends Unit {
 
                     @Override
                     public String toString() {
-                        return "Heal left";
+                        return "Heal up";
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Heal left";
+                return "Heal up";
             }
         });
         actions.add(new Action() {
@@ -104,14 +104,14 @@ public class TheOldCrumbling extends Unit {
 
                     @Override
                     public String toString() {
-                        return "Heal right";
+                        return "Heal up";
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Heal right";
+                return "Heal up";
             }
         });
     }
