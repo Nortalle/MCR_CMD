@@ -12,7 +12,7 @@ public class Grid extends JPanel {
 
         setLayout(new GridLayout(0, columns));
 
-        for(int i = 0; i < rows; ++i) {
+        for (int i = 0; i < rows; ++i) {
 
             ArrayList<CellView> row = new ArrayList<>();
 
@@ -33,12 +33,16 @@ public class Grid extends JPanel {
     }
 
     public void update() {
-        for(ArrayList<CellView> rows: cells){
-            for(CellView cell: rows){
-                cell.removeAllImages();
-                cell.update();
-                repaint();
+        for (ArrayList<CellView> rows : cells) {
+            for (CellView cell : rows) {
+
+                if(cell.getCorrespondingCell().isChanged()) {
+                    cell.removeAllImages();
+                    cell.update();
+                    cell.getCorrespondingCell().setUnchanged();
+                }
             }
         }
+        repaint();
     }
 }
