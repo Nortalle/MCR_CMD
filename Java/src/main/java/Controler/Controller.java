@@ -115,10 +115,11 @@ public class Controller {
     private void generateMap(int columns, int rows){
 
         final int MAX_ELEMENT = 20;
+        final int MIN_ELEMENT = 5;
 
         Random rand = new Random();
 
-        int nbrElements = rand.nextInt(MAX_ELEMENT) + 1;
+        int nbrElements = rand.nextInt(MAX_ELEMENT-MIN_ELEMENT) + MIN_ELEMENT;
 
         for(int i = 0; i < nbrElements; i++){
             new FakeUnit(Game.getInstance().getMap().getCell(rand.nextInt(columns-2)+1, rand.nextInt(rows)));
