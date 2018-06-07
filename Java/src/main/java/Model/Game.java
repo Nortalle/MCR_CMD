@@ -15,6 +15,7 @@ public class Game {
     //Limits of the game
     private static int width = 20;
     private static int height = 15;
+    //TODO : est-ce que cette variable fait doublon avec celle du controller?
     public static int nbrActions = 5;
 
     // Steady elements of the game
@@ -47,14 +48,15 @@ public class Game {
      * Initialise all the parameters of the game
      */
     public void init(){
-
-        controller = new Controller();
-
         map = new Map(width, height);
         playerOne = new Player("one");
         playerTwo = new Player("two");
         turn = 0;
         selected = map.getCell(width/2, height/2);
+        controller = new Controller();
+
+        //Start the game
+        controller.runGame();
     }
 
     /**

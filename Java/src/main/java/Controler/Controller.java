@@ -1,7 +1,7 @@
 package Controler;
 
 import Model.*;
-import Model.units.FakeUnit;
+import Model.units.*;
 import View.Frame;
 
 import javax.swing.*;
@@ -13,18 +13,37 @@ import static java.lang.Thread.sleep;
 public class Controller {
 
     private Game game;
-
     private Frame frame;
+    private Player player1;
+    private Player player2;
+    private Map map;
 
+    //TODO : est-ce que cette variable fait doublon avec celle de Game?
     private static final int maxAction = 5;
 
     public Controller() {
         this.game = Game.getInstance();
+        this.player1 = game.getPlayerOne();
+        this.player2 = game.getPlayerTwo();
+        this.map = game.getMap();
     }
 
-    public void startGame(){
+    private void startGame(){
+
+        //The players get theirs cards
+        game.addCardToPlayer(player1, new SteveTheWarrior(map.getCell(0, 3)));
+        game.addCardToPlayer(player1, new TheOldCrumbling(map.getCell(0, 6)));
+        game.addCardToPlayer(player1, new ThePrestigiousArcher(map.getCell(0, 9)));
+        game.addCardToPlayer(player1, new ThePsyCat(map.getCell(0, 12)));
+
+        game.addCardToPlayer(player2, new SteveTheWarrior(map.getCell(map.width()-1, 3)));
+        game.addCardToPlayer(player2, new TheOldCrumbling(map.getCell(map.width()-1, 6)));
+        game.addCardToPlayer(player2, new ThePrestigiousArcher(map.getCell(map.width()-1, 9)));
+        game.addCardToPlayer(player2, new ThePsyCat(map.getCell(map.width()-1, 12)));
+
         this.frame = new Frame(game.getMap().width(), game.getMap().height());
-        Unit u = (Unit) game.getPlayerOne().getCards().get(0);
+
+        //Unit u = (Unit) game.getPlayerOne().getCards().get(0);
 
         generateMap(game.getMap().width(), game.getMap().height());
 
