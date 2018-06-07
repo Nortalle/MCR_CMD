@@ -29,14 +29,14 @@ public class ThePrestigiousArcher extends Unit {
 
                     @Override
                     public String toString() {
-                        return "Shoot an arrow up!";
+                        return "Shoot an arrow right!";
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Shoot an arrow up!";
+                return "Shoot an arrow right!";
             }
         });
         actions.add(new Action() {
@@ -50,31 +50,6 @@ public class ThePrestigiousArcher extends Unit {
 
                     public void undo() {
                         cancelShoot(0, -1, 50);
-                    }
-
-                    @Override
-                    public String toString() {
-                        return "Shoot an arrow down";
-                    }
-                };
-            }
-
-            @Override
-            public String toString() {
-                return "Shoot an arrow down";
-            }
-        });
-        actions.add(new Action() {
-            @Override
-            public ICmd createCommand() {
-                return new ICmd() {
-
-                    public void execute() {
-                        shoot(-1, 0, 50);
-                    }
-
-                    public void undo() {
-                        cancelShoot(-1, 0, 50);
                     }
 
                     @Override
@@ -95,6 +70,31 @@ public class ThePrestigiousArcher extends Unit {
                 return new ICmd() {
 
                     public void execute() {
+                        shoot(-1, 0, 50);
+                    }
+
+                    public void undo() {
+                        cancelShoot(-1, 0, 50);
+                    }
+
+                    @Override
+                    public String toString() {
+                        return "Shoot an arrow up";
+                    }
+                };
+            }
+
+            @Override
+            public String toString() {
+                return "Shoot an arrow up";
+            }
+        });
+        actions.add(new Action() {
+            @Override
+            public ICmd createCommand() {
+                return new ICmd() {
+
+                    public void execute() {
                         shoot(1, 0, 50);
                     }
 
@@ -104,14 +104,14 @@ public class ThePrestigiousArcher extends Unit {
 
                     @Override
                     public String toString() {
-                        return "Shoot an arrow right";
+                        return "Shoot an arrow down";
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Shoot an arrow right";
+                return "Shoot an arrow down";
             }
         });
 

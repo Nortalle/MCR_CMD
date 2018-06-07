@@ -121,6 +121,11 @@ public abstract class Unit implements ICard {
                     public void undo() {
                         move(depart);   // on se téléporte au départ
                     }
+
+                    @Override
+                    public String toString() {
+                        return "Move towards cell " + Game.getInstance().selected();
+                    }
                 };
             }
             @Override
