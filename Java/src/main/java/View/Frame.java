@@ -1,5 +1,6 @@
 package View;
 
+import Controler.Controller;
 import Model.*;
 import Model.units.FakeUnit;
 
@@ -21,6 +22,7 @@ public class Frame {
     JFrame guiFrame = new JFrame();
 
     public Frame(int columns, int rows) {
+        Game game = Controller.getInstance().game();
 
         grid = new Grid(columns, rows);
 
@@ -32,8 +34,8 @@ public class Frame {
         guiFrame.getContentPane().add(grid, BorderLayout.CENTER);
         guiFrame.getContentPane().add(panelRight, BorderLayout.LINE_END);
 
-        updateCards(PANEL_LEFT, Game.getInstance().getPlayerOne());
-        updateCards(PANEL_RIGHT, Game.getInstance().getPlayerTwo());
+        updateCards(PANEL_LEFT, game.getPlayerOne());
+        updateCards(PANEL_RIGHT, game.getPlayerTwo());
 
         final JButton update = new JButton("UPDATE");
         update.addActionListener(new ActionListener() {
@@ -47,7 +49,7 @@ public class Frame {
         play.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Game.getInstance().getController().executeAllCommands();
+                Controller.getInstance().executeAllCommands();
             }
         });
         guiFrame.getContentPane().add(play, BorderLayout.NORTH);

@@ -21,19 +21,19 @@ public class MeteoriteRain extends Spell {
                 return new ICmd() {
                     ArrayList<Cell> touchedCells = new ArrayList<Cell>();
                     public void execute() {
-                        if(lastTurnUsed == Game.getInstance().turn()){
+                        if(lastTurnUsed == game.turn()){
                             System.out.println("No more mana...");
-                            lastTurnUsed = Game.getInstance().turn();
+                            lastTurnUsed = game.turn();
                             hasBeenExecuted = false;
                         } else {
                             int x;
                             int y;
                             do{
                                 x = random.nextInt(distanceMax);
-                            }while((Game.getInstance().selected().x + x) > Game.getInstance().getMap().width());
+                            }while((game.getSelected().x + x) > game.getMap().width());
                             do{
                                 y = random.nextInt(distanceMax);
-                            }while((Game.getInstance().selected().y + y) > Game.getInstance().getMap().height());
+                            }while((game.getSelected().y + y) > game.getMap().height());
                             Cell c = attackCell(0,0,100);
                             if(c != null){touchedCells.add(c);}
                             c = attackCell(1,0,100);

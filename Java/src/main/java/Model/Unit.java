@@ -1,5 +1,7 @@
 package Model;
 
+import Controler.Controller;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -15,16 +17,15 @@ public abstract class Unit implements ICard {
 
     protected int hp;
     protected int hpMax;
-
     protected int speed;
-
     protected Cell currentCell;
-
     protected ArrayList<Action> actions;
+    protected Game game = Controller.getInstance().game();
 
     protected Unit(int hpMax, int speed, Cell startPos){
         Unit.this.speed = speed;
         this.hpMax = hpMax;
+        this.hp = hpMax;
         this.currentCell = startPos;
         startPos.setContent(this);
 
@@ -39,7 +40,7 @@ public abstract class Unit implements ICard {
                 return new ICmd() {
 
                     // récupère la case sélectionnée au moment ou on crée la commande
-                    Cell destination = Game.getInstance().selected();
+                    Cell destination = game.getSelected();
 
                     Cell depart = currentCell;
 
@@ -58,19 +59,19 @@ public abstract class Unit implements ICard {
                     }
 
                     public boolean moveNorth() {
-                        return move(Game.getInstance().getMap().getCell(currentCell.x + 1, currentCell.y));
+                        return move(game.getMap().getCell(currentCell.x + 1, currentCell.y));
                     }
 
                     public boolean moveSouth() {
-                        return move(Game.getInstance().getMap().getCell(currentCell.x - 1, currentCell.y));
+                        return move(game.getMap().getCell(currentCell.x - 1, currentCell.y));
                     }
 
                     public boolean moveEast() {
-                        return move(Game.getInstance().getMap().getCell(currentCell.x, currentCell.y + 1));
+                        return move(game.getMap().getCell(currentCell.x, currentCell.y + 1));
                     }
 
                     public boolean moveWest() {
-                        return move(Game.getInstance().getMap().getCell(currentCell.x, currentCell.y - 1));
+                        return move(game.getMap().getCell(currentCell.x, currentCell.y - 1));
                     }
 
                     public void execute() {
@@ -123,13 +124,13 @@ public abstract class Unit implements ICard {
 
                     @Override
                     public String toString() {
-                        return "Move towards cell " + Game.getInstance().selected();
+                        return "Move towards cell " + game.getSelected();
                     }
                 };
             }
             @Override
             public String toString() {
-                return "Move towards cell " + Game.getInstance().selected();
+                return "Move towards cell " + game.getSelected();
             }
         });
 
@@ -179,18 +180,18 @@ public abstract class Unit implements ICard {
     }
 
     protected boolean attackCell(int offsetX, int offsetY, int damage){
-        if(currentCell.x + offsetX < Game.getInstance().getMap().width() && currentCell.y + offsetY < Game.getInstance().getMap().height() &&
-                (Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents() != null)){
-            Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents().takeDamage(damage);
+        if(currentCell.x + offsetX < game.getMap().width() && currentCell.y + offsetY < game.getMap().height() &&
+                (game.getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents() != null)){
+            game.getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents().takeDamage(damage);
             return true;
         }
         return false;
     }
 
     protected boolean healCell(int offsetX, int offsetY, int heal){
-        if(currentCell.x + offsetX < Game.getInstance().getMap().width() && currentCell.y + offsetY < Game.getInstance().getMap().height() &&
-                (Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents() != null)){
-            Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents().takeHeal(heal);
+        if(currentCell.x + offsetX < game.getMap().width() && currentCell.y + offsetY < game.getMap().height() &&
+                (game.getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents() != null)){
+            game.getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents().takeHeal(heal);
             return true;
         }
         return false;
@@ -201,11 +202,11 @@ public abstract class Unit implements ICard {
     }
 
     protected int deltaXToCursor(){
-        return Game.getInstance().selected().x - currentCell.x;
+        return game.getSelected().x - currentCell.x;
     }
 
     protected int deltaYToCursor(){
-        return Game.getInstance().selected().y - currentCell.y;
+        return game.getSelected().y - currentCell.y;
     }
 
     @Override
