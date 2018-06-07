@@ -12,6 +12,8 @@ import static java.lang.Thread.sleep;
 
 public class Controller {
 
+    public static Controller instance;
+
     private Game game;
     private Frame frame;
     private Player player1;
@@ -21,11 +23,21 @@ public class Controller {
     //TODO : est-ce que cette variable fait doublon avec celle de Game?
     private static final int maxAction = 5;
 
-    public Controller() {
-        this.game = Game.getInstance();
+    private Controller() {
+        this.game = new Game();
         this.map = game.getMap();
         this.player1 = game.getPlayerOne();
         this.player2 = game.getPlayerTwo();
+    }
+
+    public static Controller getInstance(){
+        if (instance == null) {
+            instance = new Controller();
+        }
+        return instance;
+    }
+
+    private void startGame(){
 
         //The players get theirs cards
         game.addCardToPlayer(player1, new SteveTheWarrior(map.getCell(0, 3)));
@@ -38,10 +50,9 @@ public class Controller {
         game.addCardToPlayer(player2, new ThePrestigiousArcher(map.getCell(map.width()-1, 9)));
         game.addCardToPlayer(player2, new ThePsyCat(map.getCell(map.width()-1, 12)));
 
+        //TODO Cette initialisation devra se retrouver dans le constructeur une fois la classe Frame refactorée
         this.frame = new Frame(game.getMap().width(), game.getMap().height());
-    }
 
-    private void startGame(){
         generateMap(game.getMap().width(), game.getMap().height());
         for(int i = 0; i < game.getMap().width(); ++i){
             for(int j = 0; j < game.getMap().height(); ++j){
@@ -59,6 +70,9 @@ public class Controller {
         }
     }
 
+    public Game game(){
+        return game;
+    }
 
     public boolean PlayerHasLost(Player player){
 
@@ -136,7 +150,7 @@ public class Controller {
         int nbrElements = rand.nextInt(MAX_ELEMENT-MIN_ELEMENT) + MIN_ELEMENT;
 
         for(int i = 0; i < nbrElements; i++){
-            new FakeUnit(Game.getInstance().getMap().getCell(rand.nextInt(columns-2)+1, rand.nextInt(rows)));
+            new FakeUnit(game.getMap().getCell(rand.nextInt(columns-2)+1, rand.nextInt(rows)));
         }
     }
 

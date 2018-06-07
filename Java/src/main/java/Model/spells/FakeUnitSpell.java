@@ -1,5 +1,6 @@
 package Model.spells;
 
+import Controler.Controller;
 import Model.*;
 import Model.units.FakeUnit;
 
@@ -15,10 +16,11 @@ public class FakeUnitSpell extends Spell {
                     Cell c = null;
 
                     public void execute() {
-                        FakeUnit fu = new FakeUnit(Game.getInstance().getSelected());
-                        if(Game.getInstance().getSelected().getCellContents() != null){
-                            Game.getInstance().getSelected().setContent(fu);
-                            c = Game.getInstance().getSelected();
+                        Game game = Controller.getInstance().game();
+                        FakeUnit fu = new FakeUnit(game.getSelected());
+                        if(game.getSelected().getCellContents() != null){
+                            game.getSelected().setContent(fu);
+                            c = game.getSelected();
                         } else {
                             System.out.println("The fake unit couldn't be add");
                         }

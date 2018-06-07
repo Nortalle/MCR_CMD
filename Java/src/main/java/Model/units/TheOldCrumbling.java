@@ -64,13 +64,13 @@ public class TheOldCrumbling extends Unit {
                 return new ICmd() {
 
                     public void execute() {
-                        if(Game.getInstance().getMap().getCell(currentCell.x -1,currentCell.y).getCellContents() != null){
+                        if(game.getMap().getCell(currentCell.x -1,currentCell.y).getCellContents() != null){
                             healCell(-1, 0, 50);
                         }
                     }
 
                     public void undo() {
-                        if(Game.getInstance().getMap().getCell(currentCell.x - 1 ,currentCell.y).getCellContents() != null){
+                        if(game.getMap().getCell(currentCell.x - 1 ,currentCell.y).getCellContents() != null){
                             attackCell(-1,0,50);
                         }
                     }

@@ -1,5 +1,6 @@
 package View;
 
+import Controler.Controller;
 import Model.Action;
 import Model.Game;
 import Model.ICmd;
@@ -20,8 +21,8 @@ public class ActionButton extends JButton {
 
         addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                Game.getInstance().getController().addCommandToPlayer(player, action.createCommand());
-                Game.getInstance().getController().getFrame().update();
+                Controller.getInstance().addCommandToPlayer(player, action.createCommand());
+                Controller.getInstance().getFrame().update();
             }
         });
     }

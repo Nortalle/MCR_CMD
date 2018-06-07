@@ -7,11 +7,6 @@ import Controler.Controller;
  */
 public class Game {
 
-    private static Game instance;
-
-    //Create the controller of the game that will run all the actions
-    private Controller controller;
-
     //Limits of the game
     private static int width = 20;
     private static int height = 15;
@@ -30,33 +25,12 @@ public class Game {
     /**
      * Private constructor
      */
-    private Game() {
-    }
-
-    /**
-     * Get the instance of the game and create it if it doesn't already exists
-     * @return the instance of Game
-     */
-    public static Game getInstance() {
-        if (instance == null) {
-            instance = new Game();
-        }
-        return instance;
-    }
-
-    /**
-     * Initialise all the parameters of the game
-     */
-    public void init(){
+    public Game() {
         map = new Map(width, height);
         playerOne = new Player("one");
         playerTwo = new Player("two");
         turn = 0;
         selected = map.getCell(width/2, height/2);
-        controller = new Controller();
-
-        //Start the game
-        controller.runGame();
     }
 
     /**
@@ -157,10 +131,4 @@ public class Game {
         return selected != null && selected.x == x && selected.y == y;
     }
 
-    /**
-     * @return the Controller of the game
-     */
-    public Controller getController() {
-        return controller;
-    }
 }

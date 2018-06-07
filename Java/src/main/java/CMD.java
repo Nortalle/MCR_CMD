@@ -1,3 +1,4 @@
+import Controler.Controller;
 import Model.Game;
 import Model.Map;
 import Model.Player;
@@ -13,7 +14,9 @@ import View.Frame;
 public class CMD {
 
     public static void main(String[] args) {
-        Game game = Game.getInstance();
-        game.init();
+        //Launching the game
+        Controller controllerGame = Controller.getInstance();
+
+        controllerGame.runGame();
     }
 }

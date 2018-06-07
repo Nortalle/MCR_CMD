@@ -1,5 +1,7 @@
 package Model;
 
+import Controler.Controller;
+
 import java.util.ArrayList;
 
 /**
@@ -11,6 +13,7 @@ public abstract class Spell implements ICard {
     protected int lastTurnUsed;
     protected Cell aimCell;
     protected ArrayList<Action> actions;
+    protected Game game = Controller.getInstance().game();
 
     protected Spell(){
         lastTurnUsed = -1;
@@ -29,16 +32,16 @@ public abstract class Spell implements ICard {
     }
 
     protected Cell attackCell(int offsetX, int offsetY, int damage){
-        if(Game.getInstance().getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY).getCellContents() != null){
-            Game.getInstance().getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY).getCellContents().takeDamage(damage);
+        if(game.getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY).getCellContents() != null){
+            game.getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY).getCellContents().takeDamage(damage);
             return new Cell(aimCell.x + offsetX, aimCell.y + offsetY);
         }
         return null;
     }
 
     protected Cell healCell(int offsetX, int offsetY, int heal){
-        if(Game.getInstance().getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY).getCellContents() != null){
-            Game.getInstance().getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY).getCellContents().takeHeal(heal);
+        if(game.getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY).getCellContents() != null){
+            game.getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY).getCellContents().takeHeal(heal);
             return new Cell(aimCell.x + offsetX, aimCell.y + offsetY);
         }
         return null;

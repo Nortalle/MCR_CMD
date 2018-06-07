@@ -1,5 +1,6 @@
 package Model;
 
+import Controler.Controller;
 import View.CellView;
 
 import java.util.ArrayList;
@@ -38,6 +39,6 @@ public class Cell {
     }
 
     public CellView getCorrespondingCellView() {
-        return Game.getInstance().getController().getFrame().getGrid().at(x, y);
+        return Controller.getInstance().getFrame().getGrid().at(x, y);
     }
 }

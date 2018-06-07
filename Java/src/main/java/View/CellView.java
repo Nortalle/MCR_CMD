@@ -1,5 +1,6 @@
 package View;
 
+import Controler.Controller;
 import Model.Cell;
 import Model.Game;
 import Model.Unit;
@@ -19,6 +20,8 @@ public class CellView extends JPanel implements MouseListener {
     static final Color BG_DARK = new Color(210, 210, 210);
     static final Color BG_HOVER = new Color(255, 255, 0);
     static final Color BG_SELECTED = new Color(0, 207, 255);
+
+    private Game game;
 
     private Color bgColor;
 
@@ -58,6 +61,8 @@ public class CellView extends JPanel implements MouseListener {
 
     public CellView(int x, int y) {
 
+        this.game = Controller.getInstance().game();
+
         this.x = x;
         this.y = y;
 
@@ -90,11 +95,11 @@ public class CellView extends JPanel implements MouseListener {
     }
 
     public void mouseClicked(MouseEvent mouseEvent) {
-        Cell prevSelected = Game.getInstance().getSelected();
-        Game.getInstance().setSelected(Game.getInstance().getMap().getCell(x, y));
+        Cell prevSelected = game.getSelected();
+        game.setSelected(game.getMap().getCell(x, y));
         if (prevSelected != null)
-            Game.getInstance().getController().getFrame().getGrid().at(prevSelected.x, prevSelected.y).setColor();
-        Game.getInstance().getController().getFrame().update();
+            Controller.getInstance().getFrame().getGrid().at(prevSelected.x, prevSelected.y).setColor();
+        Controller.getInstance().getFrame().update();
     }
 
     public void mousePressed(MouseEvent mouseEvent) {
@@ -109,7 +114,7 @@ public class CellView extends JPanel implements MouseListener {
 
     public void mouseExited(MouseEvent mouseEvent) {
 
-        if (Game.getInstance().isSelected(x, y)) {
+        if (game.isSelected(x, y)) {
             setBackground(BG_SELECTED);
         } else {
             setBackground(bgColor);
@@ -117,7 +122,7 @@ public class CellView extends JPanel implements MouseListener {
     }
 
     public void setColor() {
-        if (Game.getInstance().isSelected(x, y)) {
+        if (game.isSelected(x, y)) {
             setBackground(BG_SELECTED);
         } else {
             setBackground(bgColor);
@@ -137,6 +142,6 @@ public class CellView extends JPanel implements MouseListener {
     }
 
     public Cell getCorrespondingCell() {
-        return Game.getInstance().getMap().getCell(x, y);
+        return game.getMap().getCell(x, y);
     }
 }
