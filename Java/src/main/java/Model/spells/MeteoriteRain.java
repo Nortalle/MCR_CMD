@@ -30,10 +30,10 @@ public class MeteoriteRain extends Spell {
                             int y;
                             do{
                                 x = random.nextInt(distanceMax);
-                            }while((Game.getInstance().selected().x + x) > Game.getInstance().getMap().width());
+                            }while((Game.getInstance().getSelected().x + x) > Game.getInstance().getMap().width());
                             do{
                                 y = random.nextInt(distanceMax);
-                            }while((Game.getInstance().selected().y + y) > Game.getInstance().getMap().height());
+                            }while((Game.getInstance().getSelected().y + y) > Game.getInstance().getMap().height());
                             Cell c = attackCell(0,0,100);
                             if(c != null){touchedCells.add(c);}
                             c = attackCell(1,0,100);

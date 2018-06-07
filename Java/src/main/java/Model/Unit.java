@@ -25,6 +25,7 @@ public abstract class Unit implements ICard {
     protected Unit(int hpMax, int speed, Cell startPos){
         Unit.this.speed = speed;
         this.hpMax = hpMax;
+        this.hp = hpMax;
         this.currentCell = startPos;
         startPos.setContent(this);
 
@@ -39,7 +40,7 @@ public abstract class Unit implements ICard {
                 return new ICmd() {
 
                     // récupère la case sélectionnée au moment ou on crée la commande
-                    Cell destination = Game.getInstance().selected();
+                    Cell destination = Game.getInstance().getSelected();
 
                     Cell depart = currentCell;
 
@@ -124,7 +125,7 @@ public abstract class Unit implements ICard {
             }
             @Override
             public String toString() {
-                return "Move towards cell " + Game.getInstance().selected();
+                return "Move towards cell " + Game.getInstance().getSelected();
             }
         });
 
@@ -196,11 +197,11 @@ public abstract class Unit implements ICard {
     }
 
     protected int deltaXToCursor(){
-        return Game.getInstance().selected().x - currentCell.x;
+        return Game.getInstance().getSelected().x - currentCell.x;
     }
 
     protected int deltaYToCursor(){
-        return Game.getInstance().selected().y - currentCell.y;
+        return Game.getInstance().getSelected().y - currentCell.y;
     }
 
     @Override

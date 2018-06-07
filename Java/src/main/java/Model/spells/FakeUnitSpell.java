@@ -16,9 +16,9 @@ public class FakeUnitSpell extends Spell {
 
                     public void execute() {
                         FakeUnit fu = new FakeUnit(Game.getInstance().getSelected());
-                        if(Game.getInstance().selected().getCellContents() != null){
-                            Game.getInstance().selected().setContent(fu);
-                            c = Game.getInstance().selected();
+                        if(Game.getInstance().getSelected().getCellContents() != null){
+                            Game.getInstance().getSelected().setContent(fu);
+                            c = Game.getInstance().getSelected();
                         } else {
                             System.out.println("The fake unit couldn't be add");
                         }

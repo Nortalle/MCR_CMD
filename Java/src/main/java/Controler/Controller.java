@@ -16,8 +16,6 @@ public class Controller {
 
     private Frame frame;
 
-    private boolean isFinished;
-
     private static final int maxAction = 5;
 
     public Controller() {
@@ -36,12 +34,13 @@ public class Controller {
                     game.getMap().getCell(i,j).getCorrespondingCellView().drawUnit();
             }
         }
-        runGame();
     }
 
     public void runGame(){
-        while(!isFinished){
-            
+        startGame();
+        while(!PlayerHasLost(game.getPlayerOne()) && !PlayerHasLost(game.getPlayerTwo())){
+
+            game.nextTurn();
         }
     }
 
