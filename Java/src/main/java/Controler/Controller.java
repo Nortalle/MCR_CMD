@@ -23,12 +23,9 @@ public class Controller {
 
     public Controller() {
         this.game = Game.getInstance();
+        this.map = game.getMap();
         this.player1 = game.getPlayerOne();
         this.player2 = game.getPlayerTwo();
-        this.map = game.getMap();
-    }
-
-    private void startGame(){
 
         //The players get theirs cards
         game.addCardToPlayer(player1, new SteveTheWarrior(map.getCell(0, 3)));
@@ -42,17 +39,16 @@ public class Controller {
         game.addCardToPlayer(player2, new ThePsyCat(map.getCell(map.width()-1, 12)));
 
         this.frame = new Frame(game.getMap().width(), game.getMap().height());
+    }
 
-        //Unit u = (Unit) game.getPlayerOne().getCards().get(0);
-
+    private void startGame(){
         generateMap(game.getMap().width(), game.getMap().height());
-
-        frame.update();
         for(int i = 0; i < game.getMap().width(); ++i){
             for(int j = 0; j < game.getMap().height(); ++j){
-                    game.getMap().getCell(i,j).getCorrespondingCellView().drawUnit();
+                game.getMap().getCell(i,j).getCorrespondingCellView().drawUnit();
             }
         }
+        frame.update();
     }
 
     public void runGame(){
