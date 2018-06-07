@@ -3,14 +3,13 @@ package Model;
 import Controler.Controller;
 
 /**
- * Class Game is a  Singleton that represents the model of the game and contains all the informations about it
+ * Class Game is class that represents the model of the game and contains all the informations about it
  */
 public class Game {
 
     //Limits of the game
     private static int width = 20;
     private static int height = 15;
-    //TODO : est-ce que cette variable fait doublon avec celle du controller?
     public static int nbrActions = 5;
 
     // Steady elements of the game
@@ -23,7 +22,7 @@ public class Game {
     private Cell selected;
 
     /**
-     * Private constructor
+     * Constructor
      */
     public Game() {
         map = new Map(width, height);
@@ -41,15 +40,6 @@ public class Game {
         return map;
     }
 
-    //TODO : Est-ce que cette fonction est utilisée vu qu'on initialise la carte au début et c'est tout?
-    /**
-     * Change the map
-     * @param map, new map
-     */
-    public void setMap(Map map) {
-        this.map = map;
-    }
-
     /**
      * Getter of playerOne
      * @return playerOne
@@ -58,26 +48,12 @@ public class Game {
         return playerOne;
     }
 
-    //TODO : Est-ce que cette fonction est utilisée vu qu'on initialise le playerOne au début et c'est tout?
-    /**
-     * Change the playerOne
-     * @param playerOne
-     */
-    public void setPlayerOne(Player playerOne) {
-        this.playerOne = playerOne;
-    }
-
     /**
      * Getter of playerTwo
      * @return playerTwo
      */
     public Player getPlayerTwo() {
         return playerTwo;
-    }
-
-    //TODO : Est-ce que cette fonction est utilisée vu qu'on initialise le playerTwo au début et c'est tout?
-    public void setPlayerTwo(Player playerTwo) {
-        this.playerTwo = playerTwo;
     }
 
     /**
