@@ -84,6 +84,19 @@ public class Controller {
     }
 
     /**
+     * Run the game until one of the players lose all his units
+     */
+    public void runGame(){
+        startGame();
+        while(!PlayerHasLost(game.getPlayerOne()) && !PlayerHasLost(game.getPlayerTwo())){
+
+            game.nextTurn();
+        }
+        JOptionPane.showMessageDialog(null, "Jeu fini");
+        System.exit(0);
+    }
+
+    /**
      * Getter of Game
      * @return the game
      */
