@@ -19,7 +19,10 @@ public class ActionPanel extends JPanel {
     JPanel actionsPanel = new JPanel();
     JPanel selectedActionsPanel = new JPanel();
     JPanel cachePanel = new JPanel();
+    JPanel lifePanel = new JPanel();
     ArrayList<String> selectedActions = new ArrayList<>();
+
+    Personnages lifeBars;
 
     Player player;
 
@@ -29,6 +32,7 @@ public class ActionPanel extends JPanel {
         actionsPanel.setLayout(new BoxLayout(actionsPanel, BoxLayout.Y_AXIS));
         selectedActionsPanel.setLayout(new BoxLayout(selectedActionsPanel, BoxLayout.Y_AXIS));
         cachePanel.setLayout(new BoxLayout(cachePanel, BoxLayout.Y_AXIS));
+        lifePanel.setLayout(new BoxLayout(lifePanel, BoxLayout.Y_AXIS));
         //actionsPanel.setBackground(Color.GREEN);
         //selectedActionsPanel.setBackground(Color.BLUE);
         contentPanel.add(new Label(title));
@@ -65,6 +69,11 @@ public class ActionPanel extends JPanel {
     public void setPlayer(Player player) {
 
         this.player = player;
+
+        this.lifeBars = new Personnages(player);
+
+        lifePanel.add(lifeBars.getMain_panel());
+        contentPanel.add(lifePanel);
         provideCards(player.getCards());
     }
 
@@ -99,6 +108,7 @@ public class ActionPanel extends JPanel {
     }
 
     public void update() {
+        lifeBars.update();
         displayActions();
         displaySelectedActions();
         repaint();

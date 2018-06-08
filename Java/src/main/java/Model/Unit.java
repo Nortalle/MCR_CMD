@@ -14,7 +14,6 @@ import java.util.function.Function;
  *
  */
 public abstract class Unit implements ICard {
-
     protected int hp;
     protected int hpMax;
     protected int speed;
@@ -208,6 +207,15 @@ public abstract class Unit implements ICard {
     protected int deltaYToCursor(){
         return game.getSelected().y - currentCell.y;
     }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public int getHpMax() {
+        return hpMax;
+    }
+
 
     @Override
     public boolean isAlive(){
