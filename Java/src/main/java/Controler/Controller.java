@@ -81,6 +81,8 @@ public class Controller {
 
             game.nextTurn();
         }
+        JOptionPane.showMessageDialog(null, "Jeu fini");
+        System.exit(0);
     }
 
     /**
