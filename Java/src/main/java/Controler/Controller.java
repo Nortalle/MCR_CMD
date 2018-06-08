@@ -172,6 +172,11 @@ public class Controller {
                 frame.update();
             }
         }).start();
+
+        if(PlayerHasLost(player1) || PlayerHasLost(player2)){
+            JOptionPane.showMessageDialog(null, "Jeu fini");
+            System.exit(0);
+        }
     }
 
 
