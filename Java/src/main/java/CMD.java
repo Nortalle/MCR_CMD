@@ -9,6 +9,6 @@ public class CMD {
         //Launching the game
         Controller controllerGame = Controller.getInstance();
 
-        controllerGame.runGame();
+        controllerGame.startGame();
     }
 }

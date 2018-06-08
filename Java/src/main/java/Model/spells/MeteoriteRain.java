@@ -9,7 +9,7 @@ public class MeteoriteRain extends Spell {
     private Random random;
     private int distanceMax;
 
-    protected MeteoriteRain() {
+    public MeteoriteRain() {
         super();
         random = new Random();
         distanceMax = 5;
@@ -21,11 +21,10 @@ public class MeteoriteRain extends Spell {
                 return new ICmd() {
                     ArrayList<Cell> touchedCells = new ArrayList<Cell>();
                     public void execute() {
-                        if(lastTurnUsed == game.turn()){
-                            System.out.println("No more mana...");
-                            lastTurnUsed = game.turn();
-                            hasBeenExecuted = false;
+                        if(hasBeenExecuted){
+                            noMoreMana();
                         } else {
+                            hasBeenExecuted = true;
                             int x;
                             int y;
                             do{
@@ -44,9 +43,6 @@ public class MeteoriteRain extends Spell {
                             if(c != null){touchedCells.add(c);}
                             c = attackCell(0,-1,100);
                             if(c != null){touchedCells.add(c);}
-
-                            //Enlève les pv de certaines unités
-                            hasBeenExecuted = true;
                         }
                     }
 
@@ -70,6 +66,11 @@ public class MeteoriteRain extends Spell {
             }
         });
 
+    }
+
+    @Override
+    public String toString() {
+        return "Let the meteors fall!";
     }
 
     public String desctiption() {

@@ -1,6 +1,9 @@
 package Controler;
 
 import Model.*;
+import Model.spells.FakeUnitSpell;
+import Model.spells.MeteoriteRain;
+import Model.spells.UndoSpell;
 import Model.units.*;
 import View.Frame;
 
@@ -32,6 +35,7 @@ public class Controller {
         this.map = game.getMap();
         this.player1 = game.getPlayerOne();
         this.player2 = game.getPlayerTwo();
+        previousCmd = null;
     }
 
     /**
@@ -46,7 +50,7 @@ public class Controller {
     }
 
     //Initialise the game
-    private void startGame(){
+    public void startGame(){
 
         //TODO Cette partie devrait être ajoutée au constructeur
         //The players get theirs cards
@@ -54,11 +58,18 @@ public class Controller {
         game.addCardToPlayer(player1, new TheOldCrumbling(map.getCell(0, 6)));
         game.addCardToPlayer(player1, new ThePrestigiousArcher(map.getCell(0, 9)));
         game.addCardToPlayer(player1, new ThePsyCat(map.getCell(0, 12)));
+        game.addCardToPlayer(player1, new MeteoriteRain());
+        game.addCardToPlayer(player1, new UndoSpell());
+        game.addCardToPlayer(player1, new FakeUnitSpell());
+
 
         game.addCardToPlayer(player2, new SteveTheWarrior(map.getCell(map.width()-1, 3)));
         game.addCardToPlayer(player2, new TheOldCrumbling(map.getCell(map.width()-1, 6)));
         game.addCardToPlayer(player2, new ThePrestigiousArcher(map.getCell(map.width()-1, 9)));
         game.addCardToPlayer(player2, new ThePsyCat(map.getCell(map.width()-1, 12)));
+        game.addCardToPlayer(player2, new MeteoriteRain());
+        game.addCardToPlayer(player2, new UndoSpell());
+        game.addCardToPlayer(player2, new FakeUnitSpell());
 
         //TODO Cette initialisation devra se retrouver dans le constructeur une fois la classe Frame refactorée
         this.frame = new Frame(game.getMap().width(), game.getMap().height());
@@ -70,17 +81,6 @@ public class Controller {
             }
         }
         frame.update();
-    }
-
-    /**
-     * Run the game until one of the players lose all his units
-     */
-    public void runGame(){
-        startGame();
-        while(!PlayerHasLost(game.getPlayerOne()) && !PlayerHasLost(game.getPlayerTwo())){
-
-            game.nextTurn();
-        }
     }
 
     /**
@@ -139,22 +139,23 @@ public class Controller {
                             executeMove(player2,i);
                             executeMove(player1,i);
                         }
-                        /*
-                        game.getPlayerOne().getActionsList().get(i).execute();
-                        previousCmd = game.getPlayerOne().getActionsList().get(i);
-                        sleep(500);
-                        frame.update();
-                        game.getPlayerTwo().getActionsList().get(i).execute();
-                        previousCmd = game.getPlayerOne().getActionsList().get(i);
-                        sleep(500);
-                        frame.update();
-                        */
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
-                game.getPlayerOne().getActionsList().clear();
-                game.getPlayerTwo().getActionsList().clear();
+                game.nextTurn();
+                player1.getActionsList().clear();
+                for(ICard c : player1.getCards()){
+                    if(c instanceof Spell){
+                        ((Spell) c).setHasBeenExecuted(false);
+                    }
+                }
+                player1.getActionsList().clear();
+                for(ICard c : player1.getCards()){
+                    if(c instanceof Spell){
+                        ((Spell) c).setHasBeenExecuted(false);
+                    }
+                }
                 frame.update();
             }
         }).start();
@@ -200,14 +201,6 @@ public class Controller {
         }
     }
 
-    public void undoPerviousCmd(){
-        try{
-            previousCmd.undo();
-        }catch(NullPointerException e){
-            e.printStackTrace();
-        }
-    }
-
     public ICmd getPreviousCmd(){
         return previousCmd;
     }
@@ -221,9 +214,14 @@ public class Controller {
     }
 
     private void executeMove(Player p, int actionPos) throws InterruptedException {
-        p.getActionsList().get(actionPos).execute();
-        previousCmd = p.getActionsList().get(actionPos);
-        sleep(500);
+
+        System.out.println("Pred " + previousCmd);
+        ICmd cmd = p.getActionsList().get(actionPos);
+        cmd.execute();
+        previousCmd = cmd;
+        System.out.println("new Pred " + previousCmd);
+        System.out.println("new Curr " + cmd);
+        sleep(2000);
         frame.update();
     }
 

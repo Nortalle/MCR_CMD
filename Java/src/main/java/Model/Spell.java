@@ -52,5 +52,11 @@ public abstract class Spell implements ICard {
         return false;
     }
 
+    protected void noMoreMana(){
+        System.out.println("No more mana for the spell");
+    }
 
+    public void setHasBeenExecuted(boolean hasBeenExecuted) {
+        this.hasBeenExecuted = hasBeenExecuted;
+    }
 }

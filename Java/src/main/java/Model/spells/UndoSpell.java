@@ -1,42 +1,52 @@
 package Model.spells;
 
+import Controler.Controller;
 import Model.Action;
 import Model.Cell;
 import Model.ICmd;
 import Model.Spell;
 
 public class UndoSpell extends Spell {
-    private int maxUse;
-    private int nbUse;
 
 
-    protected UndoSpell() {
+    public UndoSpell() {
         super();
-        maxUse = 3;
-        nbUse = 0;
 
         actions.add(new Action(){
 
             public ICmd createCommand() {
                 return new ICmd() {
+                    ICmd previousCMD = Controller.getInstance().getPreviousCmd();
+
                     public void execute() {
-                        //On effectue le undo de la dernière commande faite par l'adversaire
-                        if(++nbUse == maxUse){
-                            System.out.println("That spell has not more effect");
+                        if(hasBeenExecuted) {
+                            noMoreMana();
+                        }else {
+                            //we save the command
+                            hasBeenExecuted = true;
+                            previousCMD = Controller.getInstance().getPreviousCmd();
+                            if (previousCMD != null) {
+                                previousCMD.undo();
+                            }
                         }
                     }
 
                     public void undo() {
-                        //On redo l'action
+                        previousCMD.execute();
                     }
                 };
             }
 
             public String toString() {
-                return "Undo Action : still " + (maxUse - nbUse) + " spells";
+                return "Undo Action";
             }
 
         });
+    }
+
+    @Override
+    public String toString() {
+        return "Undo Action";
     }
 
     public String desctiption() {
