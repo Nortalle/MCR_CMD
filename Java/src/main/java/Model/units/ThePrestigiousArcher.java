@@ -19,11 +19,11 @@ public class ThePrestigiousArcher extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         shoot(0, 1, 25);
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         cancelShoot(0, 1, 25);
                     }
 
@@ -44,11 +44,11 @@ public class ThePrestigiousArcher extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         shoot(0, -1, 50);
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         cancelShoot(0, -1, 50);
                     }
 
@@ -69,11 +69,11 @@ public class ThePrestigiousArcher extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         shoot(-1, 0, 50);
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         cancelShoot(-1, 0, 50);
                     }
 
@@ -94,11 +94,11 @@ public class ThePrestigiousArcher extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         shoot(1, 0, 50);
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         cancelShoot(1, 0, 50);
                     }
 
@@ -126,14 +126,14 @@ public class ThePrestigiousArcher extends Unit {
         return false;
     }
 
-    private void shoot(int offsetX, int offsetY, int damage) {
+    private void shoot(int offsetX, int offsetY, int damage) throws InterruptedException {
         int distance = 1;
         while (!attackCell(offsetX * distance, offsetY * distance, 25) && distance <= distanceMax) {
             ++distance;
         }
     }
 
-    private void cancelShoot(int offsetX, int offsetY, int damage) {
+    private void cancelShoot(int offsetX, int offsetY, int damage) throws InterruptedException {
         int distance = 1;
         while (!healCell(offsetX * distance, offsetY * distance, 25) && distance <= distanceMax) {
             ++distance;

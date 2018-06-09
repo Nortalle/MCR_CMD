@@ -3,6 +3,7 @@ package Model;
 import Controler.Controller;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -178,20 +179,26 @@ public abstract class Unit implements ICard {
         }
     }
 
-    protected boolean attackCell(int offsetX, int offsetY, int damage){
-        if(currentCell.x + offsetX < game.getMap().width() && currentCell.y + offsetY < game.getMap().height() &&
-                (game.getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents() != null)){
-            game.getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents().takeDamage(damage);
-            return true;
+    protected boolean attackCell(int offsetX, int offsetY, int damage) throws InterruptedException {
+        if(currentCell.x + offsetX < game.getMap().width() && currentCell.y + offsetY < game.getMap().height()) {
+            game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getTouched(Color.RED);
+            if (game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getCellContents() != null) {
+                game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getCellContents().takeDamage(damage);
+                return true;
+            }
+            return false;
         }
         return false;
     }
 
-    protected boolean healCell(int offsetX, int offsetY, int heal){
-        if(currentCell.x + offsetX < game.getMap().width() && currentCell.y + offsetY < game.getMap().height() &&
-                (game.getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents() != null)){
-            game.getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents().takeHeal(heal);
-            return true;
+    protected boolean healCell(int offsetX, int offsetY, int heal) throws InterruptedException {
+        if(currentCell.x + offsetX < game.getMap().width() && currentCell.y + offsetY < game.getMap().height()) {
+            game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getTouched(Color.GREEN);
+            if (game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getCellContents() != null) {
+                game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getCellContents().takeHeal(heal);
+                return true;
+            }
+            return false;
         }
         return false;
     }

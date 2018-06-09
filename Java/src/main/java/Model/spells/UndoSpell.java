@@ -18,7 +18,7 @@ public class UndoSpell extends Spell {
                 return new ICmd() {
                     ICmd previousCMD = Controller.getInstance().getPreviousCmd();
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         if(hasBeenExecuted) {
                             noMoreMana();
                         }else {
@@ -31,7 +31,7 @@ public class UndoSpell extends Spell {
                         }
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         previousCMD.execute();
                     }
                 };

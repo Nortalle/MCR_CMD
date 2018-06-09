@@ -3,6 +3,7 @@ package Model;
 import Controler.Controller;
 import View.CellView;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -33,6 +34,24 @@ public class Cell {
         } else {
             return false;
         }
+    }
+
+    public void getTouched(Color c) throws InterruptedException {
+        CellView cv  = getCorrespondingCellView();
+        Color savedColor = cv.getBgColor();
+        cv.setBgColor(c);
+        if(getCellContents() != null){
+            cv.drawUnit();
+        }
+        changed = true;
+        Controller.getInstance().getFrame().update();
+        Thread.sleep(300);
+        cv.setBgColor(savedColor);
+        if(getCellContents() != null){
+            cv.drawUnit();
+        }
+        changed = true;
+        Controller.getInstance().getFrame().update();
     }
 
     public void setUnchanged(){

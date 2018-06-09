@@ -12,11 +12,11 @@ public class TheOldCrumbling extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         healCell(0, 1, 50);
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         attackCell(0, 1, 50);
                     }
 
@@ -38,11 +38,11 @@ public class TheOldCrumbling extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         healCell(0, -1, 50);
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         attackCell(0, -1, 50);
                     }
 
@@ -63,13 +63,13 @@ public class TheOldCrumbling extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         if(game.getMap().getCell(currentCell.x -1,currentCell.y).getCellContents() != null){
                             healCell(-1, 0, 50);
                         }
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         if(game.getMap().getCell(currentCell.x - 1 ,currentCell.y).getCellContents() != null){
                             attackCell(-1,0,50);
                         }
@@ -93,11 +93,11 @@ public class TheOldCrumbling extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         healCell(1, 0, 50);
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         attackCell(1,0,50);
                     }
 

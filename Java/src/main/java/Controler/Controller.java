@@ -163,8 +163,8 @@ public class Controller {
                         ((Spell) c).setHasBeenExecuted(false);
                     }
                 }
-                player1.getActionsList().clear();
-                for(ICard c : player1.getCards()){
+                player2.getActionsList().clear();
+                for(ICard c : player2.getCards()){
                     if(c instanceof Spell){
                         ((Spell) c).setHasBeenExecuted(false);
                     }

@@ -15,11 +15,11 @@ public class SteveTheWarrior extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         attackCell(0, 1, 50);
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         healCell(0, 1, 50);
                     }
 
@@ -40,11 +40,11 @@ public class SteveTheWarrior extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         attackCell(0, -1, 50);
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         healCell(0, -1, 50);
                     }
 
@@ -65,11 +65,11 @@ public class SteveTheWarrior extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         attackCell(-1, 0, 50);
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         healCell(-1, 0, 50);
                     }
 
@@ -90,11 +90,11 @@ public class SteveTheWarrior extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         attackCell(1, 0, 50);
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         healCell(1, 0, 50);
                     }
 

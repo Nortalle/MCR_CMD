@@ -34,6 +34,14 @@ public class CellView extends JPanel implements MouseListener {
         add(new JLabel(new ImageIcon(classLoader.getResource(path))));
     }
 
+    public void setBgColor(Color bgColor) {
+        this.bgColor = bgColor;
+    }
+
+    public Color getBgColor() {
+        return bgColor;
+    }
+
     public void removeImage(BufferedImage bi) {
         //TODO
         System.err.println("Still not implemented");
@@ -93,6 +101,8 @@ public class CellView extends JPanel implements MouseListener {
 
         return units;
     }
+
+
 
     public void mouseClicked(MouseEvent mouseEvent) {
         Cell prevSelected = game.getSelected();

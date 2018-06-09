@@ -5,7 +5,7 @@ package Model;
  */
 public interface ICmd {
 
-    void execute();
+    void execute() throws InterruptedException;
 
-    void undo();
+    void undo() throws InterruptedException;
 }
