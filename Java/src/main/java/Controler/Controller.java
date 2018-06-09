@@ -54,19 +54,19 @@ public class Controller {
 
         //TODO Cette partie devrait être ajoutée au constructeur
         //The players get theirs cards
-        game.addCardToPlayer(player1, new SteveTheWarrior(map.getCell(0, 3), "Steve", "warr.png"));
-        game.addCardToPlayer(player1, new TheOldCrumbling(map.getCell(0, 6), "Morth", "vieux.png"));
-        game.addCardToPlayer(player1, new ThePrestigiousArcher(map.getCell(0, 9), "Grath", "archer.png"));
-        game.addCardToPlayer(player1, new ThePsyCat(map.getCell(0, 12), "Moutarde", "catsprite.png"));
+        game.addCardToPlayer(player1, new SteveTheWarrior(map.getCell(3, 0), "Steve", "warr.png"));
+        game.addCardToPlayer(player1, new TheOldCrumbling(map.getCell(6, 0), "Morth", "vieux.png"));
+        game.addCardToPlayer(player1, new ThePrestigiousArcher(map.getCell(9, 0), "Grath", "archer.png"));
+        game.addCardToPlayer(player1, new ThePsyCat(map.getCell(12, 0), "Moutarde", "catsprite.png"));
         game.addCardToPlayer(player1, new MeteoriteRain());
         game.addCardToPlayer(player1, new UndoSpell());
         game.addCardToPlayer(player1, new FakeUnitSpell());
 
 
-        game.addCardToPlayer(player2, new SteveTheWarrior(map.getCell(map.width()-1, 3), "Lynda", "warr.png"));
-        game.addCardToPlayer(player2, new TheOldCrumbling(map.getCell(map.width()-1, 6), "Baba", "vieux.png"));
-        game.addCardToPlayer(player2, new ThePrestigiousArcher(map.getCell(map.width()-1, 9), "Sen", "archer.png"));
-        game.addCardToPlayer(player2, new ThePsyCat(map.getCell(map.width()-1, 12), "Podfleur", "catsprite.png"));
+        game.addCardToPlayer(player2, new SteveTheWarrior(map.getCell(3, map.width()-1), "Lynda", "warr2.png"));
+        game.addCardToPlayer(player2, new TheOldCrumbling(map.getCell(6, map.width()-1), "Baba", "vieux2.png"));
+        game.addCardToPlayer(player2, new ThePrestigiousArcher(map.getCell(9, map.width()-1), "Sen", "archer2.png"));
+        game.addCardToPlayer(player2, new ThePsyCat(map.getCell(12, map.width()-1), "Podfleur", "catsprite2.png"));
         game.addCardToPlayer(player2, new MeteoriteRain());
         game.addCardToPlayer(player2, new UndoSpell());
         game.addCardToPlayer(player2, new FakeUnitSpell());
@@ -215,7 +215,7 @@ public class Controller {
         int nbrElements = rand.nextInt(MAX_ELEMENT-MIN_ELEMENT) + MIN_ELEMENT;
 
         for(int i = 0; i < nbrElements; i++){
-            new FakeUnit(game.getMap().getCell(rand.nextInt(columns-2)+1, rand.nextInt(rows)));
+            new FakeUnit(game.getMap().getCell(rand.nextInt(columns), rand.nextInt(rows-2)+1));
         }
     }
 

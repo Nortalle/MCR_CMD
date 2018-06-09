@@ -8,7 +8,7 @@ import Controler.Controller;
 public class Game {
 
     //Limits of the game
-    private static int width = 20;
+    private static int width = 15;
     private static int height = 15;
     public static int nbrActions = 5;
 
