@@ -9,8 +9,8 @@ public class ThePrestigiousArcher extends Unit {
 
     private int distanceMax;
 
-    public ThePrestigiousArcher(Cell start) {
-        super(100, 5, start);
+    public ThePrestigiousArcher(Cell start, String name, String sprite) {
+        super(100, 5, start, name, sprite);
         distanceMax = 4;
 
         actions.add(new Action() {
@@ -142,13 +142,9 @@ public class ThePrestigiousArcher extends Unit {
 
     @Override
     public String toString() {
-        return "The Prestigious Archer";
+        return name + " The Prestigious Archer";
 
     }
 
-    @Override
-    public String getPath() {
-        return "archer.png";
-    }
 
 }

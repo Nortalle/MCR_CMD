@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class SteveTheWarrior extends Unit {
 
 
-    public SteveTheWarrior(Cell start) {
-        super(100, 5, start);
+    public SteveTheWarrior(Cell start, String name, String sprite) {
+        super(100, 5, start, name, sprite);
 
         actions.add(new Action() {
             @Override
@@ -122,12 +122,7 @@ public class SteveTheWarrior extends Unit {
     }
 
     @Override
-    public String getPath() {
-        return "warr.png";
-    }
-
-    @Override
-    public String toString() {
-        return "Steve The Warrior";
+    public String toString(){
+        return name + " The Warrior";
     }
 }

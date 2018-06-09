@@ -54,19 +54,19 @@ public class Controller {
 
         //TODO Cette partie devrait être ajoutée au constructeur
         //The players get theirs cards
-        game.addCardToPlayer(player1, new SteveTheWarrior(map.getCell(0, 3)));
-        game.addCardToPlayer(player1, new TheOldCrumbling(map.getCell(0, 6)));
-        game.addCardToPlayer(player1, new ThePrestigiousArcher(map.getCell(0, 9)));
-        game.addCardToPlayer(player1, new ThePsyCat(map.getCell(0, 12)));
+        game.addCardToPlayer(player1, new SteveTheWarrior(map.getCell(0, 3), "Steve", "warr.png"));
+        game.addCardToPlayer(player1, new TheOldCrumbling(map.getCell(0, 6), "Morth", "vieux.png"));
+        game.addCardToPlayer(player1, new ThePrestigiousArcher(map.getCell(0, 9), "Grath", "archer.png"));
+        game.addCardToPlayer(player1, new ThePsyCat(map.getCell(0, 12), "Moutarde", "catsprite.png"));
         game.addCardToPlayer(player1, new MeteoriteRain());
         game.addCardToPlayer(player1, new UndoSpell());
         game.addCardToPlayer(player1, new FakeUnitSpell());
 
 
-        game.addCardToPlayer(player2, new SteveTheWarrior(map.getCell(map.width()-1, 3)));
-        game.addCardToPlayer(player2, new TheOldCrumbling(map.getCell(map.width()-1, 6)));
-        game.addCardToPlayer(player2, new ThePrestigiousArcher(map.getCell(map.width()-1, 9)));
-        game.addCardToPlayer(player2, new ThePsyCat(map.getCell(map.width()-1, 12)));
+        game.addCardToPlayer(player2, new SteveTheWarrior(map.getCell(map.width()-1, 3), "Lynda", "warr.png"));
+        game.addCardToPlayer(player2, new TheOldCrumbling(map.getCell(map.width()-1, 6), "Baba", "vieux.png"));
+        game.addCardToPlayer(player2, new ThePrestigiousArcher(map.getCell(map.width()-1, 9), "Sen", "archer.png"));
+        game.addCardToPlayer(player2, new ThePsyCat(map.getCell(map.width()-1, 12), "Podfleur", "catsprite.png"));
         game.addCardToPlayer(player2, new MeteoriteRain());
         game.addCardToPlayer(player2, new UndoSpell());
         game.addCardToPlayer(player2, new FakeUnitSpell());

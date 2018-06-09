@@ -4,8 +4,8 @@ import Model.*;
 
 public class TheOldCrumbling extends Unit {
 
-    public TheOldCrumbling(Cell start) {
-        super(100, 3, start);
+    public TheOldCrumbling(Cell start, String name, String sprite) {
+        super(100, 3, start, name, sprite);
 
         actions.add(new Action() {
             @Override
@@ -126,12 +126,8 @@ public class TheOldCrumbling extends Unit {
 
     @Override
     public String toString() {
-        return "The Old Crumbling";
+        return name + " The Healer";
     }
 
-    @Override
-    public String getPath() {
-        return "vieux.png";
-    }
 
 }

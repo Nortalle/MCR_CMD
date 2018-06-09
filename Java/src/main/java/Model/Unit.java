@@ -15,6 +15,8 @@ import java.util.function.Function;
  *
  */
 public abstract class Unit implements ICard {
+    protected String name;
+    private String sprite;
     protected int hp;
     protected int hpMax;
     protected int speed;
@@ -22,11 +24,13 @@ public abstract class Unit implements ICard {
     protected ArrayList<Action> actions;
     protected Game game = Controller.getInstance().game();
 
-    protected Unit(int hpMax, int speed, Cell startPos){
+    protected Unit(int hpMax, int speed, Cell startPos, String name, String sprite){
         Unit.this.speed = speed;
         this.hpMax = hpMax;
         this.hp = hpMax;
         this.currentCell = startPos;
+        this.name = name;
+        this.sprite = sprite;
         startPos.setContent(this);
 
         actions = new ArrayList<>();
@@ -140,14 +144,18 @@ public abstract class Unit implements ICard {
         currentCell.getCorrespondingCellView().drawUnit();
     }
 
+    /*
     public BufferedImage getSprite() throws IOException {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource(getPath()).getFile());
         BufferedImage bf = ImageIO.read(file);
         return bf;
     }
+    */
 
-    abstract public String getPath();
+    public String getPath(){
+        return sprite;
+    }
 
     public Cell getCurrentCell() {
         return currentCell;

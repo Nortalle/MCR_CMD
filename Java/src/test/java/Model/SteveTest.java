@@ -20,6 +20,7 @@ public class SteveTest {
     void getInstance() {
     }
 
+    /*
     @Test
     public void createSteve(){
         SteveTheWarrior stw = new SteveTheWarrior(Controller.getInstance().game().getMap().getCell(0,0));
@@ -36,6 +37,7 @@ public class SteveTest {
             e.printStackTrace();
         }
     }
+    */
 
     /*
     @Test

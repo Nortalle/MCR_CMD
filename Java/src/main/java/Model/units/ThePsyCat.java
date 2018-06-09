@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class ThePsyCat extends Unit {
 
-    public ThePsyCat(Cell start) {
-        super(200, 3, start);
+    public ThePsyCat(Cell start, String name, String sprite) {
+        super(200, 3, start, name, sprite);
 
         actions.add(new Action() {
             @Override
@@ -65,11 +65,7 @@ public class ThePsyCat extends Unit {
 
     @Override
     public String toString() {
-        return "The Psy Cat";
+        return name + " The Cat";
     }
 
-    @Override
-    public String getPath() {
-        return "catsprite.png";
-    }
 }

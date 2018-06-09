@@ -10,7 +10,7 @@ public class FakeUnit extends Unit {
     private final String path;
 
     public FakeUnit(Cell start) {
-        super(1, 0, start);
+        super(1, 0, start, "", "");
         Random rand = new Random();
 
         if ((rand.nextInt(2) + 1) % 2 == 0) {
