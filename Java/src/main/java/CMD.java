@@ -1,37 +1,14 @@
-import Model.Game;
-import Model.Map;
-import Model.Player;
-import Model.units.SteveTheWarrior;
-import Model.units.TheOldCrumbling;
-import Model.units.ThePrestigiousArcher;
-import Model.units.ThePsyCat;
-import View.Frame;
+import Controler.Controller;
 
+/**
+ * Class used to launch the game
+ */
 public class CMD {
 
     public static void main(String[] args) {
+        //Launching the game
+        Controller controllerGame = Controller.getInstance();
 
-        final int width = 20;
-
-        Game game = Game.getInstance();
-        game.init();
-
-        Player player1 = game.getPlayerOne();
-        Player player2 = game.getPlayerTwo();
-
-        game.addCardToPlayer(player1, new SteveTheWarrior());
-        game.addCardToPlayer(player1, new TheOldCrumbling());
-        game.addCardToPlayer(player1, new ThePrestigiousArcher());
-        game.addCardToPlayer(player1, new ThePsyCat());
-
-        game.addCardToPlayer(player2, new SteveTheWarrior());
-        game.addCardToPlayer(player2, new TheOldCrumbling());
-        game.addCardToPlayer(player2, new ThePrestigiousArcher());
-        game.addCardToPlayer(player2, new ThePsyCat());
-
-        game.setMap(new Map(20, 15));
-
-        game.getController().startGame();
-
+        controllerGame.startGame();
     }
 }

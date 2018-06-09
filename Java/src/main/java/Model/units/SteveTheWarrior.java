@@ -7,27 +7,32 @@ import java.util.ArrayList;
 public class SteveTheWarrior extends Unit {
 
 
-    public SteveTheWarrior() {
-        super(100, 5);
+    public SteveTheWarrior(Cell start) {
+        super(100, 5, start);
 
         actions.add(new Action() {
             @Override
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         attackCell(0, 1, 50);
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         healCell(0, 1, 50);
+                    }
+
+                    @Override
+                    public String toString() {
+                        return "Swing sword right";
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Swing sword up";
+                return "Swing sword right";
             }
         });
         actions.add(new Action() {
@@ -35,32 +40,17 @@ public class SteveTheWarrior extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         attackCell(0, -1, 50);
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         healCell(0, -1, 50);
                     }
-                };
-            }
 
-            @Override
-            public String toString() {
-                return "Swing sword down";
-            }
-        });
-        actions.add(new Action() {
-            @Override
-            public ICmd createCommand() {
-                return new ICmd() {
-
-                    public void execute() {
-                        attackCell(-1, 0, 50);
-                    }
-
-                    public void undo() {
-                        healCell(-1, 0, 50);
+                    @Override
+                    public String toString() {
+                        return "Swing sword left";
                     }
                 };
             }
@@ -75,19 +65,49 @@ public class SteveTheWarrior extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
-                        attackCell(1, 0, 50);
+                    public void execute() throws InterruptedException {
+                        attackCell(-1, 0, 50);
                     }
 
-                    public void undo() {
-                        healCell(1, 0, 50);
+                    public void undo() throws InterruptedException {
+                        healCell(-1, 0, 50);
+                    }
+
+                    @Override
+                    public String toString() {
+                        return "Swing sword up";
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Swing sword right";
+                return "Swing sword up";
+            }
+        });
+        actions.add(new Action() {
+            @Override
+            public ICmd createCommand() {
+                return new ICmd() {
+
+                    public void execute() throws InterruptedException {
+                        attackCell(1, 0, 50);
+                    }
+
+                    public void undo() throws InterruptedException {
+                        healCell(1, 0, 50);
+                    }
+
+                    @Override
+                    public String toString() {
+                        return "Swing sword down";
+                    }
+                };
+            }
+
+            @Override
+            public String toString() {
+                return "Swing sword down";
             }
         });
     }

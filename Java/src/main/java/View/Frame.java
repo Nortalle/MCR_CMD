@@ -1,11 +1,14 @@
 package View;
 
+import Controler.Controller;
 import Model.*;
+import Model.units.FakeUnit;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
 public class Frame {
 
     static final int PANEL_LEFT     = 1;
@@ -19,10 +22,11 @@ public class Frame {
     JFrame guiFrame = new JFrame();
 
     public Frame(int columns, int rows) {
+        Game game = Controller.getInstance().game();
 
         grid = new Grid(columns, rows);
 
-        guiFrame.setSize(1000,600);
+        guiFrame.setSize(1000,700);
         guiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         guiFrame.setTitle("CMD MCR");
 
@@ -30,14 +34,40 @@ public class Frame {
         guiFrame.getContentPane().add(grid, BorderLayout.CENTER);
         guiFrame.getContentPane().add(panelRight, BorderLayout.LINE_END);
 
-        updateCards(PANEL_LEFT, Game.getInstance().getPlayerOne());
-        updateCards(PANEL_RIGHT, Game.getInstance().getPlayerTwo());
+        updateCards(PANEL_LEFT, game.getPlayerOne());
+        updateCards(PANEL_RIGHT, game.getPlayerTwo());
+
+        final JButton update = new JButton("UPDATE");
+        update.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                update();
+            }
+        });
+        guiFrame.getContentPane().add(update, BorderLayout.SOUTH);
+        JButton play = new JButton("PLAY");
+        play.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Controller.getInstance().executeAllCommands();
+            }
+        });
+        guiFrame.getContentPane().add(play, BorderLayout.NORTH);
+
+
 
         guiFrame.setVisible(true);
+        update();
     }
 
     public void repaintAll(){
         guiFrame.getContentPane().repaint();
+    }
+
+    public void update(){
+        grid.update();
+        panelLeft.update();
+        panelRight.update();
     }
 
     public void updateCards(int side, Player player) {
@@ -53,4 +83,6 @@ public class Frame {
     public Grid getGrid() {
         return grid;
     }
+
+
 }

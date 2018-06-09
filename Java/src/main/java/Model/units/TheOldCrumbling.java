@@ -4,27 +4,32 @@ import Model.*;
 
 public class TheOldCrumbling extends Unit {
 
-    public TheOldCrumbling() {
-        super(100, 3);
+    public TheOldCrumbling(Cell start) {
+        super(100, 3, start);
 
         actions.add(new Action() {
             @Override
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         healCell(0, 1, 50);
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         attackCell(0, 1, 50);
+                    }
+
+                    @Override
+                    public String toString() {
+                        return "Heal right";
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Heal up";
+                return "Heal right";
             }
         });
 
@@ -33,36 +38,17 @@ public class TheOldCrumbling extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         healCell(0, -1, 50);
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         attackCell(0, -1, 50);
                     }
-                };
-            }
 
-            @Override
-            public String toString() {
-                return "Heal down";
-            }
-        });
-        actions.add(new Action() {
-            @Override
-            public ICmd createCommand() {
-                return new ICmd() {
-
-                    public void execute() {
-                        if(Game.getInstance().getMap().getCell(currentCell.x -1,currentCell.y).getCellContents() != null){
-                            healCell(-1, 0, 50);
-                        }
-                    }
-
-                    public void undo() {
-                        if(Game.getInstance().getMap().getCell(currentCell.x - 1 ,currentCell.y).getCellContents() != null){
-                            attackCell(-1,0,50);
-                        }
+                    @Override
+                    public String toString() {
+                        return "Heal left";
                     }
                 };
             }
@@ -77,19 +63,55 @@ public class TheOldCrumbling extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
-                    public void execute() {
-                        healCell(1, 0, 50);
+                    public void execute() throws InterruptedException {
+                        if(game.getMap().getCell(currentCell.x -1,currentCell.y).getCellContents() != null){
+                            healCell(-1, 0, 50);
+                        }
                     }
 
-                    public void undo() {
-                        attackCell(1,0,50);
+                    public void undo() throws InterruptedException {
+                        if(game.getMap().getCell(currentCell.x - 1 ,currentCell.y).getCellContents() != null){
+                            attackCell(-1,0,50);
+                        }
+                    }
+
+
+                    @Override
+                    public String toString() {
+                        return "Heal up";
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Heal right";
+                return "Heal up";
+            }
+        });
+        actions.add(new Action() {
+            @Override
+            public ICmd createCommand() {
+                return new ICmd() {
+
+                    public void execute() throws InterruptedException {
+                        healCell(1, 0, 50);
+                    }
+
+                    public void undo() throws InterruptedException {
+                        attackCell(1,0,50);
+                    }
+
+
+                    @Override
+                    public String toString() {
+                        return "Heal up";
+                    }
+                };
+            }
+
+            @Override
+            public String toString() {
+                return "Heal up";
             }
         });
     }

@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class ThePsyCat extends Unit {
 
-    public ThePsyCat() {
-        super(200, 3);
+    public ThePsyCat(Cell start) {
+        super(200, 3, start);
 
         actions.add(new Action() {
             @Override
@@ -16,7 +16,7 @@ public class ThePsyCat extends Unit {
                     Random random = new Random();
                     boolean lastActionWasAnAttack = false;
 
-                    public void execute() {
+                    public void execute() throws InterruptedException {
                         if(random.nextInt(4) < 3){
                             System.out.println("Maour... This is not very efficient");
                             lastActionWasAnAttack = false;
@@ -29,7 +29,7 @@ public class ThePsyCat extends Unit {
                         }
                     }
 
-                    public void undo() {
+                    public void undo() throws InterruptedException {
                         if(lastActionWasAnAttack){
                             healCell(1,0,25);
                             healCell(-1, 0, 25);
@@ -39,6 +39,11 @@ public class ThePsyCat extends Unit {
                             System.out.println("Ronron...Really? What do you want to undo?");
                         }
 
+                    }
+
+                    @Override
+                    public String toString() {
+                        return "Attack!";
                     }
                 };
             }
@@ -65,6 +70,6 @@ public class ThePsyCat extends Unit {
 
     @Override
     public String getPath() {
-        return "catsprite.jpg";
+        return "catsprite.png";
     }
 }

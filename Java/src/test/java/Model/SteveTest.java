@@ -1,5 +1,6 @@
 package Model;
 
+import Controler.Controller;
 import Model.units.SteveTheWarrior;
 import org.junit.jupiter.api.Test;
 
@@ -21,13 +22,13 @@ public class SteveTest {
 
     @Test
     public void createSteve(){
-        SteveTheWarrior stw = new SteveTheWarrior();
+        SteveTheWarrior stw = new SteveTheWarrior(Controller.getInstance().game().getMap().getCell(0,0));
         assertNotNull(stw);
     }
 
     @Test
     public void getSprite(){
-        SteveTheWarrior stw = new SteveTheWarrior();
+        SteveTheWarrior stw = new SteveTheWarrior(Controller.getInstance().game().getMap().getCell(0,0));
         try {
             BufferedImage b = stw.getSprite();
             assertNotNull(b);

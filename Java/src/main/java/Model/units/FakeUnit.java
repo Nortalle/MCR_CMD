@@ -3,10 +3,21 @@ package Model.units;
 import Model.Cell;
 import Model.Unit;
 
+import java.util.Random;
+
 public class FakeUnit extends Unit {
 
-    public FakeUnit() {
-        super(100, 0);
+    private final String path;
+
+    public FakeUnit(Cell start) {
+        super(1, 0, start);
+        Random rand = new Random();
+
+        if ((rand.nextInt(2) + 1) % 2 == 0) {
+            path = "tree.png";
+        } else {
+            path = "rockart.png";
+        }
     }
 
     public String desctiption() {
@@ -18,8 +29,8 @@ public class FakeUnit extends Unit {
     }
 
     @Override
-    public String getPath(){
-        return "tree.png";
+    public String getPath() {
+        return path;
     }
 
     public String toString() {

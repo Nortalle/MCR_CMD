@@ -1,30 +1,35 @@
 package Model;
 
+import Controler.Controller;
+
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.function.Function;
 
 /**
  * @author Vincent Guidoux
  *
  */
 public abstract class Unit implements ICard {
-
     protected int hp;
     protected int hpMax;
-
     protected int speed;
-
     protected Cell currentCell;
-
     protected ArrayList<Action> actions;
+    protected Game game = Controller.getInstance().game();
 
-    protected Unit(int hpMax, int speed){
+    protected Unit(int hpMax, int speed, Cell startPos){
         Unit.this.speed = speed;
         this.hpMax = hpMax;
-        actions = new ArrayList<Action>();
+        this.hp = hpMax;
+        this.currentCell = startPos;
+        startPos.setContent(this);
+
+        actions = new ArrayList<>();
 
         // Ajout de l'action de déplacement en direction de la case sélectionnée
         actions.add(new Action() {
@@ -35,58 +40,104 @@ public abstract class Unit implements ICard {
                 return new ICmd() {
 
                     // récupère la case sélectionnée au moment ou on crée la commande
-                    Cell destination = Game.getInstance().selected();
+                    Cell destination = game.getSelected();
 
                     Cell depart = currentCell;
+
+                    public boolean moveX(int i) {
+                        boolean b = false;
+                        if(i > 0) b = moveNorth();
+                        else if(i < 0) b = moveSouth();
+                        return b;
+                    }
+
+                    public boolean moveY(int i) {
+                        boolean b = false;
+                        if(i > 0) b = moveEast();
+                        else if(i < 0) b = moveWest();
+                        return b;
+                    }
+
+                    public boolean moveNorth() {
+                        return move(game.getMap().getCell(currentCell.x + 1, currentCell.y));
+                    }
+
+                    public boolean moveSouth() {
+                        return move(game.getMap().getCell(currentCell.x - 1, currentCell.y));
+                    }
+
+                    public boolean moveEast() {
+                        return move(game.getMap().getCell(currentCell.x, currentCell.y + 1));
+                    }
+
+                    public boolean moveWest() {
+                        return move(game.getMap().getCell(currentCell.x, currentCell.y - 1));
+                    }
 
                     public void execute() {
 
                         // tant qu'on peut avancer et que on est pas arrivé à destination
-                        for(int i = 0; i < Unit.this.speed || destination != currentCell; i++){
+                        for(int i = 0; i < Unit.this.speed && destination != currentCell; i++){
                             int deltaX = destination.x - currentCell.x;
                             int deltaY = destination.y - currentCell.y;
 
-                            // axe X est le plus loin on va aller en direction de X en premier
-                            if(Math.abs(deltaX) > Math.abs(deltaY)){
+                            if(Math.abs(deltaX) > Math.abs(deltaY)) {
+                                if(!moveX(deltaX)) {
+                                    moveY(deltaY);
+                                }
+                            } else {
+                                if(!moveY(deltaY)) {
+                                    moveX(deltaX);
+                                }
+                            }
 
+                            // axe X est le plus loin on va aller en direction de X en premier
+                            /*if(Math.abs(deltaX) > Math.abs(deltaY)){
                                 if(deltaX > 0){
                                     if(!move(Game.getInstance().getMap().getCell(currentCell.x + 1, currentCell.y))){
-                                        break;      // interrupton du déplacement qui a échoué
+                                        break;// interrupton du déplacement qui a échoué
                                     }
                                 } else {
                                     if(!move(Game.getInstance().getMap().getCell(currentCell.x - 1, currentCell.y))){
-                                        break;      // interrupton du déplacement qui a échoué
+                                        break;// interrupton du déplacement qui a échoué
                                     }
                                 }
-
                             }
                             // sinon on va bouger sur Y
                             else {
-
                                 if(deltaY > 0){
                                     if(!move(Game.getInstance().getMap().getCell(currentCell.x, currentCell.y + 1))){
-                                        break;      // interrupton du déplacement qui a échoué
+                                        break;// interrupton du déplacement qui a échoué
                                     }
                                 } else {
                                     if(!move(Game.getInstance().getMap().getCell(currentCell.x, currentCell.y - 1))){
-                                        break;      // interrupton du déplacement qui a échoué
+                                        break;// interrupton du déplacement qui a échoué
                                     }
                                 }
-                            }
+                            }*/
                         }
                     }
 
                     public void undo() {
                         move(depart);   // on se téléporte au départ
                     }
+
+                    @Override
+                    public String toString() {
+                        return "Move towards cell " + game.getSelected();
+                    }
                 };
             }
             @Override
             public String toString() {
-                return "Move towards cell " + Game.getInstance().selected();
+                return "Move towards cell " + game.getSelected();
             }
         });
 
+    }
+
+    public void displayUnit(){
+        currentCell.getCorrespondingCellView().drawUnit();
     }
 
     public BufferedImage getSprite() throws IOException {
@@ -98,6 +149,9 @@ public abstract class Unit implements ICard {
 
     abstract public String getPath();
 
+    public Cell getCurrentCell() {
+        return currentCell;
+    }
 
     protected boolean move(Cell c){
         if(c.setContent(Unit.this)){
@@ -125,20 +179,26 @@ public abstract class Unit implements ICard {
         }
     }
 
-    protected boolean attackCell(int offsetX, int offsetY, int damage){
-        if(currentCell.x + offsetX <= Game.getInstance().getMap().width() && currentCell.y + offsetY <= Game.getInstance().getMap().height() &&
-                (Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents() != null)){
-            Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents().takeDamage(damage);
-            return true;
+    protected boolean attackCell(int offsetX, int offsetY, int damage) throws InterruptedException {
+        if(currentCell.x + offsetX < game.getMap().width() && currentCell.y + offsetY < game.getMap().height()) {
+            game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getTouched(Color.RED);
+            if (game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getCellContents() != null) {
+                game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getCellContents().takeDamage(damage);
+                return true;
+            }
+            return false;
         }
         return false;
     }
 
-    protected boolean healCell(int offsetX, int offsetY, int heal){
-        if(currentCell.x + offsetX <= Game.getInstance().getMap().width() && currentCell.y + offsetY <= Game.getInstance().getMap().height() &&
-                (Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents() != null)){
-            Game.getInstance().getMap().getCell(currentCell.x + offsetX,currentCell.y + offsetY).getCellContents().takeHeal(heal);
-            return true;
+    protected boolean healCell(int offsetX, int offsetY, int heal) throws InterruptedException {
+        if(currentCell.x + offsetX < game.getMap().width() && currentCell.y + offsetY < game.getMap().height()) {
+            game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getTouched(Color.GREEN);
+            if (game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getCellContents() != null) {
+                game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getCellContents().takeHeal(heal);
+                return true;
+            }
+            return false;
         }
         return false;
     }
@@ -148,12 +208,21 @@ public abstract class Unit implements ICard {
     }
 
     protected int deltaXToCursor(){
-        return Game.getInstance().selected().x - currentCell.x;
+        return game.getSelected().x - currentCell.x;
     }
 
     protected int deltaYToCursor(){
-        return Game.getInstance().selected().y - currentCell.y;
+        return game.getSelected().y - currentCell.y;
     }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public int getHpMax() {
+        return hpMax;
+    }
+
 
     @Override
     public boolean isAlive(){
