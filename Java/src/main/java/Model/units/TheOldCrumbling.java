@@ -12,6 +12,11 @@ public class TheOldCrumbling extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
+                    @Override
+                    public boolean condition() throws InterruptedException {
+                        return hp > 0;
+                    }
+
                     public void execute() throws InterruptedException {
                         healCell(0, 1, 50);
                     }
@@ -38,6 +43,12 @@ public class TheOldCrumbling extends Unit {
             public ICmd createCommand() {
                 return new ICmd() {
 
+
+                    @Override
+                    public boolean condition() throws InterruptedException {
+                        return hp > 0;
+                    }
+
                     public void execute() throws InterruptedException {
                         healCell(0, -1, 50);
                     }
@@ -62,6 +73,12 @@ public class TheOldCrumbling extends Unit {
             @Override
             public ICmd createCommand() {
                 return new ICmd() {
+
+
+                    @Override
+                    public boolean condition() throws InterruptedException {
+                        return hp > 0;
+                    }
 
                     public void execute() throws InterruptedException {
                         if(game.getMap().getCell(currentCell.x -1,currentCell.y).getCellContents() != null){
@@ -92,6 +109,12 @@ public class TheOldCrumbling extends Unit {
             @Override
             public ICmd createCommand() {
                 return new ICmd() {
+
+
+                    @Override
+                    public boolean condition() throws InterruptedException {
+                        return hp > 0;
+                    }
 
                     public void execute() throws InterruptedException {
                         healCell(1, 0, 50);

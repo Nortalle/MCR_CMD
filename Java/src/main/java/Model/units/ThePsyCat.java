@@ -16,6 +16,11 @@ public class ThePsyCat extends Unit {
                     Random random = new Random();
                     boolean lastActionWasAnAttack = false;
 
+                    @Override
+                    public boolean condition() throws InterruptedException {
+                        return hp > 0;
+                    }
+
                     public void execute() throws InterruptedException {
                         if(random.nextInt(4) < 3){
                             System.out.println("Maour... This is not very efficient");

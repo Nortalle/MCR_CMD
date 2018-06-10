@@ -78,6 +78,11 @@ public abstract class Unit implements ICard {
                         return move(game.getMap().getCell(currentCell.x, currentCell.y - 1));
                     }
 
+                    @Override
+                    public boolean condition() throws InterruptedException {
+                        return hp > 0;
+                    }
+
                     public void execute() {
 
                         // tant qu'on peut avancer et que on est pas arrivé à destination

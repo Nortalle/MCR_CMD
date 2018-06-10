@@ -18,6 +18,11 @@ public class FakeUnitSpell extends Spell {
                         System.out.println(c.x + ":" + c.y);
                     }
 
+                    @Override
+                    public boolean condition() throws InterruptedException {
+                        return true;
+                    }
+
                     public void execute() {
                         if(hasBeenExecuted){
                             noMoreMana();

@@ -211,7 +211,9 @@ public class Controller {
     private void executeMove(Player p, int actionPos) throws InterruptedException {
         System.out.println("Pred " + previousCmd);
         ICmd cmd = p.getActionsList().get(actionPos);
-        cmd.execute();
+        if(cmd.condition()){
+            cmd.execute();
+        }
         previousCmd = cmd;
         System.out.println("new Pred " + previousCmd);
         System.out.println("new Curr " + cmd);

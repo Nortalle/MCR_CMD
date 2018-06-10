@@ -20,6 +20,13 @@ public class MeteoriteRain extends Spell {
 
                 return new ICmd() {
                     ArrayList<Cell> touchedCells = new ArrayList<>();
+
+
+                    @Override
+                    public boolean condition() throws InterruptedException {
+                        return true;
+                    }
+
                     public void execute() {
                         if(hasBeenExecuted){
                             noMoreMana();

@@ -18,6 +18,11 @@ public class UndoSpell extends Spell {
                 return new ICmd() {
                     ICmd previousCMD = Controller.getInstance().getPreviousCmd();
 
+                    @Override
+                    public boolean condition() throws InterruptedException {
+                        return true;
+                    }
+
                     public void execute() throws InterruptedException {
                         if(hasBeenExecuted) {
                             noMoreMana();
@@ -25,7 +30,7 @@ public class UndoSpell extends Spell {
                             //we save the command
                             hasBeenExecuted = true;
                             previousCMD = Controller.getInstance().getPreviousCmd();
-                            if (previousCMD != null) {
+                            if (previousCMD != null && previousCMD.condition()) {
                                 previousCMD.undo();
                             }
                         }
