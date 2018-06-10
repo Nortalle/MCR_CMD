@@ -14,17 +14,16 @@ import java.util.List;
 
 public class ActionPanel extends JPanel {
 
-    JComboBox cardJComboBox = new JComboBox();
-    JPanel contentPanel = new JPanel();
-    JPanel actionsPanel = new JPanel();
-    JPanel selectedActionsPanel = new JPanel();
-    JPanel cachePanel = new JPanel();
-    JPanel lifePanel = new JPanel();
-    ArrayList<String> selectedActions = new ArrayList<>();
+    private JComboBox cardJComboBox = new JComboBox();
+    private JPanel contentPanel = new JPanel();
+    private JPanel actionsPanel = new JPanel();
+    private JPanel selectedActionsPanel = new JPanel();
+    private JPanel cachePanel = new JPanel();
+    private JPanel lifePanel = new JPanel();
 
-    Personnages lifeBars;
+    private Personnages lifeBars;
 
-    Player player;
+    private Player player;
 
     public ActionPanel(String title) {
 
@@ -33,8 +32,6 @@ public class ActionPanel extends JPanel {
         selectedActionsPanel.setLayout(new BoxLayout(selectedActionsPanel, BoxLayout.Y_AXIS));
         cachePanel.setLayout(new BoxLayout(cachePanel, BoxLayout.Y_AXIS));
         lifePanel.setLayout(new BoxLayout(lifePanel, BoxLayout.Y_AXIS));
-        //actionsPanel.setBackground(Color.GREEN);
-        //selectedActionsPanel.setBackground(Color.BLUE);
         contentPanel.add(new Label(title));
         contentPanel.add(cardJComboBox);
         contentPanel.add(actionsPanel);

@@ -19,7 +19,7 @@ public class MeteoriteRain extends Spell {
             public ICmd createCommand() {
 
                 return new ICmd() {
-                    ArrayList<Cell> touchedCells = new ArrayList<Cell>();
+                    ArrayList<Cell> touchedCells = new ArrayList<>();
                     public void execute() {
                         if(hasBeenExecuted){
                             noMoreMana();

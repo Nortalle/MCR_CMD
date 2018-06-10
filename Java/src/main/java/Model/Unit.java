@@ -48,33 +48,33 @@ public abstract class Unit implements ICard {
 
                     Cell depart = currentCell;
 
-                    public boolean moveX(int i) {
+                    private boolean moveX(int i) {
                         boolean b = false;
                         if(i > 0) b = moveNorth();
                         else if(i < 0) b = moveSouth();
                         return b;
                     }
 
-                    public boolean moveY(int i) {
+                    private boolean moveY(int i) {
                         boolean b = false;
                         if(i > 0) b = moveEast();
                         else if(i < 0) b = moveWest();
                         return b;
                     }
 
-                    public boolean moveNorth() {
+                    private boolean moveNorth() {
                         return move(game.getMap().getCell(currentCell.x + 1, currentCell.y));
                     }
 
-                    public boolean moveSouth() {
+                    private boolean moveSouth() {
                         return move(game.getMap().getCell(currentCell.x - 1, currentCell.y));
                     }
 
-                    public boolean moveEast() {
+                    private boolean moveEast() {
                         return move(game.getMap().getCell(currentCell.x, currentCell.y + 1));
                     }
 
-                    public boolean moveWest() {
+                    private boolean moveWest() {
                         return move(game.getMap().getCell(currentCell.x, currentCell.y - 1));
                     }
 
@@ -94,31 +94,6 @@ public abstract class Unit implements ICard {
                                     moveX(deltaX);
                                 }
                             }
-
-                            // axe X est le plus loin on va aller en direction de X en premier
-                            /*if(Math.abs(deltaX) > Math.abs(deltaY)){
-                                if(deltaX > 0){
-                                    if(!move(Game.getInstance().getMap().getCell(currentCell.x + 1, currentCell.y))){
-                                        break;// interrupton du déplacement qui a échoué
-                                    }
-                                } else {
-                                    if(!move(Game.getInstance().getMap().getCell(currentCell.x - 1, currentCell.y))){
-                                        break;// interrupton du déplacement qui a échoué
-                                    }
-                                }
-                            }
-                            // sinon on va bouger sur Y
-                            else {
-                                if(deltaY > 0){
-                                    if(!move(Game.getInstance().getMap().getCell(currentCell.x, currentCell.y + 1))){
-                                        break;// interrupton du déplacement qui a échoué
-                                    }
-                                } else {
-                                    if(!move(Game.getInstance().getMap().getCell(currentCell.x, currentCell.y - 1))){
-                                        break;// interrupton du déplacement qui a échoué
-                                    }
-                                }
-                            }*/
                         }
                     }
 
@@ -128,7 +103,7 @@ public abstract class Unit implements ICard {
 
                     @Override
                     public String toString() {
-                        return "Move towards cell " + game.getSelected();
+                        return "Move towards cell " + destination;
                     }
                 };
             }
@@ -143,15 +118,6 @@ public abstract class Unit implements ICard {
     public void displayUnit(){
         currentCell.getCorrespondingCellView().drawUnit();
     }
-
-    /*
-    public BufferedImage getSprite() throws IOException {
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource(getPath()).getFile());
-        BufferedImage bf = ImageIO.read(file);
-        return bf;
-    }
-    */
 
     public String getPath(){
         return sprite;
