@@ -41,6 +41,16 @@ public abstract class Spell implements ICard {
         return null;
     }
 
+    protected Cell attackCell(Cell cell, int offsetX, int offsetY, int damage){
+        if(game.getMap().getCell(cell.x + offsetX,cell.y + offsetY) != null) {
+            if (game.getMap().getCell(cell.x + offsetX, cell.y + offsetY).getCellContents() != null) {
+                game.getMap().getCell(cell.x + offsetX, cell.y + offsetY).getCellContents().takeDamage(damage);
+                return new Cell(cell.x + offsetX, cell.y + offsetY);
+            }
+        }
+        return null;
+    }
+
     protected Cell healCell(int offsetX, int offsetY, int heal){
         if(game.getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY).getCellContents() != null){
             game.getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY).getCellContents().takeHeal(heal);

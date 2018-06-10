@@ -19,6 +19,7 @@ public class MeteoriteRain extends Spell {
             public ICmd createCommand() {
 
                 return new ICmd() {
+                    Cell choosenCell = game.getSelected();
                     ArrayList<Cell> touchedCells = new ArrayList<>();
 
 
@@ -40,15 +41,15 @@ public class MeteoriteRain extends Spell {
                             do{
                                 y = random.nextInt(distanceMax);
                             }while((game.getSelected().y + y) > game.getMap().height());
-                            Cell c = attackCell(0,0,100);
+                            Cell c = attackCell(choosenCell, 0,0,100);
                             if(c != null){touchedCells.add(c);}
-                            c = attackCell(1,0,100);
+                            c = attackCell(choosenCell, 1,0,100);
                             if(c != null){touchedCells.add(c);}
-                            c = attackCell(-1,0,100);
+                            c = attackCell(choosenCell, -1,0,100);
                             if(c != null){touchedCells.add(c);}
-                            c = attackCell(0,1,100);
+                            c = attackCell(choosenCell, 0,1,100);
                             if(c != null){touchedCells.add(c);}
-                            c = attackCell(0,-1,100);
+                            c = attackCell(choosenCell, 0,-1,100);
                             if(c != null){touchedCells.add(c);}
                         }
                     }
