@@ -104,14 +104,14 @@ public class TheOldCrumbling extends Unit {
 
                     @Override
                     public String toString() {
-                        return "Heal up";
+                        return "Heal down";
                     }
                 };
             }
 
             @Override
             public String toString() {
-                return "Heal up";
+                return "Heal down";
             }
         });
     }

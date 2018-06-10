@@ -11,22 +11,22 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 public class Frame {
 
-    static final int PANEL_LEFT     = 1;
-    static final int PANEL_RIGHT    = 2;
+    private static final int PANEL_LEFT     = 1;
+    private static final int PANEL_RIGHT    = 2;
 
 
     private Grid grid;
-    ActionPanel panelLeft   = new ActionPanel("Joueur 1");
-    ActionPanel panelRight  = new ActionPanel("Joueur 2");
+    private ActionPanel panelLeft   = new ActionPanel("Joueur 1");
+    private ActionPanel panelRight  = new ActionPanel("Joueur 2");
 
-    JFrame guiFrame = new JFrame();
+    private JFrame guiFrame = new JFrame();
 
     public Frame(int columns, int rows) {
         Game game = Controller.getInstance().game();
 
         grid = new Grid(columns, rows);
 
-        guiFrame.setSize(1000,700);
+        guiFrame.setSize(1250,800);
         guiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         guiFrame.setTitle("CMD MCR");
 
@@ -45,6 +45,7 @@ public class Frame {
             }
         });
         guiFrame.getContentPane().add(update, BorderLayout.SOUTH);
+
         JButton play = new JButton("PLAY");
         play.addActionListener(new ActionListener() {
             @Override
@@ -70,7 +71,7 @@ public class Frame {
         panelRight.update();
     }
 
-    public void updateCards(int side, Player player) {
+    private void updateCards(int side, Player player) {
 
         ActionPanel panel = side == PANEL_LEFT ? panelLeft : panelRight;
         panel.setPlayer(player);

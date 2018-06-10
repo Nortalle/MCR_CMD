@@ -18,8 +18,8 @@ public abstract class Spell implements ICard {
     protected Spell(){
         lastTurnUsed = -1;
         hasBeenExecuted = false;
-        aimCell = null;
-        actions = new ArrayList<Action>();
+        aimCell = null;// TODO FIX
+        actions = new ArrayList<>();
     }
 
     public ArrayList<Action> getActions() {
@@ -32,9 +32,11 @@ public abstract class Spell implements ICard {
     }
 
     protected Cell attackCell(int offsetX, int offsetY, int damage){
-        if(game.getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY).getCellContents() != null){
-            game.getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY).getCellContents().takeDamage(damage);
-            return new Cell(aimCell.x + offsetX, aimCell.y + offsetY);
+        if(game.getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY) != null) {
+            if (game.getMap().getCell(aimCell.x + offsetX, aimCell.y + offsetY).getCellContents() != null) {
+                game.getMap().getCell(aimCell.x + offsetX, aimCell.y + offsetY).getCellContents().takeDamage(damage);
+                return new Cell(aimCell.x + offsetX, aimCell.y + offsetY);
+            }
         }
         return null;
     }

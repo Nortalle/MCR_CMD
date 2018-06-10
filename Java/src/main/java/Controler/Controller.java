@@ -8,7 +8,6 @@ import Model.units.*;
 import View.Frame;
 
 import javax.swing.*;
-import java.util.ArrayList;
 import java.util.Random;
 
 import static java.lang.Thread.sleep;
@@ -75,11 +74,6 @@ public class Controller {
         this.frame = new Frame(game.getMap().width(), game.getMap().height());
 
         generateMap(game.getMap().width(), game.getMap().height());
-        for(int i = 0; i < game.getMap().width(); ++i){
-            for(int j = 0; j < game.getMap().height(); ++j){
-                game.getMap().getCell(i,j).getCorrespondingCellView().drawUnit();
-            }
-        }
         frame.update();
     }
 
@@ -124,18 +118,6 @@ public class Controller {
      * Execute the lists of commandes filled by the two players
      */
     public void executeAllCommands(){
-
-        /*
-        if(game.getPlayerOne().getActionsList().size() < game.nbrActions) {
-            JOptionPane.showMessageDialog(null, "Player " + game.getPlayerOne() + " must have " + Game.nbrActions + " actions");
-            return;
-        }
-
-        if(game.getPlayerTwo().getActionsList().size() < game.nbrActions) {
-            JOptionPane.showMessageDialog(null, "Player " + game.getPlayerTwo() + " must have " + Game.nbrActions + " actions");
-            return;
-        }
-        */
         if (!checkNumberOfActions(player1) || !checkNumberOfActions(player2)) {
             return;
         }
@@ -172,11 +154,6 @@ public class Controller {
                 frame.update();
             }
         }).start();
-
-        if(PlayerHasLost(player1) || PlayerHasLost(player2)){
-            JOptionPane.showMessageDialog(null, "Jeu fini");
-            System.exit(0);
-        }
     }
 
 
@@ -232,15 +209,19 @@ public class Controller {
     }
 
     private void executeMove(Player p, int actionPos) throws InterruptedException {
-
         System.out.println("Pred " + previousCmd);
         ICmd cmd = p.getActionsList().get(actionPos);
         cmd.execute();
         previousCmd = cmd;
         System.out.println("new Pred " + previousCmd);
         System.out.println("new Curr " + cmd);
-        sleep(2000);
+        sleep(1000);
         frame.update();
+
+        if(PlayerHasLost(player1) || PlayerHasLost(player2)){
+            JOptionPane.showMessageDialog(null, "Jeu fini");
+            System.exit(0);
+        }
     }
 
 }
