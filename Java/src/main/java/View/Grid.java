@@ -38,17 +38,11 @@ public class Grid extends JPanel {
     public void update() {
         for (ArrayList<CellView> rows : cells) {
             for (CellView cellView : rows) {
-                Cell cell = cellView.getCorrespondingCell();
-
-                if (cell.getCellContents() != null)
-                    if (cell.getCellContents().isSelected()) {
-                        cellView.setBgColor(Color.white);
-                    }
-
                 if (cellView.getCorrespondingCell().isChanged()) {
                     cellView.removeAllImages();
 
                     cellView.update();
+
                     cellView.getCorrespondingCell().setUnchanged();
                 }
             }
