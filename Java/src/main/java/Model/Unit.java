@@ -20,6 +20,7 @@ public abstract class Unit implements ICard {
     protected int hp;
     protected int hpMax;
     protected int speed;
+    protected int damage;
     protected Cell currentCell;
     protected ArrayList<Action> actions;
     protected Game game = Controller.getInstance().game();
@@ -159,7 +160,7 @@ public abstract class Unit implements ICard {
     }
 
     protected boolean attackCell(int offsetX, int offsetY, int damage) throws InterruptedException {
-        if(currentCell.x + offsetX < game.getMap().width() && currentCell.y + offsetY < game.getMap().height()) {
+        if(currentCell.x + offsetX < game.getMap().width() && currentCell.y + offsetY < game.getMap().height() && currentCell.x + offsetX >= 0 && currentCell.y + offsetY >= 0) {
             game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getTouched(Color.RED);
             if (game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getCellContents() != null) {
                 game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getCellContents().takeDamage(damage);
@@ -171,7 +172,7 @@ public abstract class Unit implements ICard {
     }
 
     protected boolean healCell(int offsetX, int offsetY, int heal) throws InterruptedException {
-        if(currentCell.x + offsetX < game.getMap().width() && currentCell.y + offsetY < game.getMap().height()) {
+        if(currentCell.x + offsetX < game.getMap().width() && currentCell.y + offsetY < game.getMap().height()&& currentCell.x + offsetX >= 0 && currentCell.y + offsetY >= 0) {
             game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getTouched(Color.GREEN);
             if (game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getCellContents() != null) {
                 game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getCellContents().takeHeal(heal);

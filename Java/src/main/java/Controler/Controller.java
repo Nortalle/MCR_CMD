@@ -212,8 +212,8 @@ public class Controller {
         System.out.println("Pred " + previousCmd);
         ICmd cmd = p.getActionsList().get(actionPos);
         if(cmd.condition()){
-            p.publish(cmd.toString());
             cmd.execute();
+            p.publish(cmd.toString());
         }
         previousCmd = cmd;
         System.out.println("new Pred " + previousCmd);
