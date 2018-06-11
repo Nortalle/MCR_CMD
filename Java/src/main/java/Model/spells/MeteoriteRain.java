@@ -25,6 +25,19 @@ public class MeteoriteRain extends Spell {
                     Cell selectedAim = null;
                     ArrayList<Cell> touchedCells = new ArrayList<>();
 
+                    {
+                        int x;
+                        int y;
+                        do {
+                            x = - distanceMax + (random.nextInt(2 * distanceMax + 1 ));
+                        } while ((game.getSelected().x + x) >= game.getMap().width());
+                        do {
+                            y = - distanceMax + (random.nextInt(2 * distanceMax + 1));
+                        } while ((game.getSelected().y + y) >= game.getMap().height());
+                        System.out.println(x + " " + y);
+                        selectedAim = game.getMap().getCell(game.getSelected().x + x, game.getSelected().y + y);
+                        System.out.println(selectedAim);
+                    }
 
 
                     @Override
@@ -38,18 +51,6 @@ public class MeteoriteRain extends Spell {
                         //} else {
 
                             hasBeenExecuted = true;
-
-                            int x;
-                            int y;
-                            do{
-                                x = random.nextInt(distanceMax);
-                            }while((game.getSelected().x + x) >= game.getMap().width());
-                            do{
-                                y = random.nextInt(distanceMax);
-                            }while((game.getSelected().y + y) >= game.getMap().height());
-                            System.out.println(x + " " + y);
-                            selectedAim = game.getMap().getCell(game.getSelected().x + x, game.getSelected().y + y);
-                            System.out.println(selectedAim);
 
                             hitCell(selectedAim,0,0,damage, Color.RED);
                             hitCell(selectedAim,1,0,damage, Color.RED);
@@ -85,6 +86,10 @@ public class MeteoriteRain extends Spell {
                             }
                         }
                         return hit;
+                    }
+
+                    private void setAim(){
+
                     }
                 };
             }
