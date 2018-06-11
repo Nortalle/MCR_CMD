@@ -50,8 +50,6 @@ public class Controller {
 
     //Initialise the game
     public void startGame(){
-
-        //TODO Cette partie devrait être ajoutée au constructeur
         //The players get theirs cards
         game.addCardToPlayer(player1, new SteveTheWarrior(map.getCell(3, 0), "Steve", "warr.png"));
         game.addCardToPlayer(player1, new TheOldCrumbling(map.getCell(6, 0), "Morth", "vieux.png"));
@@ -61,7 +59,6 @@ public class Controller {
         game.addCardToPlayer(player1, new UndoSpell());
         game.addCardToPlayer(player1, new FakeUnitSpell());
 
-
         game.addCardToPlayer(player2, new SteveTheWarrior(map.getCell(3, map.width()-1), "Lynda", "warr2.png"));
         game.addCardToPlayer(player2, new TheOldCrumbling(map.getCell(6, map.width()-1), "Baba", "vieux2.png"));
         game.addCardToPlayer(player2, new ThePrestigiousArcher(map.getCell(9, map.width()-1), "Sen", "archer2.png"));
@@ -70,7 +67,6 @@ public class Controller {
         game.addCardToPlayer(player2, new UndoSpell());
         game.addCardToPlayer(player2, new FakeUnitSpell());
 
-        //TODO Cette initialisation devra se retrouver dans le constructeur une fois la classe Frame refactorée
         this.frame = new Frame(game.getMap().width(), game.getMap().height());
 
         generateMap(game.getMap().width(), game.getMap().height());

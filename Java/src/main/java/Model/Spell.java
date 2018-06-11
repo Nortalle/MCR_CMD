@@ -2,6 +2,7 @@ package Model;
 
 import Controler.Controller;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -35,19 +36,26 @@ public abstract class Spell implements ICard {
         return "Spell{}";
     }
 
-    /*
-    protected Cell attackCell(int offsetX, int offsetY, int damage){
+    public void setAimCell(Cell c){
+        aimCell = c;
+    }
+
+
+    public boolean attackCell(int offsetX, int offsetY, int damage, Color c) throws InterruptedException {
+        System.out.println(game.getMap());
+        System.out.println(aimCell);
         if(game.getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY) != null) {
+            game.getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY).getTouched(c);
             if (game.getMap().getCell(aimCell.x + offsetX, aimCell.y + offsetY).getCellContents() != null) {
                 game.getMap().getCell(aimCell.x + offsetX, aimCell.y + offsetY).getCellContents().takeDamage(damage);
-                return new Cell(aimCell.x + offsetX, aimCell.y + offsetY);
+                return true;
             }
         }
-        return null;
+        return false;
     }
-    */
 
-    protected Cell attackCell(Cell cell, int offsetX, int offsetY, int damage){
+    /*
+    public Cell attackCell(Cell cell, int offsetX, int offsetY, int damage){
         if(game.getMap().getCell(cell.x + offsetX,cell.y + offsetY) != null) {
             if (game.getMap().getCell(cell.x + offsetX, cell.y + offsetY).getCellContents() != null) {
                 game.getMap().getCell(cell.x + offsetX, cell.y + offsetY).getCellContents().takeDamage(damage);
@@ -56,6 +64,7 @@ public abstract class Spell implements ICard {
         }
         return null;
     }
+    */
 
     /*
     protected Cell healCell(int offsetX, int offsetY, int heal){
