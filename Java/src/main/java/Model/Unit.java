@@ -24,6 +24,7 @@ public abstract class Unit implements ICard {
     protected Cell currentCell;
     protected ArrayList<Action> actions;
     protected Game game = Controller.getInstance().game();
+    protected boolean isSelected;
 
     protected Unit(int hpMax, int speed, Cell startPos, String name, String sprite){
         Unit.this.speed = speed;
@@ -32,6 +33,7 @@ public abstract class Unit implements ICard {
         this.currentCell = startPos;
         this.name = name;
         this.sprite = sprite;
+        this.isSelected = false;
         startPos.setContent(this);
 
         actions = new ArrayList<>();
@@ -203,6 +205,14 @@ public abstract class Unit implements ICard {
         return hpMax;
     }
 
+    @Override
+    public void setSelected(boolean isSelected){
+        this.isSelected = isSelected;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
 
     @Override
     public boolean isAlive(){

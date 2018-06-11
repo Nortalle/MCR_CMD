@@ -94,7 +94,12 @@ public class ActionPanel extends JPanel {
 
     private void displayActions() {
         actionsPanel.removeAll();
+        for (ICard card : player.getCards()) {
+            card.setSelected(false);
+        }
+
         ICard card = (ICard) cardJComboBox.getSelectedItem();
+        card.setSelected(true);
 
         for (Action action : card.getActions()) {
             actionsPanel.add(new ActionButton(player, action));

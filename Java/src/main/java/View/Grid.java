@@ -1,5 +1,8 @@
 package View;
 
+import Model.Cell;
+import Model.Unit;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -34,15 +37,23 @@ public class Grid extends JPanel {
 
     public void update() {
         for (ArrayList<CellView> rows : cells) {
-            for (CellView cell : rows) {
+            for (CellView cellView : rows) {
+                Cell cell = cellView.getCorrespondingCell();
 
-                if(cell.getCorrespondingCell().isChanged()) {
-                    cell.removeAllImages();
-                    cell.update();
-                    cell.getCorrespondingCell().setUnchanged();
+                if (cell.getCellContents() != null)
+                    if (cell.getCellContents().isSelected()) {
+                        cellView.setBgColor(Color.white);
+                    }
+
+                if (cellView.getCorrespondingCell().isChanged()) {
+                    cellView.removeAllImages();
+
+                    cellView.update();
+                    cellView.getCorrespondingCell().setUnchanged();
                 }
             }
         }
+
         repaint();
     }
 }

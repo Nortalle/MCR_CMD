@@ -9,10 +9,16 @@ import java.util.ArrayList;
 public interface ICard {
 
     ArrayList<Action> getActions();
+
     String toString();
+
     String desctiption();
 
     boolean Invoke(Cell c);
 
     boolean isAlive();
+
+    public void setSelected(boolean isSelected);
+
+    public boolean isSelected();
 }
