@@ -1,11 +1,16 @@
 package Model;
 
+import javax.swing.*;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 /**
  * @author Vincent Guidoux
  */
 public class Player {
+    private final java.util.logging.Logger LOG = Logger.getAnonymousLogger();
+    private final PlayerLog CLIENT_LOG = new PlayerLog();
+
 
     private ArrayList<ICard> cards = new ArrayList<ICard>();
     private ArrayList<ICmd> actionsList = new ArrayList<ICmd>();
@@ -17,6 +22,7 @@ public class Player {
 
     public Player(String name) {
         this.name = name;
+        LOG.addHandler(CLIENT_LOG);
     }
 
     public ArrayList<ICmd> getActionsList() {
@@ -28,7 +34,15 @@ public class Player {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return name;
+    }
+
+    public void setPlayerLogComponent(JTextArea component) {
+        CLIENT_LOG.setComponent(component);
+    }
+
+    public void publish(String s) {
+        LOG.info(s);
     }
 }

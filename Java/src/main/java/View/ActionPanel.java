@@ -20,8 +20,9 @@ public class ActionPanel extends JPanel {
     private JPanel selectedActionsPanel = new JPanel();
     private JPanel cachePanel = new JPanel();
     private JPanel lifePanel = new JPanel();
-
+    private JPanel logsPanel = new JPanel();
     private Personnages lifeBars;
+    private Logs logs;
 
     private Player player;
 
@@ -32,6 +33,7 @@ public class ActionPanel extends JPanel {
         selectedActionsPanel.setLayout(new BoxLayout(selectedActionsPanel, BoxLayout.Y_AXIS));
         cachePanel.setLayout(new BoxLayout(cachePanel, BoxLayout.Y_AXIS));
         lifePanel.setLayout(new BoxLayout(lifePanel, BoxLayout.Y_AXIS));
+        logsPanel.setLayout(new BoxLayout(logsPanel, BoxLayout.Y_AXIS));
         contentPanel.add(new Label(title));
         contentPanel.add(cardJComboBox);
         contentPanel.add(actionsPanel);
@@ -68,9 +70,15 @@ public class ActionPanel extends JPanel {
         this.player = player;
 
         this.lifeBars = new Personnages(player);
+        this.logs = new Logs();
 
         lifePanel.add(lifeBars.getMain_panel());
         contentPanel.add(lifePanel);
+
+        player.setPlayerLogComponent(logs.getTextArea1());
+        logsPanel.add(logs.getMain_panel());
+
+        contentPanel.add(logsPanel);
         provideCards(player.getCards());
     }
 

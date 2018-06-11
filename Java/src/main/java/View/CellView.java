@@ -16,8 +16,8 @@ import java.util.List;
 
 public class CellView extends JPanel implements MouseListener {
 
-    static final Color BG_LIGHT = new Color(230, 230, 230);
-    static final Color BG_DARK = new Color(210, 210, 210);
+    static final Color BG_LIGHT = new Color(129, 186, 68);
+    static final Color BG_DARK = new Color(72, 156, 76);
     static final Color BG_HOVER = new Color(255, 255, 0);
     static final Color BG_SELECTED = new Color(0, 207, 255);
 
