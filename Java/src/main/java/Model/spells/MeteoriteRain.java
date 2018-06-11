@@ -86,6 +86,11 @@ public class MeteoriteRain extends Spell {
                         }
                         return hit;
                     }
+
+                    @Override
+                    public String toString() {
+                        return "Let the meteors fall!" + aimCell ;
+                    }
                 };
             }
 

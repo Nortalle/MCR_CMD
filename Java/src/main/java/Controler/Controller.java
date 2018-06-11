@@ -210,6 +210,9 @@ public class Controller {
         if(cmd.condition()){
             cmd.execute();
             p.publish(cmd.toString());
+        } else {
+
+            p.publish("ERROR : " + cmd.toString());
         }
         previousCmd = cmd;
         System.out.println("new Pred " + previousCmd);

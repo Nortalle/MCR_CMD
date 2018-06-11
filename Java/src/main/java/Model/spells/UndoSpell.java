@@ -39,11 +39,15 @@ public class UndoSpell extends Spell {
                     public void undo() throws InterruptedException {
                         previousCMD.execute();
                     }
+
+                    public String toString() {
+                        return "Undo " + previousCMD ;
+                    }
                 };
             }
 
             public String toString() {
-                return "Undo Action";
+                return "Undo Action" ;
             }
 
         });
