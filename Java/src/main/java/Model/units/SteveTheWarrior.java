@@ -2,6 +2,7 @@ package Model.units;
 
 import Model.*;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class SteveTheWarrior extends Unit {
@@ -9,6 +10,8 @@ public class SteveTheWarrior extends Unit {
 
     public SteveTheWarrior(Cell start, String name, String sprite) {
         super(100, 5, start, name, sprite);
+
+        this.damage = 50;
 
         actions.add(new Action() {
             @Override
@@ -21,11 +24,11 @@ public class SteveTheWarrior extends Unit {
                     }
 
                     public void execute() throws InterruptedException {
-                        attackCell(0, 1, 50);
+                        attackCell(0, 1, damage, Color.RED);
                     }
 
                     public void undo() throws InterruptedException {
-                        healCell(0, 1, 50);
+                        attackCell(0, 1, -1 * damage, Color.GREEN);
                     }
 
                     @Override
@@ -52,11 +55,11 @@ public class SteveTheWarrior extends Unit {
                     }
 
                     public void execute() throws InterruptedException {
-                        attackCell(0, -1, 50);
+                        attackCell(0, -1, damage, Color.RED);
                     }
 
                     public void undo() throws InterruptedException {
-                        healCell(0, -1, 50);
+                        attackCell(0, -1, -1 * damage, Color.GREEN);
                     }
 
                     @Override
@@ -82,11 +85,11 @@ public class SteveTheWarrior extends Unit {
                     }
 
                     public void execute() throws InterruptedException {
-                        attackCell(-1, 0, 50);
+                        attackCell(-1, 0, damage, Color.RED);
                     }
 
                     public void undo() throws InterruptedException {
-                        healCell(-1, 0, 50);
+                        attackCell(-1, 0, -1 * damage, Color.GREEN);
                     }
 
                     @Override
@@ -112,11 +115,11 @@ public class SteveTheWarrior extends Unit {
                     }
 
                     public void execute() throws InterruptedException {
-                        attackCell(1, 0, 50);
+                        attackCell(1, 0, damage,Color.RED);
                     }
 
                     public void undo() throws InterruptedException {
-                        healCell(1, 0, 50);
+                        attackCell(1, 0, -1 * damage, Color.GREEN);
                     }
 
                     @Override

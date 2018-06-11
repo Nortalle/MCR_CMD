@@ -34,6 +34,7 @@ public abstract class Unit implements ICard {
         this.name = name;
         this.sprite = sprite;
         this.isSelected = false;
+        this.damage = 0;
         startPos.setContent(this);
 
         actions = new ArrayList<>();
@@ -150,34 +151,16 @@ public abstract class Unit implements ICard {
         if(hp <= 0){
             currentCell.setContent(null);
             System.out.println("The unit died");
-            //TODO on veut qu'il se passe quoi quand on meurt ? Et si on annule ?
-            //TODO Retirer l'unité de la liste des unités du joueur
-        }
-    }
-    public void takeHeal(int heal){
-        hp += heal;
-        if(hp > hpMax){
+        }else if(hp > hpMax){
             hp = hpMax;
         }
     }
 
-    protected boolean attackCell(int offsetX, int offsetY, int damage) throws InterruptedException {
+    protected boolean attackCell(int offsetX, int offsetY, int damage, Color c) throws InterruptedException {
         if(currentCell.x + offsetX < game.getMap().width() && currentCell.y + offsetY < game.getMap().height() && currentCell.x + offsetX >= 0 && currentCell.y + offsetY >= 0) {
-            game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getTouched(Color.RED);
+            game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getTouched(c);
             if (game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getCellContents() != null) {
                 game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getCellContents().takeDamage(damage);
-                return true;
-            }
-            return false;
-        }
-        return false;
-    }
-
-    protected boolean healCell(int offsetX, int offsetY, int heal) throws InterruptedException {
-        if(currentCell.x + offsetX < game.getMap().width() && currentCell.y + offsetY < game.getMap().height()&& currentCell.x + offsetX >= 0 && currentCell.y + offsetY >= 0) {
-            game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getTouched(Color.GREEN);
-            if (game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getCellContents() != null) {
-                game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getCellContents().takeHeal(heal);
                 return true;
             }
             return false;

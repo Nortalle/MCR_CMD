@@ -2,10 +2,13 @@ package Model.units;
 
 import Model.*;
 
+import java.awt.*;
+
 public class TheOldCrumbling extends Unit {
 
     public TheOldCrumbling(Cell start, String name, String sprite) {
         super(100, 3, start, name, sprite);
+        damage = -50;
 
         actions.add(new Action() {
             @Override
@@ -18,11 +21,11 @@ public class TheOldCrumbling extends Unit {
                     }
 
                     public void execute() throws InterruptedException {
-                        healCell(0, 1, 50);
+                        attackCell(0, 1, damage,Color.GREEN );
                     }
 
                     public void undo() throws InterruptedException {
-                        attackCell(0, 1, 50);
+                        attackCell(0, 1, -1 * damage, Color.RED);
                     }
 
                     @Override
@@ -50,11 +53,11 @@ public class TheOldCrumbling extends Unit {
                     }
 
                     public void execute() throws InterruptedException {
-                        healCell(0, -1, 50);
+                        attackCell(0, -1, damage, Color.GREEN);
                     }
 
                     public void undo() throws InterruptedException {
-                        attackCell(0, -1, 50);
+                        attackCell(0, -1, -1 * damage, Color.RED);
                     }
 
                     @Override
@@ -82,13 +85,13 @@ public class TheOldCrumbling extends Unit {
 
                     public void execute() throws InterruptedException {
                         if(game.getMap().getCell(currentCell.x -1,currentCell.y).getCellContents() != null){
-                            healCell(-1, 0, 50);
+                            attackCell(-1, 0, damage, Color.GREEN);
                         }
                     }
 
                     public void undo() throws InterruptedException {
                         if(game.getMap().getCell(currentCell.x - 1 ,currentCell.y).getCellContents() != null){
-                            attackCell(-1,0,50);
+                            attackCell(-1,0,-1 * damage, Color.RED);
                         }
                     }
 
@@ -117,11 +120,11 @@ public class TheOldCrumbling extends Unit {
                     }
 
                     public void execute() throws InterruptedException {
-                        healCell(1, 0, 50);
+                        attackCell(1, 0, damage, Color.GREEN);
                     }
 
                     public void undo() throws InterruptedException {
-                        attackCell(1,0,50);
+                        attackCell(1,0,-1 * damage, Color.RED);
                     }
 
 

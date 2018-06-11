@@ -58,7 +58,7 @@ public class MeteoriteRain extends Spell {
                         if(hasBeenExecuted){
                             for(Cell c: touchedCells){
                                 if(c.getCellContents() != null){
-                                    c.getCellContents().takeHeal(100);
+                                    c.getCellContents().takeDamage(-100);
                                 }
                             }
                         }else{

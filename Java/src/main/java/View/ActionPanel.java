@@ -1,5 +1,6 @@
 package View;
 
+import Controler.Controller;
 import Model.*;
 import Model.Action;
 
@@ -100,6 +101,7 @@ public class ActionPanel extends JPanel {
 
         ICard card = (ICard) cardJComboBox.getSelectedItem();
         card.setSelected(true);
+
 
         for (Action action : card.getActions()) {
             actionsPanel.add(new ActionButton(player, action));

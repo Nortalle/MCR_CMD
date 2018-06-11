@@ -2,6 +2,7 @@ package Model.units;
 
 import Model.*;
 
+import java.awt.*;
 import java.util.Random;
 
 public class ThePsyCat extends Unit {
@@ -30,20 +31,20 @@ public class ThePsyCat extends Unit {
                             lastActionWasAnAttack = false;
                         } else {
                             hasAttacked = " Ah bah oui";
-                            attackCell(1, 0, damage);
-                            attackCell(-1, 0, damage);
-                            attackCell(0, 1, damage);
-                            attackCell(0, -1, damage);
+                            attackCell(1, 0, damage, Color.RED);
+                            attackCell(-1, 0, damage, Color.RED);
+                            attackCell(0, 1, damage, Color.RED);
+                            attackCell(0, -1, damage, Color.RED);
                             lastActionWasAnAttack = true;
                         }
                     }
 
                     public void undo() throws InterruptedException {
                         if(lastActionWasAnAttack){
-                            healCell(1,0,damage);
-                            healCell(-1, 0, damage);
-                            healCell(0, 1, damage);
-                            healCell(0, -1, damage);
+                            attackCell(1,0, -1 * damage, Color.GREEN);
+                            attackCell(-1, 0, -1 * damage, Color.GREEN);
+                            attackCell(0, 1, -1 * damage, Color.GREEN);
+                            attackCell(0, -1, -1 * damage, Color.GREEN);
                         }else{
                             System.out.println("Ronron...Really? What do you want to undo?");
                         }

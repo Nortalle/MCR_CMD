@@ -35,6 +35,7 @@ public abstract class Spell implements ICard {
         return "Spell{}";
     }
 
+    /*
     protected Cell attackCell(int offsetX, int offsetY, int damage){
         if(game.getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY) != null) {
             if (game.getMap().getCell(aimCell.x + offsetX, aimCell.y + offsetY).getCellContents() != null) {
@@ -44,6 +45,7 @@ public abstract class Spell implements ICard {
         }
         return null;
     }
+    */
 
     protected Cell attackCell(Cell cell, int offsetX, int offsetY, int damage){
         if(game.getMap().getCell(cell.x + offsetX,cell.y + offsetY) != null) {
@@ -55,13 +57,15 @@ public abstract class Spell implements ICard {
         return null;
     }
 
+    /*
     protected Cell healCell(int offsetX, int offsetY, int heal){
         if(game.getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY).getCellContents() != null){
-            game.getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY).getCellContents().takeHeal(heal);
+            game.getMap().getCell(aimCell.x + offsetX,aimCell.y + offsetY).getCellContents().takeDamage(-heal);
             return new Cell(aimCell.x + offsetX, aimCell.y + offsetY);
         }
         return null;
     }
+    */
 
     @Override
     public boolean isAlive(){
