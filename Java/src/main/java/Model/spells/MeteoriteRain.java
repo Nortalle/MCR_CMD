@@ -88,8 +88,9 @@ public class MeteoriteRain extends Spell {
                         return hit;
                     }
 
-                    private void setAim(){
-
+                    @Override
+                    public String toString() {
+                        return "Let the meteors fall!" + aimCell ;
                     }
                 };
             }

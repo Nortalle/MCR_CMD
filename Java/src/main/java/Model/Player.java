@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.logging.Logger;
 
 /**
- * @author Vincent Guidoux
+ * Implementes a player whi has Cards and defined actions 
  */
 public class Player {
     private final java.util.logging.Logger LOG = Logger.getAnonymousLogger();
