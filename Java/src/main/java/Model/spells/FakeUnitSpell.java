@@ -25,7 +25,7 @@ public class FakeUnitSpell extends Spell {
                         System.out.println(c.x + ":" + c.y);
                     }
 
-                    //The spell can only be executed once per turn
+                    //there's no need for a unit to be in order to launch the spell
                     @Override
                     public boolean condition() throws InterruptedException {
                         return true;
@@ -34,6 +34,7 @@ public class FakeUnitSpell extends Spell {
                     //A fake unit is created on the chosen cell if the content is still null
                     @Override
                     public void execute() throws InterruptedException {
+                        //The spell can only be called once per turn
                         if(hasBeenExecuted){
                             noMoreMana();
                         }else{

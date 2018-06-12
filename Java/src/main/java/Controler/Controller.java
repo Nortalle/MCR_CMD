@@ -134,6 +134,7 @@ public class Controller {
                         e.printStackTrace();
                     }
                 }
+                previousCmd = null;
                 game.nextTurn();
                 player1.getActionsList().clear();
                 for(ICard c : player1.getCards()){
@@ -223,9 +224,8 @@ public class Controller {
         previousCmd = cmd;
         System.out.println("new Pred " + previousCmd);
         System.out.println("new Curr " + cmd);
-        sleep(1000);
         frame.update();
-
+        sleep(1000);
         if(PlayerHasLost(player1) || PlayerHasLost(player2)){
             JOptionPane.showMessageDialog(null, "Jeu fini");
             System.exit(0);
