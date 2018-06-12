@@ -13,10 +13,6 @@ public interface ICard {
 
     String toString();
 
-    String desctiption();
-
-    boolean Invoke(Cell c);
-
     boolean isAlive();
 
     public void setSelected(boolean isSelected);

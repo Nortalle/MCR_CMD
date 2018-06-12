@@ -170,6 +170,14 @@ public class Controller {
     }
 
     /**
+     * Getter of the previous command
+     * @return the previous command in the list
+     */
+    public ICmd getPreviousCmd(){
+        return previousCmd;
+    }
+
+    /**
      * Getter of the frame
      * @return the frame
      */
@@ -192,10 +200,7 @@ public class Controller {
         }
     }
 
-    public ICmd getPreviousCmd(){
-        return previousCmd;
-    }
-
+    //check if both players have chosen their 5 actions to do
     private boolean checkNumberOfActions(Player p){
         if(p.getActionsList().size() < Game.nbrActions) {
             JOptionPane.showMessageDialog(null, "Both players must have " + Game.nbrActions + " actions");
@@ -204,6 +209,7 @@ public class Controller {
         return true;
     }
 
+    //Execution of a command
     private void executeMove(Player p, int actionPos) throws InterruptedException {
         System.out.println("Pred " + previousCmd);
         ICmd cmd = p.getActionsList().get(actionPos);

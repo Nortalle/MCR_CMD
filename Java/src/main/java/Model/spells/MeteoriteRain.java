@@ -6,6 +6,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
+
 public class MeteoriteRain extends Spell {
     private Random random;
     private int distanceMax;
