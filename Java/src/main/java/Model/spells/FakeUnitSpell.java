@@ -25,7 +25,7 @@ public class FakeUnitSpell extends Spell {
                         System.out.println(c.x + ":" + c.y);
                     }
 
-                    //there's no need for a unit to be in order to launch the spell
+                    //there's no need for a unit to be alive in order to launch the spell
                     @Override
                     public boolean condition() throws InterruptedException {
                         return true;
@@ -55,12 +55,18 @@ public class FakeUnitSpell extends Spell {
                             c.setContent(null);
                         }
                     }
+
+                    //Name of the command
+                    @Override
+                    public String toString() {
+                        return "Create an obstacle in" + c.x + ":" + c.y + "!" ;
+                    }
                 };
             }
             //Name of the action
             @Override
             public String toString() {
-                return "Fake unit creator";
+                return "Create an obstacle";
             }
         });
     }
@@ -68,7 +74,7 @@ public class FakeUnitSpell extends Spell {
     //return the name of the spell
     @Override
     public String toString() {
-        return "Create an obstacle";
+        return "Obstacle Invoker";
     }
 
 }

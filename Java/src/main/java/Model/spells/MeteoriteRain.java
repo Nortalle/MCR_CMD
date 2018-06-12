@@ -90,6 +90,12 @@ public class MeteoriteRain extends Spell {
                         }
                     }
 
+                    //Name of the command
+                    @Override
+                    public String toString() {
+                        return "Let the meteors fall around " + aimCell.x + ":" + aimCell.y + "!" ;
+                    }
+
                     //Hit a single cell, if it is on the map, and add it to the list of touched cell, return true if a unit
                     //has been hit, false otherwise
                     private boolean hitCell(Cell aim ,int offsetX, int offsetY, int damage, Color c) throws InterruptedException {
@@ -104,18 +110,12 @@ public class MeteoriteRain extends Spell {
                         }
                         return hit;
                     }
-
-                    //Name of the command
-                    @Override
-                    public String toString() {
-                        return "Let the meteors fall!" + aimCell ;
-                    }
                 };
             }
             //Name of the action
             @Override
             public String toString() {
-                return "Meteor Rain";
+                return "Let the Meteores fall! ";
             }
         });
 
@@ -123,6 +123,6 @@ public class MeteoriteRain extends Spell {
     //name of the spell
     @Override
     public String toString() {
-        return "Let the meteors fall!";
+        return "Meteore Rain";
     }
 }
