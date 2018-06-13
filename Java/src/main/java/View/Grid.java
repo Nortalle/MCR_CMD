@@ -1,16 +1,21 @@
 package View;
 
-import Model.Cell;
-import Model.Unit;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * Class representing the grid of the map
+ */
 public class Grid extends JPanel {
 
     private ArrayList<ArrayList<CellView>> cells = new ArrayList<>();
 
+    /**
+     * Constructor of the Grid
+     * @param rows
+     * @param columns
+     */
     public Grid(int rows, int columns) {
 
         setLayout(new GridLayout(0, columns));
@@ -30,11 +35,19 @@ public class Grid extends JPanel {
         }
     }
 
+    /**
+     * Get a CellView instance located at the given coordonates
+     * @param i
+     * @param j
+     * @return
+     */
     public CellView at(int i, int j) {
-
         return cells.get(i).get(j);
     }
 
+    /**
+     * Update the grid
+     */
     public void update() {
         for (ArrayList<CellView> rows : cells) {
             for (CellView cellView : rows) {

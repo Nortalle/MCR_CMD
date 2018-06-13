@@ -9,18 +9,25 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
+
+/**
+ * Class describing the Frame of the game
+ */
 public class Frame {
 
     private static final int PANEL_LEFT     = 1;
     private static final int PANEL_RIGHT    = 2;
-
-
     private Grid grid;
     private ActionPanel panelLeft   = new ActionPanel("Joueur 1");
     private ActionPanel panelRight  = new ActionPanel("Joueur 2");
 
     private JFrame guiFrame = new JFrame();
 
+    /**
+     * Constructor of the frame
+     * @param columns, int number of columns
+     * @param rows, int number of rows
+     */
     public Frame(int columns, int rows) {
         Game game = Controller.getInstance().game();
 
@@ -61,26 +68,24 @@ public class Frame {
         update();
     }
 
-    public void repaintAll(){
-        guiFrame.getContentPane().repaint();
-    }
-
+    /**
+     * Repaint the frame
+     */
     public void update(){
         grid.update();
         panelLeft.update();
         panelRight.update();
     }
 
+    //Update the display of the cards of a player
     private void updateCards(int side, Player player) {
-
         ActionPanel panel = side == PANEL_LEFT ? panelLeft : panelRight;
         panel.setPlayer(player);
     }
 
-    public JFrame getGuiFrame() {
-        return guiFrame;
-    }
-
+    /**
+     * @return the grid containing the instances of CellView
+     */
     public Grid getGrid() {
         return grid;
     }

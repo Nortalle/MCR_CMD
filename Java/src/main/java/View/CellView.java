@@ -9,8 +9,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +27,10 @@ public class CellView extends JPanel implements MouseListener {
 
     private final int x, y;
 
+    /**
+     * Draw the unit in the cell
+     * @param path, String , path to the unit sprite
+     */
     public void drawImage(String path) {
         ClassLoader classLoader = getClass().getClassLoader();
         ImageIcon ii = new ImageIcon(classLoader.getResource(path));
@@ -37,27 +39,25 @@ public class CellView extends JPanel implements MouseListener {
         setBounds(0,0,ii.getIconWidth(), ii.getIconHeight());
     }
 
+    /**
+     * set the background color of the cell
+     * @param bgColor, color chosen for the background
+     */
     public void setBgColor(Color bgColor) {
         this.bgColor = bgColor;
     }
 
+    /**
+     * get the background color of the cell
+     * @return background color
+     */
     public Color getBgColor() {
         return bgColor;
     }
 
-    public void removeImage(BufferedImage bi) {
-        //TODO
-        System.err.println("Still not implemented");
-
-        Component[] components = getComponents();
-        for (Component c : components) {
-            if (((JLabel) c).getIcon() == bi) {
-                remove(c);
-                break;
-            }
-        }
-    }
-
+    /**
+     * Get the corresponding cell and draw the unit
+     */
     public void drawUnit() {
         Unit u = getCorrespondingCell().getCellContents();
 
@@ -66,10 +66,18 @@ public class CellView extends JPanel implements MouseListener {
         }
     }
 
+    /**
+     * Remove the image of the cell
+     */
     public void removeAllImages() {
         removeAll();
     }
 
+    /**
+     * Constructor of the CellView
+     * @param x,int, x position
+     * @param y, int , y position
+     */
     public CellView(int x, int y) {
 
         this.game = Controller.getInstance().game();
@@ -86,45 +94,39 @@ public class CellView extends JPanel implements MouseListener {
         addMouseListener(this);
     }
 
-    public void refresh() {
-        update();
-    }
-/*
-    @Override
-    public void repaint(){
-
-        if(Game.getInstance().isSelected(x, y)){
-            setBackground(BG_SELECTED);
-        } else {
-            setBackground(bgColor);
-        }
-    }*/
-
+    /**
+     * @return List<Unit> all the units in a cell
+     */
     public List<Unit> getUnits() {
-
         return units;
     }
 
-
-
+    /**
+     * Determine the event called when the mouse is clicked
+     * @param mouseEvent
+     */
     public void mouseClicked(MouseEvent mouseEvent) {
         Cell prevSelected = game.getSelected();
         game.setSelected(game.getMap().getCell(x, y));
         if (prevSelected != null)
-            Controller.getInstance().getFrame().getGrid().at(prevSelected.x, prevSelected.y).setColor();
+            Controller.getInstance().getFrame().getGrid().at(prevSelected.x, prevSelected.y).setColorIfSelected();
         Controller.getInstance().getFrame().update();
     }
 
+    @Override
     public void mousePressed(MouseEvent mouseEvent) {
     }
 
+    @Override
     public void mouseReleased(MouseEvent mouseEvent) {
     }
 
+    @Override
     public void mouseEntered(MouseEvent mouseEvent) {
         setBackground(BG_HOVER);
     }
 
+    @Override
     public void mouseExited(MouseEvent mouseEvent) {
 
         if (game.isSelected(x, y)) {
@@ -134,7 +136,10 @@ public class CellView extends JPanel implements MouseListener {
         }
     }
 
-    public void setColor() {
+    /**
+     * Set the color of the cell when it is selected
+     */
+    public void setColorIfSelected() {
         if (game.isSelected(x, y)) {
             setBackground(BG_SELECTED);
         } else {
@@ -147,13 +152,20 @@ public class CellView extends JPanel implements MouseListener {
         return x + ";" + y;
     }
 
+    /**
+     * Repaint the cell
+     */
     public void update() {
 
-        setColor();
+        setColorIfSelected();
         drawUnit();
         repaint();
     }
 
+    /**
+     * Get the corresponding cell in the model
+     * @return Cell from the model with the same coordonate
+     */
     public Cell getCorrespondingCell() {
         return game.getMap().getCell(x, y);
     }
