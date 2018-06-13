@@ -1,6 +1,5 @@
 package View;
 
-import Controler.Controller;
 import Model.*;
 import Model.Action;
 
@@ -8,9 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,6 +26,10 @@ public class ActionPanel extends JPanel {
 
     private Player player;
 
+    /**
+     * Constructor of the ActionPanel
+     * @param title
+     */
     public ActionPanel(String title) {
 
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
@@ -69,6 +69,10 @@ public class ActionPanel extends JPanel {
         add(contentPanel);
     }
 
+    /**
+     * Set the player configuration
+     * @param player, Player to set
+     */
     public void setPlayer(Player player) {
 
         this.player = player;
@@ -86,6 +90,10 @@ public class ActionPanel extends JPanel {
         provideCards(player.getCards());
     }
 
+    /**
+     * Show all the cards of oa liste of cards
+     * @param cards list of cards to show
+     */
     public void provideCards(List<ICard> cards) {
 
         cardJComboBox.removeAll();
@@ -96,6 +104,7 @@ public class ActionPanel extends JPanel {
         displayActions();
     }
 
+    //put all the actions of a card in the liste of possible actions
     private void displayActions() {
         actionsPanel.removeAll();
         for (ICard card : player.getCards()) {
@@ -114,6 +123,7 @@ public class ActionPanel extends JPanel {
         actionsPanel.repaint();
     }
 
+    //put all the commands chosen by the player in a list of commands
     private void displaySelectedActions() {
         selectedActionsPanel.removeAll();
         for (ICmd action : player.getActionsList()) {
@@ -122,6 +132,9 @@ public class ActionPanel extends JPanel {
         selectedActionsPanel.revalidate();
     }
 
+    /**
+     * Repaint the ActionPanel
+     */
     public void update() {
         lifeBars.update();
         displayActions();
