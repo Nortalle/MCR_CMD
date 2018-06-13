@@ -21,6 +21,7 @@ public class UndoSpell extends Spell {
             public ICmd createCommand() {
                 return new ICmd() {
                     ICmd previousCMD = Controller.getInstance().getPreviousCmd();
+                    String hasBeenThrown = "";
 
 
                     //there's no need for a unit to be alive in order to launch the spell
@@ -34,7 +35,7 @@ public class UndoSpell extends Spell {
                     public void execute() throws InterruptedException {
                         //The spell can only be called once per turn and per player
                         if(hasBeenExecuted) {
-                            noMoreMana();
+                            hasBeenThrown = noMoreMana();
                         }else {
                             //we save the command
                             hasBeenExecuted = true;
@@ -57,7 +58,7 @@ public class UndoSpell extends Spell {
                     //Name of the command
                     @Override
                     public String toString() {
-                        return "Undo ";
+                        return "Undo! " + hasBeenThrown;
                     }
                 };
             }

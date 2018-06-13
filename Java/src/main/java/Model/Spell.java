@@ -78,8 +78,8 @@ public abstract class Spell implements ICard {
     /**
      * Indicates that there is no more mana for the spell
      */
-    protected void noMoreMana(){
-        System.out.println("No more mana for the spell");
+    protected String noMoreMana(){
+        return "No more mana for this turn";
     }
 
     @Override
@@ -88,7 +88,7 @@ public abstract class Spell implements ICard {
     }
 
     /**
-     * Determine wether a spell has already been executed for the turn 
+     * Determine wether a spell has already been executed for the turn
      * @param hasBeenExecuted
      */
     public void setHasBeenExecuted(boolean hasBeenExecuted) {

@@ -13,6 +13,9 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class representing the action panel
+ */
 public class ActionPanel extends JPanel {
 
     private JComboBox cardJComboBox = new JComboBox();

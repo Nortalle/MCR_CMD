@@ -10,10 +10,18 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Class Representing an action button
+ */
 public class ActionButton extends JButton {
 
     Action action;
 
+    /**
+     * Constructor of the action button
+     * @param player the Player that is linked to the button
+     * @param action the Action linked to the button
+     */
     public ActionButton(final Player player, final Action action) {
 
         this.action = action;
