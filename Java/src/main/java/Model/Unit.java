@@ -168,6 +168,10 @@ public abstract class Unit implements ICard {
         return false;
     }
 
+    protected boolean getActionCondition(){
+        return hp > 0;
+    }
+
     public ArrayList<Action> getActions() {
         return actions;
     }

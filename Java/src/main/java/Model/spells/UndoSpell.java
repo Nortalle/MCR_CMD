@@ -9,7 +9,6 @@ import Model.Spell;
  * Spell calling the undo function on the last action done
  */
 public class UndoSpell extends Spell {
-
     /**
      * Constructor of UndoSpell adding the command to undo a spell
      */
@@ -22,6 +21,7 @@ public class UndoSpell extends Spell {
             public ICmd createCommand() {
                 return new ICmd() {
                     ICmd previousCMD = Controller.getInstance().getPreviousCmd();
+
 
                     //there's no need for a unit to be alive in order to launch the spell
                     @Override
@@ -49,13 +49,15 @@ public class UndoSpell extends Spell {
                     //redo the action previously undone
                     @Override
                     public void undo() throws InterruptedException {
-                        previousCMD.execute();
+                        if (previousCMD != null && previousCMD.condition()) {
+                            previousCMD.execute();
+                        }
                     }
 
                     //Name of the command
                     @Override
                     public String toString() {
-                        return "Undo " + previousCMD ;
+                        return "Undo ";
                     }
                 };
             }

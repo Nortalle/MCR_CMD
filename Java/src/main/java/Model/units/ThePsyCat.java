@@ -5,12 +5,22 @@ import Model.*;
 import java.awt.*;
 import java.util.Random;
 
+/**
+ * Class representing the Giant Cat
+ */
 public class ThePsyCat extends Unit {
 
+    /**
+     * Constructor of the PsyCat
+     * @param start cell representing the start position of the unit
+     * @param name name of the cat
+     * @param sprite path to the sprite of the cat
+     */
     public ThePsyCat(Cell start, String name, String sprite) {
         super(200, 3, start, name, sprite);
         damage = 100;
 
+        //Add right cat attack command factory to action list
         actions.add(new Action() {
             @Override
             public ICmd createCommand() {
@@ -24,13 +34,13 @@ public class ThePsyCat extends Unit {
                         return hp > 0;
                     }
 
+                    @Override
                     public void execute() throws InterruptedException {
                         if(random.nextInt(4) < 3){
-                            hasAttacked = " Ah bah non";
-                            System.out.println("Maour... This is not very efficient");
+                            hasAttacked = "I'll never obey you, human!";
                             lastActionWasAnAttack = false;
                         } else {
-                            hasAttacked = " Ah bah oui";
+                            hasAttacked = name + "Attacked! What a surprise!" ;
                             attackCell(1, 0, damage, Color.RED);
                             attackCell(-1, 0, damage, Color.RED);
                             attackCell(0, 1, damage, Color.RED);
@@ -39,14 +49,16 @@ public class ThePsyCat extends Unit {
                         }
                     }
 
+                    @Override
                     public void undo() throws InterruptedException {
                         if(lastActionWasAnAttack){
+                            hasAttacked = " Attack cancelled!";
                             attackCell(1,0, -1 * damage, Color.GREEN);
                             attackCell(-1, 0, -1 * damage, Color.GREEN);
                             attackCell(0, 1, -1 * damage, Color.GREEN);
                             attackCell(0, -1, -1 * damage, Color.GREEN);
                         }else{
-                            System.out.println("Ronron...Really? What do you want to undo?");
+                            hasAttacked = "I didn't obey... what do you want to undo?";
                         }
 
                     }
@@ -65,14 +77,7 @@ public class ThePsyCat extends Unit {
         });
     }
 
-    public String desctiption() {
-        return "The Psy Cat is sometimes efficient... and sometimes annoying...";
-    }
-
-    public boolean Invoke(Cell c) {
-        return false;
-    }
-
+    //Name of the cat
     @Override
     public String toString() {
         return name + " The Cat";
