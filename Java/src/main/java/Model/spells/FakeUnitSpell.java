@@ -19,6 +19,7 @@ public class FakeUnitSpell extends Spell {
 
             public ICmd createCommand() {
                 return new ICmd() {
+                    String hasBeenThrown = "";
                     boolean hasBeenSpawned = false;
                     Cell c = game.getSelected();
                     {
@@ -36,7 +37,7 @@ public class FakeUnitSpell extends Spell {
                     public void execute() throws InterruptedException {
                         //The spell can only be called once per turn
                         if(hasBeenExecuted){
-                            noMoreMana();
+                            hasBeenThrown = noMoreMana();
                         }else{
                             //We note that the spell has been executed
                             hasBeenExecuted = true;
@@ -59,7 +60,7 @@ public class FakeUnitSpell extends Spell {
                     //Name of the command
                     @Override
                     public String toString() {
-                        return "Create an obstacle in" + c.x + ":" + c.y + "!" ;
+                        return "Create an obstacle in" + c.x + ":" + c.y + "! " + hasBeenThrown ;
                     }
                 };
             }

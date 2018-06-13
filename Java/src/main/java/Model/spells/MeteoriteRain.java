@@ -34,6 +34,7 @@ public class MeteoriteRain extends Spell {
                     Cell selectedAim = null;
                     //list of the touched cells, used if the command is undo to heal all those cells
                     ArrayList<Cell> touchedCells = new ArrayList<>();
+                    String habBeenThrown = "";
 
                     //We instanciate the aim cell with an offset randomly created
                     {
@@ -62,7 +63,7 @@ public class MeteoriteRain extends Spell {
                     public void execute() throws InterruptedException {
                         //The spell can only be called once per turn
                         if(hasBeenExecuted){
-                            noMoreMana();
+                            habBeenThrown = noMoreMana();
                         } else {
 
                             hasBeenExecuted = true;
@@ -93,7 +94,7 @@ public class MeteoriteRain extends Spell {
                     //Name of the command
                     @Override
                     public String toString() {
-                        return "Let the meteors fall around " + aimCell.x + ":" + aimCell.y + "!" ;
+                        return "Let the meteors fall around " + aimCell.x + ":" + aimCell.y + "! " + habBeenThrown ;
                     }
 
                     //Hit a single cell, if it is on the map, and add it to the list of touched cell, return true if a unit

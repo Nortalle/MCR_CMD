@@ -11,8 +11,7 @@ import java.util.ArrayList;
 import java.util.function.Function;
 
 /**
- * @author Vincent Guidoux
- *
+ * Abstract class representing a unit
  */
 public abstract class Unit implements ICard {
     protected String name;
@@ -26,6 +25,14 @@ public abstract class Unit implements ICard {
     protected Game game = Controller.getInstance().game();
     protected boolean isSelected;
 
+    /**
+     * Constructor of the unit
+     * @param hpMax
+     * @param speed
+     * @param startPos
+     * @param name
+     * @param sprite
+     */
     protected Unit(int hpMax, int speed, Cell startPos, String name, String sprite){
         Unit.this.speed = speed;
         this.hpMax = hpMax;
@@ -87,6 +94,7 @@ public abstract class Unit implements ICard {
                         return hp > 0;
                     }
 
+                    @Override
                     public void execute() {
 
                         // tant qu'on peut avancer et que on est pas arrivé à destination
@@ -106,6 +114,7 @@ public abstract class Unit implements ICard {
                         }
                     }
 
+                    @Override
                     public void undo() {
                         move(depart);   // on se téléporte au départ
                     }
@@ -124,18 +133,14 @@ public abstract class Unit implements ICard {
 
     }
 
-    public void displayUnit(){
-        currentCell.getCorrespondingCellView().drawUnit();
-    }
-
+    /**
+     * @return the path to the sprite of the unit
+     */
     public String getPath(){
         return sprite;
     }
 
-    public Cell getCurrentCell() {
-        return currentCell;
-    }
-
+    //move a unit towards a cell
     protected boolean move(Cell c){
         if(c.setContent(Unit.this)){
             currentCell.setContent(null);
@@ -146,6 +151,10 @@ public abstract class Unit implements ICard {
         }
     }
 
+    /**
+     * change the hp of a unit according to the damage amount
+     * @param damage
+     */
     public void takeDamage(int damage){
         hp -= damage;
         if(hp <= 0){
@@ -156,6 +165,15 @@ public abstract class Unit implements ICard {
         }
     }
 
+    /**
+     * Attack a cell
+     * @param offsetX, x offset of the attack
+     * @param offsetY, y offset of the attack
+     * @param damage, damage done to the unit on the cell
+     * @param c color of the cell during the attack
+     * @return true if a unit has been touched by the attack, false otherwise
+     * @throws InterruptedException
+     */
     public boolean attackCell(int offsetX, int offsetY, int damage, Color c) throws InterruptedException {
         if(currentCell.x + offsetX < game.getMap().width() && currentCell.y + offsetY < game.getMap().height() && currentCell.x + offsetX >= 0 && currentCell.y + offsetY >= 0) {
             game.getMap().getCell(currentCell.x + offsetX, currentCell.y + offsetY).getTouched(c);
@@ -168,26 +186,28 @@ public abstract class Unit implements ICard {
         return false;
     }
 
+    //A player cannot do an action if its hp are below 0
     protected boolean getActionCondition(){
         return hp > 0;
     }
 
+    /**
+     * @return ArrayList<Action> the list of the possible actions
+     */
     public ArrayList<Action> getActions() {
         return actions;
     }
 
-    protected int deltaXToCursor(){
-        return game.getSelected().x - currentCell.x;
-    }
-
-    protected int deltaYToCursor(){
-        return game.getSelected().y - currentCell.y;
-    }
-
+    /**
+     * @return int, the hp of the unit
+     */
     public int getHp() {
         return hp;
     }
 
+    /**
+     * @return int, the hp max of the unit
+     */
     public int getHpMax() {
         return hpMax;
     }
@@ -196,7 +216,6 @@ public abstract class Unit implements ICard {
     public void setSelected(boolean isSelected){
         this.isSelected = isSelected;
     }
-
 
     @Override
     public boolean isAlive(){
