@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.logging.Logger;
 
 /**
- * Implementes a player whi has Cards and defined actions 
+ * Implementes a player who has Cards and defined actions
  */
 public class Player {
     private final java.util.logging.Logger LOG = Logger.getAnonymousLogger();
@@ -16,19 +16,25 @@ public class Player {
     private ArrayList<ICmd> actionsList = new ArrayList<ICmd>();
     private String name;
 
-    public void uselessMethod() {
-        System.out.println("eh ouais ma gueule, tu kiffes les conflits?");
-    }
-
+    /**
+     * Constructor of the player
+     * @param name, String, name of the player
+     */
     public Player(String name) {
         this.name = name;
         LOG.addHandler(CLIENT_LOG);
     }
 
+    /**
+     * @return ArrayList<ICmd> list of the actions of the player
+     */
     public ArrayList<ICmd> getActionsList() {
         return actionsList;
     }
 
+    /**
+     * @return ArrayList<ICard> list of the cards of the player
+     */
     public ArrayList<ICard> getCards() {
         return cards;
     }
@@ -38,10 +44,18 @@ public class Player {
         return name;
     }
 
+    /**
+     * Set logs
+     * @param component
+     */
     public void setPlayerLogComponent(JTextArea component) {
         CLIENT_LOG.setComponent(component);
     }
 
+    /**
+     * Show infs about the player
+     * @param s info
+     */
     public void publish(String s) {
         LOG.info(s);
     }

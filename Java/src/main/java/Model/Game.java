@@ -92,8 +92,6 @@ public class Game {
      * @param c
      */
     public void setSelected(Cell c){
-        //TODO : devrait mettre à jour toute la frame
-       // controller.getFrame();
         selected = c;
     }
 

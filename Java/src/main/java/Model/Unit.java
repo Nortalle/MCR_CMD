@@ -197,9 +197,6 @@ public abstract class Unit implements ICard {
         this.isSelected = isSelected;
     }
 
-    public boolean isSelected() {
-        return isSelected;
-    }
 
     @Override
     public boolean isAlive(){
