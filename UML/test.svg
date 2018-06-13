@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="279mm" y="9mm" width="2432mm" height="1597mm" viewBox="279 9 2432 1597">
+<style type="text/css"><![CDATA[
+text { font:12px Dialog; }
+]]></style>
+<line x1="1910" y1="550" x2="2010" y2="550" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2160" y1="394" x2="2160" y2="450" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2180" y1="610" x2="2180" y2="660" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1390" y1="825" x2="1390" y2="890" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="700" y1="430" x2="700" y2="490" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1580" y1="700" x2="1480" y2="700" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1910" y1="520" x2="2010" y2="520" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="540" y1="200" x2="640" y2="190" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="460" y1="205" x2="440" y2="240" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="390" y1="295" x2="370" y2="340" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2470" y1="660" x2="2470" y2="615" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1510" y1="350" x2="2050" y2="350" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1650" y1="1070" x2="1760" y2="1070" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1590" y1="765" x2="1590" y2="890" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1760" y1="990" x2="1650" y2="990" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1810" y1="870" x2="1810" y2="765" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2120" y1="870" x2="2120" y2="850" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:7;stroke-dashoffset:0" />
+<line x1="2120" y1="850" x2="2320" y2="850" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:7;stroke-dashoffset:0" />
+<line x1="2320" y1="850" x2="2320" y2="804" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:7;stroke-dashoffset:0" />
+<polygon points="2320,804 2328,824 2312,824" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="2320,804 2328,824 2312,824" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2520" y1="870" x2="2520" y2="850" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:7;stroke-dashoffset:0" />
+<line x1="2520" y1="850" x2="2320" y2="850" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:7;stroke-dashoffset:0" />
+<line x1="2320" y1="850" x2="2320" y2="804" style="fill:none;stroke:rgb(64,64,64);stroke-dasharray:7;stroke-dashoffset:0" />
+<polygon points="2320,804 2328,824 2312,824" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="2320,804 2328,824 2312,824" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1970" y1="1500" x2="1970" y2="1135" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="1970,1135 1978,1155 1962,1155" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="1970,1135 1978,1155 1962,1155" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1790" y1="1380" x2="1790" y2="1360" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1790" y1="1360" x2="1970" y2="1360" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1970" y1="1360" x2="1970" y2="1135" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="1970,1135 1978,1155 1962,1155" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="1970,1135 1978,1155 1962,1155" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2120" y1="1260" x2="2120" y2="1240" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2120" y1="1240" x2="1970" y2="1240" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1970" y1="1240" x2="1970" y2="1135" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="1970,1135 1978,1155 1962,1155" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="1970,1135 1978,1155 1962,1155" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2160" y1="1380" x2="2160" y2="1360" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2160" y1="1360" x2="1970" y2="1360" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1970" y1="1360" x2="1970" y2="1135" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="1970,1135 1978,1155 1962,1155" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="1970,1135 1978,1155 1962,1155" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1770" y1="1260" x2="1770" y2="1240" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1770" y1="1240" x2="1970" y2="1240" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="1970" y1="1240" x2="1970" y2="1135" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="1970,1135 1978,1155 1962,1155" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="1970,1135 1978,1155 1962,1155" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2440" y1="1140" x2="2440" y2="1130" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2440" y1="1130" x2="2520" y2="1130" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2520" y1="1130" x2="2520" y2="1075" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="2520,1075 2528,1095 2512,1095" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="2520,1075 2528,1095 2512,1095" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2610" y1="1140" x2="2610" y2="1130" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2610" y1="1130" x2="2520" y2="1130" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2520" y1="1130" x2="2520" y2="1075" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="2520,1075 2528,1095 2512,1095" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="2520,1075 2528,1095 2512,1095" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2520" y1="1270" x2="2520" y2="1075" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="2520,1075 2528,1095 2512,1095" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="2520,1075 2528,1095 2512,1095" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2540" y1="370" x2="2540" y2="315" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<polygon points="2540,315 2548,335 2532,335" style="fill:rgb(255,255,255);stroke:none" />
+<polygon points="2540,315 2548,335 2532,335" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<line x1="2340" y1="480" x2="2440" y2="480" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+<rect x="2110" y="660" width="410" height="140" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="2110" y="660" width="410" height="140" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2277" y="679" style="font:11px Ubuntu">&lt;&lt; interface &gt;&gt;</text>
+<text x="2299" y="697" style="font:12px Ubuntu">ICard</text>
+<line x1="2110" y1="709" x2="2520" y2="709" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="2110" y1="719" x2="2520" y2="719" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2118" y="734" style="font:12px Ubuntu">+ getAction () : ArrayList&lt;Action&gt;</text>
+<text x="2118" y="748" style="font:12px Ubuntu">+ toString () : String</text>
+<text x="2118" y="762" style="font:12px Ubuntu">+ isAlive () : boolean</text>
+<text x="2118" y="776" style="font:12px Ubuntu">+ setSelected (setSelected : boolean) : void</text>
+<text x="2118" y="790" style="font:12px Ubuntu">+ attackCell (offsetX : int, offsetY : int, damage : int, c : Color) : bool...</text>
+<rect x="1350" y="890" width="300" height="209" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1350" y="890" width="300" height="209" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1488" y="913" style="font:12px Ubuntu">Cell</text>
+<line x1="1350" y1="925" x2="1650" y2="925" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1358" y="940" style="font:12px Ubuntu">+ x : int {const}</text>
+<text x="1358" y="954" style="font:12px Ubuntu">+ y : int {const}</text>
+<text x="1358" y="968" style="font:12px Ubuntu">- changed : boolean</text>
+<line x1="1350" y1="977" x2="1650" y2="977" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1358" y="992" style="font:12px Ubuntu">+ Cell ()</text>
+<text x="1358" y="1006" style="font:12px Ubuntu">+ getCellContent () : Unit</text>
+<text x="1358" y="1020" style="font:12px Ubuntu">+ setContent (p : int, u : Unit) : boolean</text>
+<text x="1358" y="1034" style="font:12px Ubuntu">+ getTouched (c : Color) : void</text>
+<text x="1358" y="1048" style="font:12px Ubuntu">+ setUnchanged () : void</text>
+<text x="1358" y="1062" style="font:12px Ubuntu">+ toString () : String</text>
+<text x="1358" y="1076" style="font:12px Ubuntu"># getCorrespondingCellView () : CellView</text>
+<text x="1358" y="1090" style="font:12px Ubuntu">+ isChanged () : boolean</text>
+<rect x="620" y="490" width="290" height="83" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="620" y="490" width="290" height="83" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="724" y="513" style="font:12px Ubuntu">ActionButton</text>
+<line x1="620" y1="525" x2="910" y2="525" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="628" y="540" style="font:12px Ubuntu">- action : Action</text>
+<line x1="620" y1="549" x2="910" y2="549" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="628" y="564" style="font:12px Ubuntu">+ ActionButton (player : Player, action : Action)</text>
+<rect x="2370" y="530" width="180" height="83" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="2370" y="530" width="180" height="83" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2440" y="553" style="font:12px Ubuntu">Action</text>
+<line x1="2370" y1="565" x2="2550" y2="565" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="2370" y1="575" x2="2550" y2="575" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2378" y="590" style="font:12px Ubuntu">+ createCommand () : ICmd</text>
+<text x="2378" y="604" style="font:12px Ubuntu">+ toString () : String</text>
+<rect x="2050" y="280" width="150" height="111" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="2050" y="280" width="150" height="111" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2087" y="299" style="font:11px Ubuntu">&lt;&lt; interface &gt;&gt;</text>
+<text x="2109" y="317" style="font:12px Ubuntu">ICmd</text>
+<line x1="2050" y1="329" x2="2200" y2="329" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="2050" y1="339" x2="2200" y2="339" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2058" y="354" style="font:12px Ubuntu">+ execute () : void</text>
+<text x="2058" y="368" style="font:12px Ubuntu">+ undo () : void</text>
+<text x="2058" y="382" style="font:12px Ubuntu">+ condition () : boolean</text>
+<rect x="2350" y="870" width="340" height="195" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="2350" y="870" width="340" height="195" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2505" y="893" style="font:12px Ubuntu">Spell</text>
+<line x1="2350" y1="905" x2="2690" y2="905" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2358" y="920" style="font:12px Ubuntu"># hasBeenExecuted : boolean</text>
+<text x="2358" y="934" style="font:12px Ubuntu">- lastTurnUsed : int</text>
+<text x="2358" y="948" style="font:12px Ubuntu"># aimCell : Cell</text>
+<text x="2358" y="962" style="font:12px Ubuntu"># Game : game</text>
+<text x="2358" y="976" style="font:12px Ubuntu">- isSelected : boolean</text>
+<line x1="2350" y1="985" x2="2690" y2="985" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2358" y="1000" style="font:12px Ubuntu">+ Spell ()</text>
+<text x="2358" y="1014" style="font:12px Ubuntu">+ setAimCell (c : Cell) : void</text>
+<text x="2358" y="1028" style="font:12px Ubuntu"># noMoreMana () : void</text>
+<text x="2358" y="1042" style="font:12px Ubuntu">+ setSelected (hasBeenExecuted : boolean) : void</text>
+<text x="2358" y="1056" style="font:12px Ubuntu">+ setHasBeenExecuted (hasBeenExecuted : boolean) : v...</text>
+<rect x="1330" y="680" width="150" height="139" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1330" y="680" width="150" height="139" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1392" y="703" style="font:12px Ubuntu">Map</text>
+<line x1="1330" y1="715" x2="1480" y2="715" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1338" y="730" style="font:12px Ubuntu">- height : int</text>
+<text x="1338" y="744" style="font:12px Ubuntu">- width : int</text>
+<line x1="1330" y1="753" x2="1480" y2="753" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1338" y="768" style="font:12px Ubuntu">+ Map (i : int, j : int)</text>
+<text x="1338" y="782" style="font:12px Ubuntu">+ height () : int</text>
+<text x="1338" y="796" style="font:12px Ubuntu">+ width () : int</text>
+<text x="1338" y="810" style="font:12px Ubuntu">+ getCell () : cell</text>
+<rect x="1580" y="500" width="330" height="251" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1580" y="500" width="330" height="251" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1728" y="523" style="font:12px Ubuntu">Game</text>
+<line x1="1580" y1="535" x2="1910" y2="535" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1588" y="550" style="font:12px Ubuntu">- width : int</text>
+<text x="1588" y="564" style="font:12px Ubuntu">- height : int</text>
+<text x="1588" y="578" style="font:12px Ubuntu">- nbrActions : int</text>
+<text x="1588" y="592" style="font:12px Ubuntu">- turn : int</text>
+<line x1="1580" y1="601" x2="1910" y2="601" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1588" y="616" style="font:12px Ubuntu">+ Game ()</text>
+<text x="1588" y="630" style="font:12px Ubuntu">+ getMap () : Map</text>
+<text x="1588" y="644" style="font:12px Ubuntu">+ getPlayerOne () : Player</text>
+<text x="1588" y="658" style="font:12px Ubuntu">+ getPlayerTwo () : Player</text>
+<text x="1588" y="672" style="font:12px Ubuntu">+ turn () : int</text>
+<text x="1588" y="686" style="font:12px Ubuntu">+ nextTurn () : void</text>
+<text x="1588" y="700" style="font:12px Ubuntu">+ addCardToPlayer (player : Player, card : ICard) : void</text>
+<text x="1588" y="714" style="font:12px Ubuntu">+ getSelected () : Cell</text>
+<text x="1588" y="728" style="font:12px Ubuntu">+ setSelected (c : Cell) : void</text>
+<text x="1588" y="742" style="font:12px Ubuntu">+ isSelected (x : int, y : int) : void</text>
+<rect x="390" y="150" width="150" height="55" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="390" y="150" width="150" height="55" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="446" y="173" style="font:12px Ubuntu">Frame</text>
+<line x1="390" y1="185" x2="540" y2="185" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="390" y1="195" x2="540" y2="195" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="640" y="180" width="240" height="237" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="640" y="180" width="240" height="237" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="723" y="203" style="font:12px Ubuntu">ActionPanel</text>
+<line x1="640" y1="215" x2="880" y2="215" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="648" y="230" style="font:12px Ubuntu">- cardJComboBox : JComboBox</text>
+<text x="648" y="244" style="font:12px Ubuntu">- contentPanel : JPanel</text>
+<text x="648" y="258" style="font:12px Ubuntu">- actionsPanel : JPanel</text>
+<text x="648" y="272" style="font:12px Ubuntu">- selectedActionsPanel : JPanel</text>
+<text x="648" y="286" style="font:12px Ubuntu">- cachePanel : JPanel</text>
+<text x="648" y="300" style="font:12px Ubuntu">- lifePanel : JPanel</text>
+<text x="648" y="314" style="font:12px Ubuntu">- logsPanel : JPanel</text>
+<line x1="640" y1="323" x2="880" y2="323" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="648" y="338" style="font:12px Ubuntu">+ ActionPanel (title : String)</text>
+<text x="648" y="352" style="font:12px Ubuntu">+ setPlayer (player : Player) : void</text>
+<text x="648" y="366" style="font:12px Ubuntu">+ provideCards (cards : List&lt;ICard&gt;) : v...</text>
+<text x="648" y="380" style="font:12px Ubuntu">- displayActions () : void</text>
+<text x="648" y="394" style="font:12px Ubuntu">- displaySelectedActions () : void</text>
+<text x="648" y="408" style="font:12px Ubuntu">+ update () : void</text>
+<rect x="300" y="340" width="150" height="55" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="300" y="340" width="150" height="55" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="348" y="363" style="font:12px Ubuntu">CellView</text>
+<line x1="300" y1="375" x2="450" y2="375" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="300" y1="385" x2="450" y2="385" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="2010" y="450" width="330" height="153" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="2010" y="450" width="330" height="153" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2156" y="473" style="font:12px Ubuntu">Player</text>
+<line x1="2010" y1="485" x2="2340" y2="485" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2018" y="500" style="font:12px Ubuntu">- LOG : Logger</text>
+<text x="2018" y="514" style="font:12px Ubuntu">- CLIENT_LOG : PlayerLog</text>
+<text x="2018" y="528" style="font:12px Ubuntu">- name : String</text>
+<line x1="2010" y1="537" x2="2340" y2="537" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2018" y="552" style="font:12px Ubuntu">+ Player (name : String)</text>
+<text x="2018" y="566" style="font:12px Ubuntu">+ toString () : String</text>
+<text x="2018" y="580" style="font:12px Ubuntu">+ setPlayerLogComponent (component : JTextArea) : v...</text>
+<text x="2018" y="594" style="font:12px Ubuntu">+ publish (s : String) : void</text>
+<rect x="360" y="240" width="150" height="55" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="360" y="240" width="150" height="55" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="422" y="263" style="font:12px Ubuntu">Grid</text>
+<line x1="360" y1="275" x2="510" y2="275" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="360" y1="285" x2="510" y2="285" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<rect x="1120" y="200" width="390" height="321" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1120" y="200" width="390" height="321" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1286" y="223" style="font:12px Ubuntu">Controler</text>
+<line x1="1120" y1="235" x2="1510" y2="235" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1128" y="250" style="font:12px Ubuntu">- instance : Controller</text>
+<text x="1128" y="264" style="font:12px Ubuntu">- game : Game</text>
+<text x="1128" y="278" style="font:12px Ubuntu">- frame : Frame</text>
+<text x="1128" y="292" style="font:12px Ubuntu">- player1 : Player</text>
+<text x="1128" y="306" style="font:12px Ubuntu">- player2 : Player</text>
+<text x="1128" y="320" style="font:12px Ubuntu">- map : Map</text>
+<text x="1128" y="334" style="font:12px Ubuntu">- Icmd : previousCmd</text>
+<line x1="1120" y1="343" x2="1510" y2="343" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1128" y="358" style="font:12px Ubuntu">+ Controler ()</text>
+<text x="1128" y="372" style="font:12px Ubuntu">+ getInstance () : Controler</text>
+<text x="1128" y="386" style="font:12px Ubuntu">+ startGame () : void</text>
+<text x="1128" y="400" style="font:12px Ubuntu">+ game () : Game</text>
+<text x="1128" y="414" style="font:12px Ubuntu">- PlayerHasLost (player : Player) : boolean</text>
+<text x="1128" y="428" style="font:12px Ubuntu">+ executeAllCommands () : void</text>
+<text x="1128" y="442" style="font:12px Ubuntu">+ addCommandToPlayer (player : Player, p : int, cmd : ICmd) : bool...</text>
+<text x="1128" y="456" style="font:12px Ubuntu">+ getPreviousCmd () : ICmd</text>
+<text x="1128" y="470" style="font:12px Ubuntu">+ getFrame () : Frame</text>
+<text x="1128" y="484" style="font:12px Ubuntu">- generateMap (columns : int, rows : int) : void</text>
+<text x="1128" y="498" style="font:12px Ubuntu">- checkNumberOfActions (p : Player) : boolean</text>
+<text x="1128" y="512" style="font:12px Ubuntu">- executeMove (p : Player, actionPos : int) : void</text>
+<rect x="1760" y="870" width="420" height="251" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1760" y="870" width="420" height="251" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1957" y="893" style="font:12px Ubuntu">Unit</text>
+<line x1="1760" y1="905" x2="2180" y2="905" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1768" y="920" style="font:12px Ubuntu"># name : String</text>
+<text x="1768" y="934" style="font:12px Ubuntu">- sprite : String</text>
+<text x="1768" y="948" style="font:12px Ubuntu"># hp : int</text>
+<text x="1768" y="962" style="font:12px Ubuntu">- hpMax : int</text>
+<text x="1768" y="976" style="font:12px Ubuntu">- speed : int</text>
+<text x="1768" y="990" style="font:12px Ubuntu">- damage : int</text>
+<text x="1768" y="1004" style="font:12px Ubuntu"># isSelected : boolean</text>
+<line x1="1760" y1="1013" x2="2180" y2="1013" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1768" y="1028" style="font:12px Ubuntu"># Unit (hpMax : int, speed : int, startPos : Cell, name : String, sprite : St...</text>
+<text x="1768" y="1042" style="font:12px Ubuntu">+ getHp () : int</text>
+<text x="1768" y="1056" style="font:12px Ubuntu">+ getHpMax () : int</text>
+<text x="1768" y="1070" style="font:12px Ubuntu"># getActionCondition () : boolean</text>
+<text x="1768" y="1084" style="font:12px Ubuntu">+ takeDamage () : void</text>
+<text x="1768" y="1098" style="font:12px Ubuntu">- move (c : Cell) : void</text>
+<text x="1768" y="1112" style="font:12px Ubuntu">+ getPath () : String</text>
+<rect x="1780" y="1500" width="350" height="83" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1780" y="1500" width="350" height="83" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1928" y="1523" style="font:12px Ubuntu">FakeUnit</text>
+<line x1="1780" y1="1535" x2="2130" y2="1535" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1788" y="1550" style="font:12px Ubuntu">- path : String</text>
+<line x1="1780" y1="1559" x2="2130" y2="1559" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1788" y="1574" style="font:12px Ubuntu">+ FakeUnit (start : Cell)</text>
+<rect x="1600" y="1380" width="350" height="69" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1600" y="1380" width="350" height="69" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1724" y="1403" style="font:12px Ubuntu">SteveTheWarrior</text>
+<line x1="1600" y1="1415" x2="1950" y2="1415" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1600" y1="1425" x2="1950" y2="1425" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1608" y="1440" style="font:12px Ubuntu">+ SteveTheWarrior (start : cell, name : String, sprite : Strin...</text>
+<rect x="1990" y="1260" width="350" height="69" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1990" y="1260" width="350" height="69" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2112" y="1283" style="font:12px Ubuntu">TheOldCrumbling</text>
+<line x1="1990" y1="1295" x2="2340" y2="1295" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1990" y1="1305" x2="2340" y2="1305" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1998" y="1320" style="font:12px Ubuntu">+ TheOldCrumbling (start : Cell, name : String, sprite : Stri...</text>
+<rect x="1990" y="1380" width="350" height="97" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1990" y="1380" width="350" height="97" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2099" y="1403" style="font:12px Ubuntu">ThePrestigiousArcher</text>
+<line x1="1990" y1="1415" x2="2340" y2="1415" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1998" y="1430" style="font:12px Ubuntu">- distanceMax : int</text>
+<line x1="1990" y1="1439" x2="2340" y2="1439" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1998" y="1454" style="font:12px Ubuntu">+ ThePrestigiousArcher (start : Cell, name : String, sprite :...</text>
+<text x="1998" y="1468" style="font:12px Ubuntu">+ shoot (offsetX : int, offsetY : int, damage : int, c : Color) ...</text>
+<rect x="1600" y="1260" width="350" height="69" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="1600" y="1260" width="350" height="69" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1743" y="1283" style="font:12px Ubuntu">ThePsyCat</text>
+<line x1="1600" y1="1295" x2="1950" y2="1295" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1600" y1="1305" x2="1950" y2="1305" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="1608" y="1320" style="font:12px Ubuntu">+ ThePsyCat (start : Cell, name : String, sprite : String)</text>
+<rect x="2360" y="1140" width="150" height="97" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="2360" y="1140" width="150" height="97" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2391" y="1163" style="font:12px Ubuntu">MeteoriteRain</text>
+<line x1="2360" y1="1175" x2="2510" y2="1175" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2368" y="1190" style="font:12px Ubuntu">- random : Random</text>
+<text x="2368" y="1204" style="font:12px Ubuntu">- distanceMax : int</text>
+<line x1="2360" y1="1213" x2="2510" y2="1213" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2368" y="1228" style="font:12px Ubuntu">+ MeteoriteRain ()</text>
+<rect x="2530" y="1140" width="150" height="69" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="2530" y="1140" width="150" height="69" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2574" y="1163" style="font:12px Ubuntu">UndoSpell</text>
+<line x1="2530" y1="1175" x2="2680" y2="1175" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="2530" y1="1185" x2="2680" y2="1185" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2538" y="1200" style="font:12px Ubuntu">+ UndoSpell ()</text>
+<rect x="2450" y="1270" width="150" height="69" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="2450" y="1270" width="150" height="69" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2483" y="1293" style="font:12px Ubuntu">FakeUnitSpell</text>
+<line x1="2450" y1="1305" x2="2600" y2="1305" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="2450" y1="1315" x2="2600" y2="1315" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2458" y="1330" style="font:12px Ubuntu">+ FakeUnitSpell ()</text>
+<rect x="2440" y="370" width="210" height="125" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="2440" y="370" width="210" height="125" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2515" y="393" style="font:12px Ubuntu">PlayerLog</text>
+<line x1="2440" y1="405" x2="2650" y2="405" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2448" y="420" style="font:12px Ubuntu">- component : JTextArea</text>
+<line x1="2440" y1="429" x2="2650" y2="429" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2448" y="444" style="font:12px Ubuntu">+ publish (record : LogRecord) : v...</text>
+<text x="2448" y="458" style="font:12px Ubuntu">+ flush () : void</text>
+<text x="2448" y="472" style="font:12px Ubuntu">+ close () : void</text>
+<text x="2448" y="486" style="font:12px Ubuntu">+ setComponent (component : J...</text>
+<rect x="2470" y="260" width="150" height="55" style="fill:rgb(255,247,225);stroke:none" />
+<rect x="2470" y="260" width="150" height="55" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<text x="2521" y="283" style="font:12px Ubuntu">Handler</text>
+<line x1="2470" y1="295" x2="2620" y2="295" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<line x1="2470" y1="305" x2="2620" y2="305" style="fill:none;stroke:rgb(65,65,65);stroke-width:1.2;stroke-linecap:square" />
+<polygon points="1920,790 1982,790 1997,805 1997,820 1920,820" style="fill:rgb(255,247,225);stroke:none" />
+<polygon points="1920,790 1982,790 1997,805 1997,820 1920,820" style="fill:none;stroke:rgb(64,64,64);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1982" y1="790" x2="1982" y2="805" style="fill:none;stroke:rgb(64,64,64);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1982" y1="805" x2="1997" y2="805" style="fill:none;stroke:rgb(64,64,64);stroke-width:1.2;stroke-linecap:square" />
+<text x="1925" y="810" style="font:12px Ubuntu">modele </text>
+<polygon points="410,80 442,80 457,95 457,110 410,110" style="fill:rgb(255,247,225);stroke:none" />
+<polygon points="410,80 442,80 457,95 457,110 410,110" style="fill:none;stroke:rgb(64,64,64);stroke-width:1.2;stroke-linecap:square" />
+<line x1="442" y1="80" x2="442" y2="95" style="fill:none;stroke:rgb(64,64,64);stroke-width:1.2;stroke-linecap:square" />
+<line x1="442" y1="95" x2="457" y2="95" style="fill:none;stroke:rgb(64,64,64);stroke-width:1.2;stroke-linecap:square" />
+<text x="415" y="100" style="font:12px Ubuntu">vue </text>
+<polygon points="1090,50 1160,50 1175,65 1175,80 1090,80" style="fill:rgb(255,247,225);stroke:none" />
+<polygon points="1090,50 1160,50 1175,65 1175,80 1090,80" style="fill:none;stroke:rgb(64,64,64);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1160" y1="50" x2="1160" y2="65" style="fill:none;stroke:rgb(64,64,64);stroke-width:1.2;stroke-linecap:square" />
+<line x1="1160" y1="65" x2="1175" y2="65" style="fill:none;stroke:rgb(64,64,64);stroke-width:1.2;stroke-linecap:square" />
+<text x="1095" y="70" style="font:12px Ubuntu">controller </text>
+<text x="1930" y="567" style="font:14px Ubuntu">playerTwo</text>
+<text x="1915" y="547" style="font:14px Ubuntu">0..1</text>
+<text x="1998" y="546" style="font:14px Ubuntu">1</text>
+<text x="2134" y="407" style="font:14px Ubuntu">0..*</text>
+<text x="2163" y="421" style="font:14px Ubuntu">-actionsList</text>
+<text x="2146" y="450" style="font:14px Ubuntu">1</text>
+<text x="2164" y="621" style="font:14px Ubuntu">1</text>
+<text x="2157" y="656" style="font:14px Ubuntu">0..*</text>
+<text x="2185" y="640" style="font:14px Ubuntu">-cards</text>
+<text x="1393" y="859" style="font:14px Ubuntu">cells</text>
+<text x="1377" y="844" style="font:14px Ubuntu">1</text>
+<text x="1364" y="882" style="font:14px Ubuntu">0..*</text>
+<text x="687" y="449" style="font:14px Ubuntu">1</text>
+<text x="666" y="482" style="font:14px Ubuntu">0..*</text>
+<text x="1520" y="715" style="font:14px Ubuntu">map</text>
+<text x="1556" y="696" style="font:14px Ubuntu">0..1</text>
+<text x="1485" y="692" style="font:14px Ubuntu">1</text>
+<text x="1928" y="530" style="font:14px Ubuntu">playerOne</text>
+<text x="1911" y="516" style="font:14px Ubuntu">0..1</text>
+<text x="1997" y="512" style="font:14px Ubuntu">1</text>
+<text x="527" y="219" style="font:14px Ubuntu">1</text>
+<text x="627" y="182" style="font:14px Ubuntu">2</text>
+<text x="447" y="224" style="font:14px Ubuntu">1</text>
+<text x="427" y="232" style="font:14px Ubuntu">1</text>
+<text x="377" y="314" style="font:14px Ubuntu">1</text>
+<text x="357" y="332" style="font:14px Ubuntu">1</text>
+<text x="2457" y="652" style="font:14px Ubuntu">1</text>
+<text x="2444" y="634" style="font:14px Ubuntu">0..*</text>
+<text x="1785" y="369" style="font:14px Ubuntu">previousCmd</text>
+<text x="1515" y="342" style="font:14px Ubuntu">0..1</text>
+<text x="2037" y="342" style="font:14px Ubuntu">1</text>
+<text x="1710" y="1089" style="font:14px Ubuntu">content &gt;</text>
+<text x="1655" y="1062" style="font:14px Ubuntu">1</text>
+<text x="1732" y="1062" style="font:14px Ubuntu">0..1</text>
+<text x="1595" y="846" style="font:14px Ubuntu">selected</text>
+<text x="1577" y="784" style="font:14px Ubuntu">1</text>
+<text x="1562" y="882" style="font:14px Ubuntu">0..1</text>
+<text x="1710" y="1009" style="font:14px Ubuntu">currentCell ^</text>
+<text x="1747" y="982" style="font:14px Ubuntu">1</text>
+<text x="1655" y="982" style="font:14px Ubuntu">0..1</text>
+<text x="1815" y="837" style="font:14px Ubuntu">game ^</text>
+<text x="1784" y="862" style="font:14px Ubuntu">0..*</text>
+<text x="1797" y="784" style="font:14px Ubuntu">1</text>
+<text x="2358" y="438" style="font:14px Ubuntu">-playerLog&gt;</text>
+<text x="2345" y="475" style="font:14px Ubuntu">1..*</text>
+<text x="2427" y="472" style="font:14px Ubuntu">1</text>
+<rect x="280" y="10" width="2429" height="1594" style="fill:none;stroke:rgb(64,64,64);stroke-linecap:square" />
+</svg>
